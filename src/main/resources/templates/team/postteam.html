@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layouts/layout}">
+<meta charset="utf-8">
+<th:block layout:fragment="content">
+    <h1 class="mt-4">팀정보 수정 : <span th:text="${team.team}"></span></h1>
+
+                    <input type="hidden" th:value="${team.teamDetailSeq}" id="boardSeq">
+<table class = "table">
+	<tr>
+		<th>소개</th>
+		<td>
+			<textarea id="description" th:value="${team.description}" rows="5"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type="button" value="수정" id="btnteamupdate" class="btn btn-primary">
+			<a th:href="@{'/team/teamdetail/'+${team.team}}" class="btn btn-primary">돌아가기</a>
+		</td>
+	</tr>
+</table>
+</th:block>
+</html>

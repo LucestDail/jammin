@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<!-- Footer -->
+<th:block th:fragment="footerFragment">
+	<footer class="sticky-footer list-group-item-light">
+		<link
+			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+			rel="stylesheet"
+			integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+			crossorigin="anonymous">
+		<section class="footers list-group-item-light pt-5 pb-3">
+			<div class="container pt-5">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-4 footers-one">
+						<div class="footers-logo">
+							<img src="/img/companyImage.png" alt="Logo" style="width: 120px;">
+						</div>
+						<div class="footers-info mt-3">
+							<p>
+								소규모 팀 단위 업무 및 정보 공유 플랫폼<br> Team Meta Storage 입니다<br>
+							</p>
+						</div>
+						<div class="social-icons">
+							<a href="https://m.facebook.com/5seung5seung"><i
+								id="social-fb" class="fa fa-facebook-square fa-2x social"></i></a> <a
+								href="https://www.linkedin.com/in/%EC%8A%B9%ED%98%84-%EC%98%A4-a379231a8/"><i id="social-tw"
+								class="fa fa-linkedin-square fa-2x social"></i></a> <a
+								href="https://github.com/LucestDail"><i id="social-gp"
+								class="fa fa-github-square fa-2x social"></i></a> <a
+								href="mailto:dhtmdgussksm@gmail.com"><i id="social-em"
+								class="fa fa-envelope-square fa-2x social"></i></a>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-2 footers-two">
+						<h5>업무</h5>
+						<ul class="list-unstyled">
+							<li><a href="/main">업무 확인</a></li>
+							<li><a th:href="@{'/meta/'+${session.member.team}}">과제 목록</a></li>
+							<li><a th:href="@{'/work/'+${session.member.team}}">업무 목록</a></li>
+							<!--<li><a href="/metastatistic">업무 통계</a></li>-->
+							<li><a href="/board/work">업무 게시판</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-2 footers-three">
+						<h5>개인</h5>
+						<ul class="list-unstyled">
+							<li><a
+								th:href="@{'/member/detail/'+${session.member.memberSeq}}">마이
+									페이지</a></li>
+							<!--<li><a th:href="@{'/member/note/'+${session.member.memberSeq}}">개인
+									쪽지함</a></li>
+							<li><a
+								th:href="@{'/member/diary/'+${session.member.memberSeq}}">내
+									다이어리</a></li>-->
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-2 footers-four">
+						<h5>팀</h5>
+						<ul class="list-unstyled">
+							<li><a
+								th:href="@{'/team/teamdetail/'+${session.member.team}}">팀
+									페이지</a></li>
+							<li><a href="/board/team/">팀 게시판</a></li>
+							<li><a th:href="@{'/team/teamlist/'+${session.member.team}}">팀
+									연락망</a></li>
+							<li><a
+								th:href="@{'/team/teamnotice/'+${session.member.team}}">팀
+									공지사항</a></li>
+						</ul>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-2 footers-five">
+						<h5>문의</h5>
+						<ul class="list-unstyled">
+							<li><a href="/qna/usually">자주묻는 질문</a></li>
+							<li><a href="/qna/tech">기술지원</a></li>
+							<li><a href="/qna/service">고객지원</a></li>
+							<li><a href="/qna/policy">정책규정</a></li>
+							<li><a href="/qna/notice">공지사항</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<section class="copyright border">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-12 pt-3">
+						<p class="text-muted">© TMS All Right Reserved</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</footer>
+</th:block>
+
+</html>

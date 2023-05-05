@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="~{layouts/layout}">
+<meta charset="utf-8">
+<th:block layout:fragment="content">
+	<h1 class="mt-4">
+		게시글 상세 : <span th:text="${board.title}"></span>
+	</h1>
+	<table class="table">
+		<tr>
+			<th>작성자</th>
+			<td><span th:text="${board.saveName}"></span></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><span th:utext="${board.content}"></span></td>
+		</tr>
+		<tr>
+			<th>GOOD</th>
+			<td><span th:text="${board.good}"></span></td>
+		</tr>
+
+		<tr>
+			<td colspan="2" align="center">
+				<a th:href="@{'/board/'+${category}}" class="btn btn-primary">돌아가기</a>
+				<button th:if="${session.member.id.equals(board.saveId)}" type="button" class="btn btn-primary"
+                    data-bs-toggle="modal" data-bs-target="#updatemodal">
+                    수정
+				</button>
+				<button th:if="${session.member.id.equals(board.saveId)}" type="button" class="btn btn-primary"
+                    data-bs-toggle="modal" data-bs-target="#deletemodal">
+                    삭제
+                </button>
+                <a th:if="${!session.member.id.equals(board.saveId)}" th:href="@{'/board/'+${category} + '/' + ${seq} + '/good'}" class="btn btn-primary">추천</a>
+                <script>
+                    var myModal = document.getElementById('myModal')
+                    var myInput = document.getElementById('myInput')
+
+                    myModal.addEventListener('shown.bs.modal', function () {
+                        myInput.focus()
+                    })
+                </script>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"> <input
+				type="text" class="form-control" placeholder="의견을 입력하세요"
+				id="content"> <input type="button" value="등록"
+				id="btncommentinsert" class="btn btn-primary"></td>
+		</tr>
+	</table>
+	<h1>관련 의견 일람</h1>
+	<input type="hidden" id="commentid" value="0">
+	<table class="table">
+		<tr th:each="comment:${commentlist}">
+			<td><span th:text="${comment.saveName}"></span></td>
+			<td><span th:text="${comment.content}"></span></td>
+			<td><a th:if="${session.member.id.equals(comment.saveId)}"
+				type="button" th:href="@{'/deleteComment?id='+${comment.commentSeq}}"
+				class="btn btn-primary">삭제</a></td>
+		</tr>
+	</table>
+	<input type="hidden" th:value="${board.boardSeq}" id="boardSeq">
+	<input type="hidden" th:value="${category}" id="category">
+	<input type="hidden" th:value="${seq}" id="seq">
+	
+	<!-- Modal -->
+    <div class="modal fade" id="updatemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">수정</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tr>
+                            <th>제목</th>
+                            <td>
+                                <input type="text" id="updateTitle" class="form-control">
+                            </td>
+						</tr>
+						<tr>
+                            <th>내용</th>
+                            <td>
+                            <div id="editor"></div>
+							<script>
+								const Editor = toastui.Editor;
+								const editor = new Editor({
+									el : document.querySelector('#editor'),
+									initialEditType : 'markdown',
+									previewStyle : 'vertical'
+								});
+							</script>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <input type="button" value="수정" id="btnboardupdate" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+	</div>
+	<div class="modal fade" id="deletemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">삭제</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tr>
+                            <th>게시글을 삭제하시겠습니까?</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <input type="button" value="삭제" id="btnboarddelete" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>
