@@ -9,9 +9,30 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 
     @GetMapping("/")
+	public ModelAndView main(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		return mav;
+	}
+
+	@GetMapping("/test")
 	public ModelAndView test(Model model) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("main/home");
+		mav.setViewName("test");
+		return mav;
+	}
+
+	@GetMapping("/practice")
+	public ModelAndView practice(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("practice");
+		return mav;
+	}
+
+	@GetMapping("/help")
+	public ModelAndView help(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("help");
 		return mav;
 	}
 }
