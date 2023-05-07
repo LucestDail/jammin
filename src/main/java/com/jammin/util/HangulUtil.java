@@ -17,19 +17,24 @@ public class HangulUtil {
 			hangul.setWord(String.valueOf(s.charAt(i)));
 			char comVal = (char) (s.charAt(i)-0xAC00);
 			if (comVal >= 0 && comVal <= 11172){
-					char uniVal = (char)comVal;
-					char cho = (char) ((((uniVal - (uniVal % 28)) / 28) / 21) + 0x1100);
-					char jung = (char) ((((uniVal - (uniVal % 28)) / 28) % 21) + 0x1161);
-					char jong = (char) ((uniVal % 28) + 0x11a7);
-					if(cho!=4519){
-						hangul.setChosung(String.valueOf(cho));
-					}
-					if(jung!=4519){
-						hangul.setJungsung(String.valueOf(jung));						
-					}
-					if(jong!=4519){
-						hangul.setJongsung(String.valueOf(jong));
-					}
+				char uniVal = (char)comVal;
+				char cho = (char) ((((uniVal - (uniVal % 28)) / 28) / 21) + 0x1100);
+				char jung = (char) ((((uniVal - (uniVal % 28)) / 28) % 21) + 0x1161);
+				char jong = (char) ((uniVal % 28) + 0x11a7);
+				if(cho!=4519){
+					hangul.setChosung(String.valueOf(cho));
+				}
+				if(jung!=4519){
+					hangul.setJungsung(String.valueOf(jung));						
+				}
+				if(jong!=4519){
+					hangul.setJongsung(String.valueOf(jong));
+				}
+				if(hangul.getJongsung() == null){
+					hangul.setJongsungEmpty(true);
+				}else{
+					hangul.setJongsungEmpty(false);
+				}
 				hangul.setErrorFlag(false);
 			} else {
 				comVal = (char) (comVal+0xAC00);

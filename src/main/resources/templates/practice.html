@@ -15,6 +15,10 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- JQuery Core JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -39,21 +43,61 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">긴글연습</h2>
-                    <h3 class="section-subheading text-muted">긴글연습을 합니다.</h3>
+                    <h3 class="section-subheading text-muted" id="titleSub">알림장을 비롯해 생활속에서 활용할 수 있는 쓰기 활동지를 제작합니다.</h3>
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-12">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">긴글연습</h4>
-                        <p class="text-muted">알림장을 비롯해 생활속에서 활용할 수 있는 <br> 쓰기 활동지를 제작합니다.</p>
+                <div class="row" id="sentenceList">
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addSentence" id="addSentenceButton">
+                        문장 추가하기
+                    </button>
+                    <button type="button" class="btn btn-outline-dark" id="printTest">
+                        출력하기
+                    </button>
+                    <script>
+                        $("#printTest").click(function(e){
+                            window.print();
+                        })
+                    </script>
+                  </div>
+            </div>
+        </section>
+        <div class="modal fade" id="addSentence" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">문장 추가</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>문장</th>
+                                <td><textarea class="form-control" id="requestSentence" rows="5"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="추가" id="requestSentenceButton" class="btn btn-primary">
+                        <script>
+                            $("#requestSentenceButton").click(function(e){
+                                var htmlElement = "";
+                                var requestSentence = $("#requestSentence").val();
+                                requestSentence = requestSentence.replace(/\n\r?/g, '<br/>');
+                                var requestSentenceArray = requestSentence.split('<br/>');
+                                for(var i = 0; i < requestSentenceArray.length; i++){
+                                    htmlElement += "<div class='sentence-set'>"
+                                    htmlElement += "<p class='text-black h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement += "<p class='text-black-50 opacity-25 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement += "</div>"
+                                }
+                                $("#sentenceList").append(htmlElement);    
+                            })
+                        </script>
                     </div>
                 </div>
             </div>
-        </section>
-        
+        </div>
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
@@ -66,5 +110,24 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+window.onbeforeprint = function () { 
+    $("#addSentenceButton").hide();
+    $("#printTest").hide();
+    $("#titleSub").hide();
+    $("#mainNav").hide();
+}
+
+window.onafterprint = function () { 
+    $("#addSentenceButton").show();
+    $("#printTest").show();
+    $("#titleSub").show();
+    $("#mainNav").show();
+}
+
+addTest = function(data){
+    $("#sentenceList").append("<p>" + data + "</p>");
+}
+        </script>
     </body>
 </html>

@@ -7,6 +7,7 @@ public class Hangul {
     private String jungsung;
     private String jongsung;
     private Boolean errorFlag;
+    private Boolean emptyJongsung;
 
     public void setErrorFlag(Boolean errorFlag){
         this.errorFlag = errorFlag;
@@ -26,6 +27,10 @@ public class Hangul {
 
     public void setJongsung(String jongsung){
         this.jongsung = jongsung;
+    }
+
+    public void setJongsungEmpty(Boolean JongsungFlag){
+        this.emptyJongsung = JongsungFlag;
     }
 
     public String getChosung(){
@@ -48,9 +53,7 @@ public class Hangul {
         if(this.errorFlag){
             return "word : " + this.word + " => 한글이 아닙니다.";
         }else{
-
-            return "word : " + this.word + ", chosung : " + this.chosung + ", jungsung : " + this.jungsung + (this.jongsung != null ? ", jongsung : " + this.jongsung : "");
+            return "word : " + this.word + ", chosung : " + this.chosung + ", jungsung : " + this.jungsung + (!this.emptyJongsung ? ", jongsung : " + this.jongsung : "");
         }
-        
     }
 }

@@ -19,7 +19,6 @@ public class TestRestController {
     @PostMapping("/addWord")
 	public String addWord(@RequestBody Map<String,Object> body){
 		String requestWord = (String)body.get("requestWord");
-		System.out.println((String)body.get("requestWord"));
 		String responseStatement = "";
 		if(hangulUtil.isHangul(requestWord)){
 			for(Hangul hangul : hangulUtil.hangulSplit(requestWord)){
