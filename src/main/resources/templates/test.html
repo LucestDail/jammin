@@ -102,9 +102,13 @@
                                 .done(function(data) {
                                     console.log("[RESPONSE] >>> DONE  ---> [SERVER] >>> hangulParse");
                                     console.log(data);
-                                    toastr.success('초민정음 관리자', '문제 추가 완료');
-                                    addTest(data);
-                                    $('#requestWord').val("");
+                                    if(data === ""){
+                                        toastr.warning('초민정음 관리자', '공백, 혹은 한글 단어가 아닌 문자가 포함되어있습니다.');
+                                    }else{
+                                        toastr.success('초민정음 관리자', '문제 추가 완료');
+                                        addTest(data);
+                                        $('#requestWord').val("");
+                                    }
                                 })
                                 .fail(function (error) {
                                     console.log("[RESPONSE] >>> FAIL  ---> [SERVER] >>> hangulParse");
