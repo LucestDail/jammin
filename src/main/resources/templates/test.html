@@ -15,6 +15,10 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- JQuery Core JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -39,21 +43,75 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">받아쓰기</h2>
-                    <h3 class="section-subheading text-muted">받아쓰기 시험지를 제작합니다.</h3>
+                    <h3 class="section-subheading text-muted" id="titleSub">한글 자모의 소릿값을 연습할 수 있는 받아쓰기 시험지를 선생님의 수업 의도에 맞게 제작합니다.</h3>
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-12">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">받아쓰기</h4>
-                        <p class="text-muted">한글 자모의 소릿값을 연습할 수 있는 받아쓰기 시험지를 <br> 선생님의 수업 의도에 맞게 제작합니다.</p>
+                <div class="row" id="wordList">
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addWord" id="addWordButton">
+                        문제 추가하기
+                    </button>
+                    <button type="button" class="btn btn-outline-dark" id="printTest">
+                        출력하기
+                    </button>
+                    <script>
+                        $("#printTest").click(function(e){
+                            window.print();
+                        })
+                    </script>
+                  </div>
+            </div>
+        </section>
+        <div class="modal fade" id="addWord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">문제 추가</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>문장</th>
+                                <td><input type="text" id="requestWord" class="form-control"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="추가" id="requestWordButton" class="btn btn-primary">
+                        <script>
+                            $("#requestWordButton").click(function(e){
+                                console.log("[REQUEST] >>> requestWordButton  ---> [SERVER] >>> hangulParse");
+                                var data={
+                                    requestWord:$('#requestWord').val(),
+                                    }
+                                console.log(data);
+                                var url="/addWord";
+                                $.ajax({
+                                    type:'POST',
+                                    url:url,
+                                    dataType:"text",
+                                    contentType:'application/json; charset=utf-8',
+                                    data:JSON.stringify(data),
+                                })
+                                .done(function(data) {
+                                    console.log("[RESPONSE] >>> DONE  ---> [SERVER] >>> hangulParse");
+                                    console.log(data);
+                                    toastr.success('초민정음 관리자', '문제 추가 완료');
+                                    addTest(data);
+                                    $('#requestWord').val("");
+                                })
+                                .fail(function (error) {
+                                    console.log("[RESPONSE] >>> FAIL  ---> [SERVER] >>> hangulParse");
+                                    console.log(JSON.stringify(error));
+                                    toastr.error('초민정음 관리자', '문제 추가 실패');
+                                });
+                            })
+                        </script>
                     </div>
                 </div>
             </div>
-        </section>
-        
+        </div>
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
@@ -66,5 +124,24 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+window.onbeforeprint = function () { 
+    $("#addWordButton").hide();
+    $("#printTest").hide();
+    $("#titleSub").hide();
+    $("#mainNav").hide();
+}
+
+window.onafterprint = function () { 
+    $("#addWordButton").show();
+    $("#printTest").show();
+    $("#titleSub").show();
+    $("#mainNav").show();
+}
+
+addTest = function(data){
+    $("#wordList").append("<p>" + data + "</p>");
+}
+        </script>
     </body>
 </html>
