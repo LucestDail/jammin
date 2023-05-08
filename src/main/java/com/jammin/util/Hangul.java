@@ -2,7 +2,7 @@ package com.jammin.util;
 
 import java.util.HashMap;
 
-import org.springframework.boot.configurationprocessor.json.JSONObject;
+import org.json.simple.JSONObject;
 
 public class Hangul {
 

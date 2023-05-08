@@ -2,8 +2,8 @@ package com.jammin.controller;
 
 import java.util.Map;
 
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +23,7 @@ public class TestRestController {
 		JSONArray jsonArray = new JSONArray();
 		if(hangulUtil.isHangul(requestWord)){
 			for(Hangul hangul : hangulUtil.hangulSplit(requestWord)){
-				jsonArray.put(hangul.toJSON());
+				jsonArray.add(hangul.toJSON());
 			}
 		}
 		return jsonArray.toString();
