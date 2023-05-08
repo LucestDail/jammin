@@ -106,7 +106,7 @@
                                         toastr.warning('초민정음 관리자', '공백, 혹은 한글 단어가 아닌 문자가 포함되어있습니다.');
                                     }else{
                                         toastr.success('초민정음 관리자', '문제 추가 완료');
-                                        addTest(data);
+                                        addTest(data, $('#requestWord').val());
                                         $('#requestWord').val("");
                                     }
                                 })
@@ -114,6 +114,60 @@
                                     console.log("[RESPONSE] >>> FAIL  ---> [SERVER] >>> hangulParse");
                                     console.log(JSON.stringify(error));
                                     toastr.error('초민정음 관리자', '문제 추가 실패');
+                                });
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editWord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">문제 수정</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>문장</th>
+                                <td><input type="text" id="editWordValue" class="form-control"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="수정" id="editWordButton" class="btn btn-primary">
+                        <script>
+                            $("#editWordButton").click(function(e){
+                                console.log("[REQUEST] >>> editWordButton  ---> [SERVER] >>> hangulParse");
+                                var data={
+                                    requestWord:$('#editWordValue').val(),
+                                    }
+                                console.log(data);
+                                var url="/addWord";
+                                $.ajax({
+                                    type:'POST',
+                                    url:url,
+                                    dataType:"text",
+                                    contentType:'application/json; charset=utf-8',
+                                    data:JSON.stringify(data),
+                                })
+                                .done(function(data) {
+                                    console.log("[RESPONSE] >>> DONE  ---> [SERVER] >>> hangulParse");
+                                    console.log(data);
+                                    if(data === ""){
+                                        toastr.warning('초민정음 관리자', '공백, 혹은 한글 단어가 아닌 문자가 포함되어있습니다.');
+                                    }else{
+                                        toastr.success('초민정음 관리자', '문제 수정 완료');
+                                        editTest(data, $('#editWordValue').val());
+                                        $('#editWordValue').val("");
+                                    }
+                                })
+                                .fail(function (error) {
+                                    console.log("[RESPONSE] >>> FAIL  ---> [SERVER] >>> hangulParse");
+                                    console.log(JSON.stringify(error));
+                                    toastr.error('초민정음 관리자', '문제 수정 실패');
                                 });
                             })
                         </script>
@@ -134,6 +188,8 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
+
+var currentEditElement = null;
 window.onload = function(){
     $("#userInfo").hide();
 }
@@ -144,6 +200,8 @@ window.onbeforeprint = function () {
     $("#titleSub").hide();
     $("#mainNav").hide();
     $("#userInfo").show();
+    $(".btn-edit").hide();
+    $(".btn-delete").hide();
 }
 
 window.onafterprint = function () { 
@@ -152,10 +210,56 @@ window.onafterprint = function () {
     $("#titleSub").show();
     $("#mainNav").show();
     $("#userInfo").hide();
+    $(".btn-edit").show();
+    $(".btn-delete").show();
 }
 
-addTest = function(data){
-    $("#wordList").append("<p>" + data + "</p>");
+addTest = function(data, fullWord){
+    var jsonArray = JSON.parse(data);
+    var htmlElement = "<div class='d-flex'>";
+    htmlElement += "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
+    for(var i = 0; i < jsonArray.length; i++){
+        htmlElement += "<div class='hangulSet'>";
+        htmlElement +=  "<div class='h-33'>" + jsonArray[i].chosung + "</div>";
+        htmlElement +=  "<div class='h-33'>" + jsonArray[i].jungsung + "</div>";
+        if(jsonArray[i].jongsung){
+            htmlElement += "<div class='h-33'>" + jsonArray[i].jongsung + "</div>";
+        }
+        htmlElement += "</div>";
+    }
+    htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
+    htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
+    htmlElement += "</div>"
+    $("#wordList").append(htmlElement);
+    $("#requestWord").val("");
+}
+
+editTest = function(data, fullWord){
+    var jsonArray = JSON.parse(data);
+    var htmlElement = "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
+    for(var i = 0; i < jsonArray.length; i++){
+        htmlElement += "<div class='hangulSet'>";
+        htmlElement +=  "<div class='h-33'>" + jsonArray[i].chosung + "</div>";
+        htmlElement +=  "<div class='h-33'>" + jsonArray[i].jungsung + "</div>";
+        if(jsonArray[i].jongsung){
+            htmlElement += "<div class='h-33'>" + jsonArray[i].jongsung + "</div>";
+        }
+        htmlElement += "</div>";
+    }
+    htmlElement +=     "<button class='btn rounded-0' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
+    htmlElement +=     "<button class='btn rounded-0' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
+    currentEditElement.parent().html(htmlElement);
+    $("#editWord").modal('toggle');
+    $("#editWordValue").val("");
+}
+
+editTestReady = function(element){
+    $('#editWordValue').val($(element).parent().find(".fullWord").val());
+    currentEditElement = $(element);
+}
+
+deleteTest = function(element){
+    $(element).parent().remove();
 }
         </script>
     </body>
