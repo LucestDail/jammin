@@ -3,6 +3,7 @@ package com.jammin.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,12 +20,12 @@ public class TestRestController {
     @PostMapping("/addWord")
 	public String addWord(@RequestBody Map<String,Object> body){
 		String requestWord = (String)body.get("requestWord");
-		String responseStatement = "";
+		JSONArray jsonArray = new JSONArray();
 		if(hangulUtil.isHangul(requestWord)){
 			for(Hangul hangul : hangulUtil.hangulSplit(requestWord)){
-				responseStatement += hangul.toString();
+				jsonArray.put(hangul.toJSON());
 			}
 		}
-		return responseStatement;
+		return jsonArray.toString();
 	}
 }

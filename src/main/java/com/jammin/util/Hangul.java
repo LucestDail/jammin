@@ -1,5 +1,9 @@
 package com.jammin.util;
 
+import java.util.HashMap;
+
+import org.springframework.boot.configurationprocessor.json.JSONObject;
+
 public class Hangul {
 
     private String word;
@@ -51,9 +55,20 @@ public class Hangul {
 
     public String toString(){
         if(this.errorFlag){
-            return "word : " + this.word + " => 한글이 아닙니다.";
+            return "word:" + this.word + "(한글이 아닙니다)";
         }else{
-            return "word : " + this.word + ", chosung : " + this.chosung + ", jungsung : " + this.jungsung + (!this.emptyJongsung ? ", jongsung : " + this.jongsung : "");
+            return "word:" + this.word + ",chosung:" + this.chosung + ",jungsung:" + this.jungsung + (!this.emptyJongsung ? ",jongsung:" + this.jongsung : "") + "|";
         }
+    }
+
+    public JSONObject toJSON(){
+        HashMap hashMap = new HashMap<String, String>();
+        hashMap.put("word", this.word);
+        hashMap.put("chosung", this.chosung);
+        hashMap.put("jungsung", this.jungsung);
+        if(!this.emptyJongsung){
+            hashMap.put("jongsung", this.jongsung);
+        }
+        return new JSONObject(hashMap);
     }
 }
