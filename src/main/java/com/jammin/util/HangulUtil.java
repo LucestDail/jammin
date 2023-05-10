@@ -14,6 +14,12 @@ public class HangulUtil {
         // typo스트링의 글자수 만큼 list에 담아둡니다.
 		for (int i = 0; i < s.length(); i++) {
 			hangul = new Hangul();
+			if(s.charAt(i) == ' ' || s.charAt(i) == '.' || s.charAt(i) == ',' || s.charAt(i) == '?' || s.charAt(i) == '!'){
+				hangul.setSpecialFlag(true);
+				hangul.setSpecialType(String.valueOf(s.charAt(i)));
+				hangulList.add(hangul);
+				continue;
+			}
 			hangul.setWord(String.valueOf(s.charAt(i)));
 			char comVal = (char) (s.charAt(i)-0xAC00);
 			if (comVal >= 0 && comVal <= 11172){
@@ -49,7 +55,7 @@ public class HangulUtil {
     public boolean isHangul(String str) {
         boolean checkFlag = true;
         for (char c : str.toCharArray()) {
-            if (Character.UnicodeBlock.of(c) == Character.UnicodeBlock.HANGUL_SYLLABLES) {
+            if (Character.UnicodeBlock.of(c) == Character.UnicodeBlock.HANGUL_SYLLABLES || c == ' ' || c == '.' || c == ',' || c == '?' || c == '!') {
                 continue;
             }else{
                 checkFlag = false;

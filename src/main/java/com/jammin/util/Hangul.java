@@ -10,11 +10,21 @@ public class Hangul {
     private String chosung;
     private String jungsung;
     private String jongsung;
-    private Boolean errorFlag;
-    private Boolean emptyJongsung;
+    private String specialType;
+    private Boolean errorFlag = false;
+    private Boolean emptyJongsung = true;
+    private Boolean specialFlag = false;
 
     public void setErrorFlag(Boolean errorFlag){
         this.errorFlag = errorFlag;
+    }
+
+    public void setSpecialFlag(Boolean specialFlag){
+        this.specialFlag = specialFlag;
+    }
+
+    public void setSpecialType(String specialType){
+        this.specialType = specialType;
     }
 
     public void setWord(String word){
@@ -63,12 +73,19 @@ public class Hangul {
 
     public JSONObject toJSON(){
         HashMap hashMap = new HashMap<String, String>();
-        hashMap.put("word", this.word);
-        hashMap.put("chosung", this.chosung);
-        hashMap.put("jungsung", this.jungsung);
-        if(!this.emptyJongsung){
-            hashMap.put("jongsung", this.jongsung);
+        hashMap.put("specialFlag", this.specialFlag);
+        if(this.specialFlag){
+            hashMap.put("specialType",this.specialType);
+        }else{
+            hashMap.put("word", this.word);
+            hashMap.put("chosung", this.chosung);
+            hashMap.put("jungsung", this.jungsung);
+            if(!this.emptyJongsung){
+                hashMap.put("jongsung", this.jongsung);
+            }
         }
+        hashMap.put("emptyJongsung", this.emptyJongsung);
+        hashMap.put("errorFlag", this.errorFlag);
         return new JSONObject(hashMap);
     }
 }

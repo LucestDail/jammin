@@ -220,10 +220,14 @@ addTest = function(data, fullWord){
     htmlElement += "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
     for(var i = 0; i < jsonArray.length; i++){
         htmlElement += "<div class='hangulSet'>";
-        htmlElement +=  "<div class='h-33'>" + jsonArray[i].chosung + "</div>";
-        htmlElement +=  "<div class='h-33'>" + jsonArray[i].jungsung + "</div>";
-        if(jsonArray[i].jongsung){
-            htmlElement += "<div class='h-33'>" + jsonArray[i].jongsung + "</div>";
+        if(jsonArray[i].specialFlag){
+            htmlElement +=  "<div class='h-100'>(" + jsonArray[i].specialType + ")</div>";
+        }else{
+            htmlElement +=  "<div class='h-33'>" + jsonArray[i].chosung + "</div>";
+            htmlElement +=  "<div class='h-33'>" + jsonArray[i].jungsung + "</div>";
+            if(jsonArray[i].jongsung){
+                htmlElement += "<div class='h-33'>" + jsonArray[i].jongsung + "</div>";
+            }
         }
         htmlElement += "</div>";
     }
