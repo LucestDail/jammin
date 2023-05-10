@@ -91,11 +91,56 @@
                                 requestSentence = requestSentence.replace(/\n\r?/g, '<br/>');
                                 var requestSentenceArray = requestSentence.split('<br/>');
                                 for(var i = 0; i < requestSentenceArray.length; i++){
-                                    htmlElement += "<div class='sentence-set'>"
-                                    htmlElement += "<p class='text-black-50 opacity-25 h1'>" + requestSentenceArray[i] + "</p>";
-                                    htmlElement += "</div>"
+                                    htmlElement += "<div class='sentence-set d-flex'>";
+                                    htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
+                                    htmlElement +=     "<p class='text-black-50 opacity-25 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
+                                    htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteSentence(this)'><i class='fa fa-trash'></i></button>";
+                                    htmlElement += "</div>";
                                 }
                                 $("#sentenceList").append(htmlElement);    
+                                $("#requestSentence").val("");
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editSentence" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">문장 수정</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>문장</th>
+                                <td><textarea class="form-control" id="editSentenceValue" rows="5"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="수정" id="editSentenceButton" class="btn btn-primary">
+                        <script>
+                            $("#editSentenceButton").click(function(e){
+                                var htmlElement = "";
+                                var requestSentence = $("#editSentenceValue").val();
+                                requestSentence = requestSentence.replace(/\n\r?/g, '<br/>');
+                                var requestSentenceArray = requestSentence.split('<br/>');
+                                for(var i = 0; i < requestSentenceArray.length; i++){
+                                    htmlElement += "<div class='sentence-set d-flex'>";
+                                    htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
+                                    htmlElement +=     "<p class='text-black-50 opacity-25 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
+                                    htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteSentence(this)'><i class='fa fa-trash'></i></button>";
+                                    htmlElement += "</div>";
+                                }
+                                currentEditElement.parent().after(htmlElement)
+                                currentEditElement.parent().remove();
+                                $("#editSentence").modal('toggle');
+                                $("#editSentenceValue").val("");
                             })
                         </script>
                     </div>
@@ -115,6 +160,9 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
+
+var currentEditElement = null;
+
 window.onload = function(){
     $("#userInfo").hide();
 }
@@ -125,6 +173,8 @@ window.onbeforeprint = function () {
     $("#titleSub").hide();
     $("#mainNav").hide();
     $("#userInfo").show();
+    $(".btn-edit").hide();
+    $(".btn-delete").hide();
 }
 
 window.onafterprint = function () { 
@@ -133,10 +183,17 @@ window.onafterprint = function () {
     $("#titleSub").show();
     $("#mainNav").show();
     $("#userInfo").hide();
+    $(".btn-edit").show();
+    $(".btn-delete").show();
 }
 
-addTest = function(data){
-    $("#sentenceList").append("<p>" + data + "</p>");
+deleteSentence = function(element){
+    $(element).parent().remove();
+}
+
+editSentenceReady = function(element){
+    $('#editSentenceValue').val($(element).parent().find(".fullWord").val());
+    currentEditElement = $(element);
 }
         </script>
     </body>
