@@ -1,26 +1,25 @@
 package com.jammin.controller;
 
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jammin.util.Hangul;
-import com.jammin.util.HangulUtil;
 
 @Controller
 public class MainController {
 
-	@Autowired
-	private HangulUtil hangulUtil;
+	private static final Logger log = LoggerFactory.getLogger(TestRestController.class);
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
     @GetMapping("/")
 	public ModelAndView main(Model model) {
+		log.info("{} >> MainController.main", dateFormat.format(new Date()));
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
 		return mav;
@@ -28,6 +27,7 @@ public class MainController {
 
 	@GetMapping("/test")
 	public ModelAndView test(Model model) {
+		log.info("{} >> MainController.test", dateFormat.format(new Date()));
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("test");
 		return mav;
@@ -35,6 +35,7 @@ public class MainController {
 
 	@GetMapping("/practice")
 	public ModelAndView practice(Model model) {
+		log.info("{} >> MainController.practice", dateFormat.format(new Date()));
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("practice");
 		return mav;
@@ -42,6 +43,7 @@ public class MainController {
 
 	@GetMapping("/help")
 	public ModelAndView help(Model model) {
+		log.info("{} >> MainController.help", dateFormat.format(new Date()));
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("help");
 		return mav;
