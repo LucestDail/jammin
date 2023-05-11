@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HangulUtil {
+
+	private char[] specialTypeArray = {' ', '.', ',', '?', '!'};
+	
     public List<Hangul> hangulSplit(String s) {
 
 		List<Hangul> hangulList = new ArrayList<Hangul>();
@@ -55,7 +58,7 @@ public class HangulUtil {
     public boolean isHangul(String str) {
         boolean checkFlag = true;
         for (char c : str.toCharArray()) {
-            if (Character.UnicodeBlock.of(c) == Character.UnicodeBlock.HANGUL_SYLLABLES || c == ' ' || c == '.' || c == ',' || c == '?' || c == '!') {
+            if (Character.UnicodeBlock.of(c) == Character.UnicodeBlock.HANGUL_SYLLABLES || isSpecialType(c)) {
                 continue;
             }else{
                 checkFlag = false;
@@ -63,5 +66,15 @@ public class HangulUtil {
         }
         return checkFlag;
     }
+
+	private boolean isSpecialType(char c){
+		boolean checkSpecialTypeFlag = false;
+		for(char specialType : specialTypeArray){
+			if(specialType == c){
+				return true;
+			}
+		}
+		return checkSpecialTypeFlag;
+	}
     
 }
