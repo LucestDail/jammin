@@ -17,6 +17,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <!-- JQuery Core JS-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-contextmenu@3.0.0/dist/jquery.contextMenu.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
     </head>
@@ -53,6 +54,9 @@
                 <div class="row" id="wordList">
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#configWord" id="configWordButton">
+                        문제 설정변경
+                    </button>
                     <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addWord" id="addWordButton">
                         문제 추가하기
                     </button>
@@ -64,14 +68,222 @@
                             window.print();
                         })
                     </script>
-                  </div>
+                </div>
             </div>
         </section>
+        <div class="modal fade" id="configWord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">설정변경</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    초성
+                                </button>
+                              </h2>
+                              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="list-group list-group-flush">
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄱ">
+                                        ㄱ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄴ">
+                                        ㄴ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄷ">
+                                        ㄷ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄹ">
+                                        ㄹ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅁ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅂ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅅ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅇ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅈ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅊ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅋ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅌ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅍ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅎ
+                                        </label>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    중성
+                                </button>
+                              </h2>
+                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="list-group list-group-flush">
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄱ">
+                                        ㅏ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄴ">
+                                        ㅑ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄷ">
+                                        ㅓ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄹ">
+                                        ㅕ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅗ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅛ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅜ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅠ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅡ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅣ
+                                        </label>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    종성
+                                </button>
+                              </h2>
+                              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="list-group list-group-flush">
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄱ">
+                                        ㄱ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄴ">
+                                        ㄴ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄷ">
+                                        ㄷ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㄹ">
+                                        ㄹ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅁ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅂ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅅ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅇ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅈ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅊ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅋ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅌ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅍ
+                                        </label>
+                                        <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="ㅁ">
+                                        ㅎ
+                                        </label>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="변경" id="requestWordButton" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal fade" id="addWord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">문제 추가</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">추가하기</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -125,7 +337,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">문제 수정</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">수정하기</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
