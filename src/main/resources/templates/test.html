@@ -473,23 +473,29 @@ window.onafterprint = function () {
 
 addTest = function(data, fullWord){
     var jsonArray = JSON.parse(data);
-    var htmlElement = "<div class='d-flex'>";
+    var htmlElement = "<div class='d-flex' style='height:150px;'>";
     htmlElement += "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
     for(var i = 0; i < jsonArray.length; i++){
-        htmlElement += "<div class='hangulSet'>";
+        htmlElement += "<div class='hangulSet' style='width:70px; height:100px;'>";
         if(jsonArray[i].specialFlag){
-            htmlElement +=  "<div class='h-100'>(" + jsonArray[i].specialType + ")</div>";
+            htmlElement +=  "<div class='special' style='position:absolute;'><img src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
         }else{
-            htmlElement +=  "<div class='h-33'>" + jsonArray[i].chosung + "</div>";
-            htmlElement +=  "<div class='h-33'>" + jsonArray[i].jungsung + "</div>";
+            htmlElement +=  "<div class='cho'><img src='hangul/" + jsonArray[i].choCode + ".svg' style='height:100px; position:absolute;'></div>";
+            htmlElement +=  "<div class='jung'><img src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:100px; position:absolute;'></div>";
             if(jsonArray[i].jongsung){
-                htmlElement += "<div class='h-33'>" + jsonArray[i].jongsung + "</div>";
+                htmlElement += "<div class='jong'><img src='hangul/" + jsonArray[i].jongCode + ".svg' style='height:100px; position:absolute;'></div>";
             }
         }
+        htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
+        htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img src='hangul/000000.svg' style='height:100px;position: absolute;top: 70px;'></div>";
+        var wordValue = jsonArray[i].specialFlag ? jsonArray[i].specialType : jsonArray[i].word;
+        htmlElement +=  "<div class='emptyWordSpell' style='position:absolute;'><p class='text-black-50 opacity-25 h1' style='height:100px;position: absolute;left:15px;top: 85px;'>" + wordValue + "</p></div>";
         htmlElement += "</div>";
+        htmlElement += "</div>";
+        
     }
-    htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
-    htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
+    htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
+    htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
     htmlElement += "</div>"
     $("#wordList").append(htmlElement);
     $("#requestWord").val("");
@@ -499,14 +505,14 @@ editTest = function(data, fullWord){
     var jsonArray = JSON.parse(data);
     var htmlElement = "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
     for(var i = 0; i < jsonArray.length; i++){
-        htmlElement += "<div class='hangulSet'>";
+        htmlElement += "<div class='hangulSet' style='width:70px;'>";
         if(jsonArray[i].specialFlag){
-            htmlElement +=  "<div class='h-100'>(" + jsonArray[i].specialType + ")</div>";
+            htmlElement +=  "<div class='h-100' style='position:absolute;'><img src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
         }else{
-            htmlElement +=  "<div class='h-33'>" + jsonArray[i].chosung + "</div>";
-            htmlElement +=  "<div class='h-33'>" + jsonArray[i].jungsung + "</div>";
+            htmlElement +=  "<div class='h-33'><img src='hangul/" + jsonArray[i].choCode + ".svg' style='height:100px; position:absolute;'></div>";
+            htmlElement +=  "<div class='h-33'><img src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:100px; position:absolute;'></div>";
             if(jsonArray[i].jongsung){
-                htmlElement += "<div class='h-33'>" + jsonArray[i].jongsung + "</div>";
+                htmlElement += "<div class='h-33'><img src='hangul/" + jsonArray[i].jongCode + ".svg' style='height:100px; position:absolute;'></div>";
             }
         }
         htmlElement += "</div>";

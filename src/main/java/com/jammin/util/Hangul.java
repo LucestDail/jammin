@@ -8,12 +8,16 @@ public class Hangul {
 
     private String word;
     private String chosung;
+    private int choCode;
     private String jungsung;
+    private int jungCode;
     private String jongsung;
+    private int jongCode;
     private String specialType;
     private Boolean errorFlag = false;
     private Boolean emptyJongsung = true;
     private Boolean specialFlag = false;
+    private int specialTypeCode;
 
     public void setErrorFlag(Boolean errorFlag){
         this.errorFlag = errorFlag;
@@ -43,8 +47,24 @@ public class Hangul {
         this.jongsung = jongsung;
     }
 
+    public void setChoCode(int choCode){
+        this.choCode = choCode;
+    }
+
+    public void setJungCode(int jungCode){
+        this.jungCode = jungCode;
+    }
+
+    public void setJongCode(int jongCode){
+        this.jongCode = jongCode;
+    }
+
     public void setJongsungEmpty(Boolean JongsungFlag){
         this.emptyJongsung = JongsungFlag;
+    }
+
+    public void setSpecialTypeCode(int specialTypeCode){
+        this.specialTypeCode = specialTypeCode;
     }
 
     public String getChosung(){
@@ -57,6 +77,22 @@ public class Hangul {
 
     public String getJongsung(){
         return this.jongsung;
+    }
+
+    public int getChoCode(){
+        return this.choCode;
+    }
+
+    public int getJungCode(){
+        return this.jungCode;
+    }
+
+    public int getJongCode(){
+        return this.jongCode;
+    }
+
+    public int getSpecialTypeCode(){
+        return this.specialTypeCode;
     }
 
     public String getWord(){
@@ -76,12 +112,16 @@ public class Hangul {
         hashMap.put("specialFlag", this.specialFlag);
         if(this.specialFlag){
             hashMap.put("specialType",this.specialType);
+            hashMap.put("specialTypeCode",this.specialTypeCode);
         }else{
             hashMap.put("word", this.word);
             hashMap.put("chosung", this.chosung);
+            hashMap.put("choCode", this.choCode);
             hashMap.put("jungsung", this.jungsung);
+            hashMap.put("jungCode", this.jungCode);
             if(!this.emptyJongsung){
                 hashMap.put("jongsung", this.jongsung);
+                hashMap.put("jongCode", this.jongCode);
             }
         }
         hashMap.put("emptyJongsung", this.emptyJongsung);

@@ -20,6 +20,7 @@ public class HangulUtil {
 			if(s.charAt(i) == ' ' || s.charAt(i) == '.' || s.charAt(i) == ',' || s.charAt(i) == '?' || s.charAt(i) == '!'){
 				hangul.setSpecialFlag(true);
 				hangul.setSpecialType(String.valueOf(s.charAt(i)));
+				hangul.setSpecialTypeCode(s.charAt(i));
 				hangulList.add(hangul);
 				continue;
 			}
@@ -32,12 +33,15 @@ public class HangulUtil {
 				char jong = (char) ((uniVal % 28) + 0x11a7);
 				if(cho!=4519){
 					hangul.setChosung(String.valueOf(cho));
+					hangul.setChoCode(cho);
 				}
 				if(jung!=4519){
-					hangul.setJungsung(String.valueOf(jung));						
+					hangul.setJungsung(String.valueOf(jung));	
+					hangul.setJungCode(jung);					
 				}
 				if(jong!=4519){
 					hangul.setJongsung(String.valueOf(jong));
+					hangul.setJongCode(jong);
 				}
 				if(hangul.getJongsung() == null){
 					hangul.setJongsungEmpty(true);
