@@ -517,6 +517,11 @@ editTest = function(data, fullWord){
         }
         htmlElement += "</div>";
     }
+    htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
+    htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img src='hangul/000000.svg' style='height:100px;position: absolute;top: 70px;'></div>";
+    var wordValue = jsonArray[i].specialFlag ? jsonArray[i].specialType : jsonArray[i].word;
+    htmlElement +=  "<div class='emptyWordSpell' style='position:absolute;'><p class='text-black-50 opacity-25 h1' style='height:100px;position: absolute;left:15px;top: 85px;'>" + wordValue + "</p></div>";
+    htmlElement += "</div>";
     htmlElement +=     "<button class='btn rounded-0' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
     htmlElement +=     "<button class='btn rounded-0' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
     currentEditElement.parent().html(htmlElement);
