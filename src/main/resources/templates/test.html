@@ -317,15 +317,6 @@
                                 })
                             }
                         }
-                        if (this.checked) {
-                            elements.each(function(index, item){
-                                $(item).addClass('hidebox');
-                            })
-                        } else {
-                            elements.each(function(index, item){
-                                $(item).removeClass('hidebox');
-                            })
-                        }
                     });
                     $('input[type=radio]').change(function() {
                         var checkboxes = document.querySelectorAll("input[type='checkbox']");
@@ -576,6 +567,8 @@ addTest = function(data, fullWord){
     htmlElement += "</div>"
     $("#wordList").append(htmlElement);
     $("#requestWord").val("");
+    syncCheckRemove();
+    syncRadioRemove();
 }
 
 editTest = function(data, fullWord){
@@ -607,6 +600,8 @@ editTest = function(data, fullWord){
     currentEditElement.parent().html(htmlElement);
     $("#editWord").modal('toggle');
     $("#editWordValue").val("");
+    syncCheckRemove();
+    syncRadioRemove();
 }
 
 editTestReady = function(element){
@@ -643,6 +638,64 @@ hideCheck = function(){
     $("#removeJaPlus").hide();
     $("#removeJaDouble").hide();
     currentRemoveCheck = "";
+}
+
+syncCheckRemove = function(){
+    var elements = null;
+    var elementsExt = null;
+    var checks = $("input[type=checkbox]:checked")
+    checks.each(function(){
+        if($(this).val().indexOf("_") === -1){
+            elements = $("." + $(this).val());
+            if (this.checked) {
+                elements.each(function(index, item){
+                    $(item).addClass('hidebox');
+                })
+            } else {
+                elements.each(function(index, item){
+                    $(item).removeClass('hidebox');
+                })
+            }
+        }else{
+            elements = $("." + $(this).val().split("_")[0]);
+            elementsExt = $("." + $(this).val().split("_")[1]);
+            if (this.checked) {
+                elements.each(function(index, item){
+                    $(item).addClass('hidebox');
+                })
+                elementsExt.each(function(index, item){
+                    $(item).addClass('hidebox');
+                })
+            } else {
+                elements.each(function(index, item){
+                    $(item).removeClass('hidebox');
+                })
+                elementsExt.each(function(index, item){
+                    $(item).removeClass('hidebox');
+                })
+            }
+        }
+    })
+}
+
+syncRadioRemove = function(){
+    var removeTarget = $("input[type=radio]:checked").val();
+    if(removeTarget === "choremove"){
+        elements = document.querySelectorAll('.hangul.cho');
+        elements.forEach(element => {
+            element.classList.add('hidebox');
+        });
+    }else if(removeTarget === "jungremove"){
+        elements = document.querySelectorAll('.hangul.jung');
+        elements.forEach(element => {
+            element.classList.add('hidebox');
+        });
+    }else if(removeTarget === "jongremove"){
+        elements = document.querySelectorAll('.hangul.jong');
+        elements.forEach(element => {
+            element.classList.add('hidebox');
+        });
+    }
 }
         </script>
     </body>
