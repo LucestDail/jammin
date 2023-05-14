@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
-   sodipodi:docname="4357.svg"
+   sodipodi:docname="4533.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,8 +25,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.71891835"
-     inkscape:cx="267.06788"
-     inkscape:cy="569.60571"
+     inkscape:cx="265.6769"
+     inkscape:cy="568.21474"
      inkscape:window-width="1920"
      inkscape:window-height="1027"
      inkscape:window-x="0"
@@ -36,6 +36,18 @@
   <defs
      id="defs2">
     <rect
+       x="393.64693"
+       y="171.09036"
+       width="212.81973"
+       height="228.12049"
+       id="rect3089" />
+    <rect
+       x="65.375992"
+       y="383.91008"
+       width="247.59418"
+       height="235.07537"
+       id="rect3072" />
+    <rect
        x="361.65442"
        y="485.45151"
        width="376.95519"
@@ -44,8 +56,8 @@
     <rect
        x="102.93241"
        y="219.77461"
-       width="211.42874"
-       height="221.16559"
+       width="401.9928"
+       height="223.94754"
        id="rect1562" />
   </defs>
   <g
@@ -110,18 +122,25 @@
        id="text1508" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,7.3605948,-11.408922)"
-       id="text1560"
-       style="white-space:pre;shape-inside:url(#rect1562);display:inline;fill:#000000;stroke:#000000"><tspan
-         x="102.93164"
-         y="392.79777"
-         id="tspan304"><tspan
-           style="font-size:192px;-inkscape-font-specification:'sans-serif, Normal'"
-           id="tspan302">ㄹ</tspan></tspan></text>
-    <text
-       xml:space="preserve"
        transform="scale(0.26458333)"
        id="text1566"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:192px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect1568);display:inline;fill:#000000;stroke:#000000" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,18.769516,-56.67658)"
+       id="text3070"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:192px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect3072);display:inline;fill:#000000;stroke:#000000" />
+    <text
+       xml:space="preserve"
+       style="font-size:61.6844px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';fill:#000000;stroke:#000000;stroke-width:0.321273"
+       x="51.390671"
+       y="210.28142"
+       id="text178"
+       transform="scale(0.92484171,1.0812661)"><tspan
+         sodipodi:role="line"
+         id="tspan176"
+         style="stroke-width:0.321273"
+         x="51.390671"
+         y="210.28142">ㄹㅍ</tspan></text>
   </g>
 </svg>
