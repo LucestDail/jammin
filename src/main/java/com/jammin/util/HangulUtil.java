@@ -9,15 +9,15 @@ import org.springframework.stereotype.Component;
 public class HangulUtil {
 
 	private char[] specialTypeArray = {' ', '.', ',', '?', '!'};
+	private char[] numberTypeArray = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
 	
     public List<Hangul> hangulSplit(String s) {
 
 		List<Hangul> hangulList = new ArrayList<Hangul>();
 		Hangul hangul = null;
-        // typo스트링의 글자수 만큼 list에 담아둡니다.
 		for (int i = 0; i < s.length(); i++) {
 			hangul = new Hangul();
-			if(s.charAt(i) == ' ' || s.charAt(i) == '.' || s.charAt(i) == ',' || s.charAt(i) == '?' || s.charAt(i) == '!'){
+			if(isSpecialType(s.charAt(i)) || isNumberType(s.charAt(i))){
 				hangul.setSpecialFlag(true);
 				hangul.setSpecialType(String.valueOf(s.charAt(i)));
 				hangul.setSpecialTypeCode(s.charAt(i));
@@ -62,7 +62,7 @@ public class HangulUtil {
     public boolean isHangul(String str) {
         boolean checkFlag = true;
         for (char c : str.toCharArray()) {
-            if (Character.UnicodeBlock.of(c) == Character.UnicodeBlock.HANGUL_SYLLABLES || isSpecialType(c)) {
+            if (Character.UnicodeBlock.of(c) == Character.UnicodeBlock.HANGUL_SYLLABLES || isSpecialType(c) || isNumberType(c) ) {
                 continue;
             }else{
                 checkFlag = false;
@@ -79,6 +79,16 @@ public class HangulUtil {
 			}
 		}
 		return checkSpecialTypeFlag;
+	}
+
+	private boolean isNumberType(char c){
+		boolean checkFlag = false;
+		for(char numberType : numberTypeArray){
+			if(numberType == c){
+				return true;
+			}
+		}
+		return checkFlag;
 	}
     
 }
