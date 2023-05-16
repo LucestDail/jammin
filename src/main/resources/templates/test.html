@@ -559,7 +559,7 @@ addTest = function(data, fullWord){
     for(var i = 0; i < jsonArray.length; i++){
         htmlElement += "<div class='hangulSet' style='width:70px; height:100px;'>";
         if(jsonArray[i].specialFlag){
-            htmlElement +=  "<div class='special' style='position:absolute;'><img src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
+            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
         }else{
             htmlElement +=  "<div class='cho'><img class='hangul cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height:100px; position:absolute;'></div>";
             htmlElement +=  "<div class='jung'><img class='hangul jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:100px; position:absolute;'></div>";
@@ -592,7 +592,7 @@ editTest = function(data, fullWord){
     for(var i = 0; i < jsonArray.length; i++){
         htmlElement += "<div class='hangulSet' style='width:70px; height:100px;'>";
         if(jsonArray[i].specialFlag){
-            htmlElement +=  "<div class='special' style='position:absolute;'><img src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
+            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
         }else{
             htmlElement +=  "<div class='cho'><img class='hangul cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height:100px; position:absolute;'></div>";
             htmlElement +=  "<div class='jung'><img class='hangul jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:100px; position:absolute;'></div>";
