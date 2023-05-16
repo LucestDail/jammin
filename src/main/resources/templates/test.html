@@ -352,9 +352,16 @@
                     <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addWord" id="addWordButton">
                         문제 추가하기
                     </button>
-                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#fontConfig" id="fontConfigModalButton">
-                        글자크기 조정하기
-                    </button>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="fontConfigMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            글자크기 조정하기
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="fontConfigMenu">
+                            <button class="dropdown-item" type="button" value="small" onclick="editFontConfig(this)">작게</button>
+                            <button class="dropdown-item" type="button" value="middle" onclick="editFontConfig(this)">중간</button>
+                            <button class="dropdown-item" type="button" value="big" onclick="editFontConfig(this)">크게</button>
+                        </div>
+                    </div>
                     <button type="button" class="btn btn-outline-dark" id="printTest">
                         출력하기
                     </button>
@@ -366,54 +373,6 @@
                 </div>
             </div>
         </section>
-        <div class="modal fade" id="fontConfig" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">글자크기 변경</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table table-borderless">
-                            <tr>
-                                <th>크기(100~300)</th>
-                                <td>
-                                    <div class="form-outline">
-                                        <input type="number" id="fontSize" class="form-control" />
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" value="변경" id="fontConfigButton" class="btn btn-primary">
-                        <script>
-                            $("#fontConfigButton").click(function(e){
-                                if($("#fontSize").val() < 100 || $("#fontSize").val() > 300){
-                                    toastr.warning('초민정음 관리자', '100 이상 300 이하로 설정 가능합니다.');
-                                    return;
-                                }
-                                currentFontSize = $("#fontSize").val();
-                                $(".hangul").each(function(index, item){
-                                    $(item).css("height", Number(currentFontSize));
-                                })
-                                $(".emptyWordSvg").each(function(index, item){
-                                    $(item).css("top", Number(currentFontSize) * 0.7);
-                                })
-                                $(".hangulSet").each(function(index, item){
-                                    $(item).css("width", Number(currentFontSize) * 0.7);
-                                })
-                                $(".hangulWrapper").each(function(index, item){
-                                    $(item).css("height", Number(currentFontSize) * 1.7);
-                                })
-                                $("#fontConfig").modal('toggle');
-                                $("#fontSize").val("");
-                            })
-                        </script>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="modal fade" id="addWord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -564,7 +523,7 @@ window.onbeforeprint = function () {
     $("#btnRadio3-btn").hide();
     $("#btnRadio4-btn").hide();
     $("#btnRadio5-btn").hide();
-    $("#fontConfigModalButton").hide();
+    $("#fontConfigMenu").hide();
     toastr.remove();
 }
 
@@ -590,7 +549,7 @@ window.onafterprint = function () {
     $("#btnRadio3-btn").show();
     $("#btnRadio4-btn").show();
     $("#btnRadio5-btn").show();
-    $("#fontConfigModalButton").show();
+    $("#fontConfigMenu").show();
 }
 
 addTest = function(data, fullWord){
@@ -752,6 +711,30 @@ syncRadioRemove = function(){
             element.classList.add('hidebox');
         });
     }
+}
+
+editFontConfig = function(clickElement){
+    if($(clickElement).val() === "small"){
+        currentFontSize = 100
+    }else if($(clickElement).val() === "middle"){
+        currentFontSize = 150
+    }else if($(clickElement).val() === "big"){
+        currentFontSize = 200
+    }else{
+        currentFontSize = 100
+    }
+    $(".hangul").each(function(index, item){
+        $(item).css("height", Number(currentFontSize));
+    })
+    $(".emptyWordSvg").each(function(index, item){
+        $(item).css("top", Number(currentFontSize) * 0.7);
+    })
+    $(".hangulSet").each(function(index, item){
+        $(item).css("width", Number(currentFontSize) * 0.7);
+    })
+    $(".hangulWrapper").each(function(index, item){
+        $(item).css("height", Number(currentFontSize) * 1.7);
+    })
 }
 
 syncFontConfig = function(){
