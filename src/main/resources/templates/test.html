@@ -494,6 +494,7 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
+var lineBreakCount = 10;
 var currentFontSize = null;
 var jongsungArray = [];
 var currentEditElement = null;
@@ -556,7 +557,7 @@ addTest = function(data, fullWord){
         htmlElement += "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
         htmlElement += "<div class='hangul-row-Wrapper' style='width:100%;'>";
     for(var i = 0; i < jsonArray.length; i++){
-        if(i % 10 === 0){
+        if(i % lineBreakCount === 0){
             htmlElement += "<div class='row hangul-row' style='height:130px;'>";
         }
         htmlElement += "<div class='hangulSet' style='width:70px; height:100px;'>";
@@ -573,7 +574,7 @@ addTest = function(data, fullWord){
         htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul emptyWordSvg' src='hangul/000000.svg' style='height:100px;position: absolute;top: 70px;'></div>";
         htmlElement += "</div>";
         htmlElement += "</div>";
-        if(i % 10 === 9 || i === jsonArray.length-1){
+        if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){
             htmlElement += "</div>";
         }
     }
@@ -594,7 +595,7 @@ editTest = function(data, fullWord){
         htmlElement += "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
         htmlElement += "<div class='hangul-row-Wrapper' style='width:100%;'>";
     for(var i = 0; i < jsonArray.length; i++){
-        if(i % 10 === 0){
+        if(i % lineBreakCount === 0){
             htmlElement += "<div class='row hangul-row' style='height:130px;'>";
         }
         htmlElement += "<div class='hangulSet' style='width:70px; height:100px;'>";
@@ -611,7 +612,7 @@ editTest = function(data, fullWord){
         htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul emptyWordSvg' src='hangul/000000.svg' style='height:100px;position: absolute;top: 70px;'></div>";
         htmlElement += "</div>";
         htmlElement += "</div>";
-        if(i % 10 === 9 || i === jsonArray.length-1){
+        if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){
             htmlElement += "</div>";
         }
     }
@@ -731,6 +732,7 @@ editFontConfig = function(clickElement){
     }else{
         currentFontSize = 100
     }
+    syncWordLineBreak();
     $(".hangul").each(function(index, item){
         $(item).css("height", Number(currentFontSize));
     })
@@ -760,6 +762,89 @@ syncFontConfig = function(){
             $(item).css("height", Number(currentFontSize) * 1.3);
         })
     }
+    syncWordLineBreak();
+}
+
+syncWordLineBreak = function(){
+    lineBreakCount = 10;
+    if(currentFontSize === 100){
+        lineBreakCount = 10;
+    }else if(currentFontSize === 150){
+        lineBreakCount = 6;
+    }else if(currentFontSize === 200){
+        lineBreakCount = 5;
+    }else{
+        lineBreakCount = 10;
+    }
+    $(".hangulWrapper").each(function(index, item){
+        console.log("[REQUEST] >>> editWordButton  ---> [SERVER] >>> hangulParse");
+        var targetWordElement = $(item); 
+        var targetWordSentence = $(item).find(".fullWord").val();
+        var data={
+            requestWord:targetWordSentence,
+            }
+        console.log(data);
+        var url="/addWord";
+        $.ajax({
+            type:'POST',
+            url:url,
+            dataType:"text",
+            contentType:'application/json; charset=utf-8',
+            data:JSON.stringify(data),
+        })
+        .done(function(data) {
+            console.log("[RESPONSE] >>> DONE  ---> [SERVER] >>> hangulParse");
+            var jsonArray = JSON.parse(data);
+            console.log(jsonArray);
+            if(data === "" || jsonArray.length === 0){
+                console.log('한글이 아니거나, 완성된 한글 단어가 아닌 문자가 포함되어있습니다.');
+            }else{
+                console.log('문제 수정 완료');
+                var jsonArray = JSON.parse(data);
+                var htmlElement = "<div class='hangulWrapper d-flex' style='width:100%;'>";
+                    htmlElement += "<input class='fullWord' type='hidden' value='" + targetWordSentence + "'>";
+                    htmlElement += "<div class='hangul-row-Wrapper' style='width:100%;'>";
+                for(var i = 0; i < jsonArray.length; i++){
+                    if(i % lineBreakCount === 0){
+                        htmlElement += "<div class='row hangul-row' style='height:130px;'>";
+                    }
+                    htmlElement += "<div class='hangulSet' style='width:70px; height:100px;'>";
+                    if(jsonArray[i].specialFlag){
+                        htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
+                    }else{
+                        htmlElement +=  "<div class='cho'><img class='hangul cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height:100px; position:absolute;'></div>";
+                        htmlElement +=  "<div class='jung'><img class='hangul jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:100px; position:absolute;'></div>";
+                        if(jsonArray[i].jongsung){
+                            htmlElement += "<div class='jong'><img class='hangul jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height:100px; position:absolute;'></div>";
+                        }
+                    }
+                    htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
+                    htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul emptyWordSvg' src='hangul/000000.svg' style='height:100px;position: absolute;top: 70px;'></div>";
+                    htmlElement += "</div>";
+                    htmlElement += "</div>";
+                    if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){
+                        htmlElement += "</div>";
+                    }
+                }
+                htmlElement += "</div>";
+                htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
+                htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
+                htmlElement += "</div>"
+                $("#wordList").append(htmlElement);
+                $("#requestWord").val("");
+                syncCheckRemove();
+                syncRadioRemove();
+                targetWordElement.remove();
+            }
+        })
+        .fail(function (error) {
+            console.log("[RESPONSE] >>> FAIL  ---> [SERVER] >>> hangulParse");
+            console.log(JSON.stringify(error));
+            console.log('문제 수정 실패');
+        });
+    })
+
+
 }
         </script>
     </body>
