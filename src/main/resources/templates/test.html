@@ -834,6 +834,20 @@ syncWordLineBreak = function(){
                 $("#requestWord").val("");
                 syncCheckRemove();
                 syncRadioRemove();
+                if(currentFontSize){
+                    $(".hangul").each(function(index, item){
+                        $(item).css("height", Number(currentFontSize));
+                    })
+                    $(".emptyWordSvg").each(function(index, item){
+                        $(item).css("top", Number(currentFontSize) * 0.7);
+                    })
+                    $(".hangulSet").each(function(index, item){
+                        $(item).css("width", Number(currentFontSize) * 0.7);
+                    })
+                    $(".hangul-row").each(function(index, item){
+                        $(item).css("height", Number(currentFontSize) * 1.3);
+                    })
+                }
                 targetWordElement.remove();
             }
         })
