@@ -21,11 +21,12 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
         <style>
             @media print {
-                html, body { -webkit-print-color-adjust:exact; width: 210mm; height: 297mm; }
-                table { page-break-inside:auto; }
-                tr    { page-break-inside:avoid; page-break-after:auto; }
-                thead { display:table-header-group; }
-                tfoot { display:table-footer-group; }
+            body {
+                overflow: hidden;
+            }
+            .print-line-break {
+                page-break-after: always; /* Add page break after each printed page */
+            }
             }
             .hidebox{
                 display:none;
@@ -867,6 +868,7 @@ syncWordLineBreak = function(){
                     $(".hangulSet").each(function(index, item){
                         $(item).css("width", Number(currentFontSize) * 0.7);
                     })
+                    var sizeCheck = 0;
                     $(".hangul-row").each(function(index, item){
                         if(currentFontSize === 100){
                             $(item).css("height", Number(currentFontSize) * 1.6);
@@ -876,6 +878,12 @@ syncWordLineBreak = function(){
                             $(item).css("height", Number(currentFontSize) * 1.7);
                         }else{
                             $(item).css("height", Number(currentFontSize) * 1.6);
+                        }
+                        sizeCheck += $(item).offset().top;
+                        if(sizeCheck >= 2000){
+                            sizeCheck -= 2000;
+                            console.log(sizeCheck);
+                            $(item).addClass("print-line-break");
                         }
                     })
                 }
