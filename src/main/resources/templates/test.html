@@ -886,7 +886,6 @@ syncWordLineBreak = function(){
                     $(".hangulSet").each(function(index, item){
                         $(item).css("width", Number(currentFontSize) * 0.7);
                     })
-                    var sizeCheck = 0;
                     $(".hangul-row").each(function(index, item){
                         if(currentFontSize === 100){
                             $(item).css("height", Number(currentFontSize) * 1.6);
@@ -897,12 +896,7 @@ syncWordLineBreak = function(){
                         }else{
                             $(item).css("height", Number(currentFontSize) * 1.6);
                         }
-                        sizeCheck += $(item).offset().top;
-                        if(sizeCheck >= 2000){
-                            sizeCheck -= 2000;
-                            console.log(sizeCheck);
-                            $(item).addClass("print-line-break");
-                        }
+
                     })
                 }
                 targetWordElement.remove();
@@ -914,8 +908,22 @@ syncWordLineBreak = function(){
             console.log('문제 수정 실패');
         });
     })
+    syncPrintLineBreak();
+}
 
-
+syncPrintLineBreak = function(){
+    console.log("-------------------------------syncPrintLineBreak----------------------------");
+    var sizeCheck = 0;
+    $(".hangul-row").each(function(index, item){
+        $(item).removeClass("print-line-break");
+    });
+    $(".hangul-row").each(function(index, item){
+        sizeCheck += $(item).height();
+        if(sizeCheck >= 1200){
+            sizeCheck = sizeCheck - 1200;
+            $(item).addClass("print-line-break");
+        }
+    });
 }
         </script>
     </body>
