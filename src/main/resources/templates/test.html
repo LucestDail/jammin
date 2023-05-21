@@ -532,6 +532,7 @@ window.onbeforeprint = function () {
     $("#btnRadio4-btn").hide();
     $("#btnRadio5-btn").hide();
     $("#fontConfigMenu").hide();
+    syncPrintLineBreak();
     toastr.remove();
 }
 
@@ -908,7 +909,7 @@ syncWordLineBreak = function(){
             console.log('문제 수정 실패');
         });
     })
-    syncPrintLineBreak();
+    
 }
 
 syncPrintLineBreak = function(){
@@ -919,8 +920,10 @@ syncPrintLineBreak = function(){
     });
     $(".hangul-row").each(function(index, item){
         sizeCheck += $(item).height();
-        if(sizeCheck >= 1200){
-            sizeCheck = sizeCheck - 1200;
+        console.log(sizeCheck);
+        if(sizeCheck >= 600){
+            console.log("added > " + $(item));
+            sizeCheck = sizeCheck - 600;
             $(item).addClass("print-line-break");
         }
     });
