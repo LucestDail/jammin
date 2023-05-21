@@ -533,6 +533,7 @@ window.onbeforeprint = function () {
     $("#btnRadio5-btn").hide();
     $("#fontConfigMenu").hide();
     syncPrintLineBreak();
+    syncTestNumber(true);
     toastr.remove();
 }
 
@@ -559,6 +560,7 @@ window.onafterprint = function () {
     $("#btnRadio4-btn").show();
     $("#btnRadio5-btn").show();
     $("#fontConfigMenu").show();
+    syncTestNumber(false);
 }
 
 addTest = function(data, fullWord){
@@ -927,6 +929,20 @@ syncPrintLineBreak = function(){
             $(item).addClass("print-line-break");
         }
     });
+}
+
+syncTestNumber = function(isVisible){
+    var orderCount = 1;
+    if(isVisible){
+        $(".hangulWrapper").each(function(index, item){
+            $(item).prepend("<p class='orderCount' style='padding-top:10px;'>" + orderCount++ + ". </p>");
+        });
+    }else{
+        $(".hangulWrapper").each(function(index, item){
+            $(item).find(".orderCount").remove();
+        });
+    }
+    
 }
         </script>
     </body>
