@@ -89,13 +89,11 @@
                     </script>
                     <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="jaremove" autocomplete="off" checked onclick="showJaCheck()">
                     <label class="btn btn-outline-primary" for="btnradio1" id="btnRadio1-btn">자음 제거</label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" value="moremove" autocomplete="off" onclick="showMoCheck()">
-                    <label class="btn btn-outline-primary" for="btnradio2" id="btnRadio2-btn">모음 제거</label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="choremove" autocomplete="off" onclick="hideCheck()">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="choremove" autocomplete="off" onclick="showChoCheck()">
                     <label class="btn btn-outline-primary" for="btnradio3" id="btnRadio3-btn">초성 제거</label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" value="jungremove" autocomplete="off" onclick="hideCheck()">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" value="jungremove" autocomplete="off" onclick="showJungCheck()">
                     <label class="btn btn-outline-primary" for="btnradio4" id="btnRadio4-btn">중성 제거</label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio5" value="jongremove" autocomplete="off" onclick="hideCheck()">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio5" value="jongremove" autocomplete="off" onclick="showJongCheck()">
                     <label class="btn btn-outline-primary" for="btnradio5" id="btnRadio5-btn">종성 제거</label>
                 </div>
                 <div class="text-right" id="removeJa">
@@ -224,7 +222,92 @@
                         <label class="form-check-label" for="inlineCheckbox">ㅄ</label>
                     </div>
                 </div>
-                <div class="text-right" id="removeMo">
+
+
+                <div class="text-right" id="removeCho">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4352">
+                        <label class="form-check-label" for="inlineCheckbox">ㄱ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4354">
+                        <label class="form-check-label" for="inlineCheckbox">ㄴ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4355">
+                        <label class="form-check-label" for="inlineCheckbox">ㄷ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4357">
+                        <label class="form-check-label" for="inlineCheckbox">ㄹ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4358">
+                        <label class="form-check-label" for="inlineCheckbox">ㅁ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4359">
+                        <label class="form-check-label" for="inlineCheckbox">ㅂ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4361">
+                        <label class="form-check-label" for="inlineCheckbox">ㅅ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4363">
+                        <label class="form-check-label" for="inlineCheckbox">ㅇ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4364">
+                        <label class="form-check-label" for="inlineCheckbox">ㅈ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4366">
+                        <label class="form-check-label" for="inlineCheckbox">ㅊ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4367">
+                        <label class="form-check-label" for="inlineCheckbox">ㅋ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4368">
+                        <label class="form-check-label" for="inlineCheckbox">ㅌ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4369">
+                        <label class="form-check-label" for="inlineCheckbox">ㅍ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4370">
+                        <label class="form-check-label" for="inlineCheckbox">ㅎ</label>
+                    </div>
+                </div>
+                <div class="text-right" id="removeChoDouble">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4352">
+                        <label class="form-check-label" for="inlineCheckbox">ㄲ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4356">
+                        <label class="form-check-label" for="inlineCheckbox">ㄸ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4360">
+                        <label class="form-check-label" for="inlineCheckbox">ㅃ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4362">
+                        <label class="form-check-label" for="inlineCheckbox">ㅆ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4365">
+                        <label class="form-check-label" for="inlineCheckbox">ㅉ</label>
+                    </div>
+                </div>
+
+
+
+                <div class="text-right" id="removeJung">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4449">
                         <label class="form-check-label" for="inlineCheckbox">ㅏ</label>
@@ -266,7 +349,7 @@
                         <label class="form-check-label" for="inlineCheckbox">ㅣ</label>
                     </div>
                 </div>
-                <div class="text-right" id="removeMoPlus">
+                <div class="text-right" id="removeJungPlus">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4450">
                         <label class="form-check-label" for="inlineCheckbox">ㅐ</label>
@@ -312,6 +395,122 @@
                         <label class="form-check-label" for="inlineCheckbox">ㅢ</label>
                     </div>
                 </div>
+
+                <div class="text-right" id="removeJong">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4520">
+                        <label class="form-check-label" for="inlineCheckbox">ㄱ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4523">
+                        <label class="form-check-label" for="inlineCheckbox">ㄴ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4526">
+                        <label class="form-check-label" for="inlineCheckbox">ㄷ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4527">
+                        <label class="form-check-label" for="inlineCheckbox">ㄹ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4535">
+                        <label class="form-check-label" for="inlineCheckbox">ㅁ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4536">
+                        <label class="form-check-label" for="inlineCheckbox">ㅂ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4538">
+                        <label class="form-check-label" for="inlineCheckbox">ㅅ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4540">
+                        <label class="form-check-label" for="inlineCheckbox">ㅇ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4541">
+                        <label class="form-check-label" for="inlineCheckbox">ㅈ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4542">
+                        <label class="form-check-label" for="inlineCheckbox">ㅊ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4543">
+                        <label class="form-check-label" for="inlineCheckbox">ㅋ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4544">
+                        <label class="form-check-label" for="inlineCheckbox">ㅌ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4545">
+                        <label class="form-check-label" for="inlineCheckbox">ㅍ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4546">
+                        <label class="form-check-label" for="inlineCheckbox">ㅎ</label>
+                    </div>
+                </div>
+                <div class="text-right" id="removeJongDouble">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4521">
+                        <label class="form-check-label" for="inlineCheckbox">ㄲ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4539">
+                        <label class="form-check-label" for="inlineCheckbox">ㅆ</label>
+                    </div>
+                </div>
+                <div class="text-right" id="removeJongPlus">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4522">
+                        <label class="form-check-label" for="inlineCheckbox">ㄳ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4524">
+                        <label class="form-check-label" for="inlineCheckbox">ㄵ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4525">
+                        <label class="form-check-label" for="inlineCheckbox">ㄶ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4528">
+                        <label class="form-check-label" for="inlineCheckbox">ㄺ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4529">
+                        <label class="form-check-label" for="inlineCheckbox">ㄻ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4530">
+                        <label class="form-check-label" for="inlineCheckbox">ㄼ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4531">
+                        <label class="form-check-label" for="inlineCheckbox">ㄽ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4532">
+                        <label class="form-check-label" for="inlineCheckbox">ㄾ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4533">
+                        <label class="form-check-label" for="inlineCheckbox">ㄿ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4534">
+                        <label class="form-check-label" for="inlineCheckbox">ㅀ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4537">
+                        <label class="form-check-label" for="inlineCheckbox">ㅄ</label>
+                    </div>
+                </div>
+
                 <script>
                 $('input[type=checkbox]').change(function() {
                         var elements = null;
@@ -356,23 +555,6 @@
                         elements.forEach(element => {
                             element.classList.remove('hidebox');
                         });
-                        var removeTarget = $(this).val();
-                        if(removeTarget === "choremove"){
-                            elements = document.querySelectorAll('.hangul.cho');
-                            elements.forEach(element => {
-                                element.classList.add('hidebox');
-                            });
-                        }else if(removeTarget === "jungremove"){
-                            elements = document.querySelectorAll('.hangul.jung');
-                            elements.forEach(element => {
-                                element.classList.add('hidebox');
-                            });
-                        }else if(removeTarget === "jongremove"){
-                            elements = document.querySelectorAll('.hangul.jong');
-                            elements.forEach(element => {
-                                element.classList.add('hidebox');
-                            });
-                        }
                     });
                 </script>
                 <div class="row" id="wordList">
@@ -522,10 +704,15 @@ window.onbeforeprint = function () {
     $(".btn-edit").hide();
     $(".btn-delete").hide();
     $("#removeJa").hide();
-    $("#removeMo").hide();
     $("#removeJaPlus").hide();
-    $("#removeMoPlus").hide();
     $("#removeJaDouble").hide();
+    $("#removeCho").hide();
+    $("#removeChoDouble").hide();
+    $("#removeJung").hide();
+    $("#removeJungPlus").hide();
+    $("#removeJong").hide();
+    $("#removeJongPlus").hide();
+    $("#removeJongDouble").hide();
     $("#btnRadio1-btn").hide();
     $("#btnRadio2-btn").hide();
     $("#btnRadio3-btn").hide();
@@ -550,9 +737,16 @@ window.onafterprint = function () {
         $("#removeJa").show();
         $("#removeJaPlus").show();
         $("#removeJaDouble").show();
-    }else if(currentRemoveCheck === "mo"){
-        $("#removeMo").show();
-        $("#removeMoPlus").show();
+    }else if(currentRemoveCheck === "cho"){
+        $("#removeCho").show();
+        $("#removeChoDouble").show();
+    }else if(currentRemoveCheck === "jung"){
+        $("#removeJung").show();
+        $("#removeJungPlus").show();
+    }else if(currentRemoveCheck === "jong"){
+        $("#removeJong").show();
+        $("#removeJongPlus").show();
+        $("#removeJongDouble").show();
     }
     $("#btnRadio1-btn").show();
     $("#btnRadio2-btn").show();
@@ -650,30 +844,91 @@ deleteTest = function(element){
 }
 
 showJaCheck = function(){
-    $("#removeJa").show();
-    $("#removeJaPlus").show();
-    $("#removeJaDouble").show();
-    $("#removeMo").hide();
-    $("#removeMoPlus").hide();
+    jaCheckControl(false);
+    choCheckControl(true);
+    jungCheckControl(true);
+    jongCheckControl(true);
     currentRemoveCheck = "ja";
 }
 
-showMoCheck = function(){
-    $("#removeJa").hide();
-    $("#removeJaPlus").hide();
-    $("#removeJaDouble").hide();
-    $("#removeMo").show();
-    $("#removeMoPlus").show();
-    currentRemoveCheck = "mo";
+showChoCheck = function(){
+    jaCheckControl(true);
+    choCheckControl(false);
+    jungCheckControl(true);
+    jongCheckControl(true);
+    currentRemoveCheck = "cho";
+}
+
+showJungCheck = function(){
+    jaCheckControl(true);
+    choCheckControl(true);
+    jungCheckControl(false);
+    jongCheckControl(true);
+    currentRemoveCheck = "jung";
+}
+
+showJongCheck = function(){
+    jaCheckControl(true);
+    choCheckControl(true);
+    jungCheckControl(true);
+    jongCheckControl(false);
+    currentRemoveCheck = "jong";
 }
 
 hideCheck = function(){
-    $("#removeMo").hide();
-    $("#removeMoPlus").hide();
-    $("#removeJa").hide();
-    $("#removeJaPlus").hide();
-    $("#removeJaDouble").hide();
+    jaCheckControl(true);
+    choCheckControl(true);
+    jungCheckControl(true);
+    jongCheckControl(true);
     currentRemoveCheck = "";
+}
+
+jaCheckControl = function(isHide){
+    if(isHide){
+        $("#removeJa").hide();
+        $("#removeJaPlus").hide();
+        $("#removeJaDouble").hide();
+    }else{
+        $("#removeJa").show();
+        $("#removeJaPlus").show();
+        $("#removeJaDouble").show();
+    }
+}
+
+choCheckControl = function(isHide){
+    if(isHide){
+        $("#removeCho").hide();
+        $("#removeChoPlus").hide();
+        $("#removeChoDouble").hide();
+    }else{
+        $("#removeCho").show();
+        $("#removeChoPlus").show();
+        $("#removeChoDouble").show();
+    }
+}
+
+jungCheckControl = function(isHide){
+    if(isHide){
+        $("#removeJung").hide();
+        $("#removeJungPlus").hide();
+        $("#removeJungDouble").hide();
+    }else{
+        $("#removeJung").show();
+        $("#removeJungPlus").show();
+        $("#removeJungDouble").show();
+    }
+}
+
+jongCheckControl = function(isHide){
+    if(isHide){
+        $("#removeJong").hide();
+        $("#removeJongPlus").hide();
+        $("#removeJongDouble").hide();
+    }else{
+        $("#removeJong").show();
+        $("#removeJongPlus").show();
+        $("#removeJongDouble").show();
+    }
 }
 
 syncCheckRemove = function(){
