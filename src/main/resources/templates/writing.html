@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>초민정음</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- JQuery Core JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav" >
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="img/navbar-logo.svg" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="help">도움말</a></li>
+                        <li class="nav-item"><a class="nav-link" href="test">받아쓰기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="practice">긴글연습</a></li>
+                        <li class="nav-item"><a class="nav-link" href="writing">초성연습</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">초성연습</h2>
+                    <h3 class="section-subheading text-muted" id="titleSub">초성 획순에 따른 쓰기 순서를 학습합니다</h3>
+                </div>
+                <div class="text-right" id="writingJa">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4352">
+                        <label class="form-check-label" for="inlineCheckbox">ㄱ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4354">
+                        <label class="form-check-label" for="inlineCheckbox">ㄴ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4355">
+                        <label class="form-check-label" for="inlineCheckbox">ㄷ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4357">
+                        <label class="form-check-label" for="inlineCheckbox">ㄹ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4358">
+                        <label class="form-check-label" for="inlineCheckbox">ㅁ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4359">
+                        <label class="form-check-label" for="inlineCheckbox">ㅂ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4361">
+                        <label class="form-check-label" for="inlineCheckbox">ㅅ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4363">
+                        <label class="form-check-label" for="inlineCheckbox">ㅇ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4364">
+                        <label class="form-check-label" for="inlineCheckbox">ㅈ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4366">
+                        <label class="form-check-label" for="inlineCheckbox">ㅊ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4367">
+                        <label class="form-check-label" for="inlineCheckbox">ㅋ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4368">
+                        <label class="form-check-label" for="inlineCheckbox">ㅌ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4369">
+                        <label class="form-check-label" for="inlineCheckbox">ㅍ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineCheckbox" id="inlineCheckbox" value="4370">
+                        <label class="form-check-label" for="inlineCheckbox">ㅎ</label>
+                    </div>
+                </div>
+                <script>
+                    $('input[type=radio]').change(function() {
+                        addWriting($(this).val());
+                    });
+                </script>
+            </div>
+            <div class="row" id="writingArea"></div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-lg-start">Copyright &copy; Cho-MinJungum 2023</div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+
+window.onload = function(){
+}
+
+window.onbeforeprint = function () { 
+}
+
+window.onafterprint = function () { 
+}
+
+addWriting = function(writingValue){
+    $("#writingArea").html("");
+    var htmlElement = "";
+    for(var i = 0; i < 10; i++){
+        if(checkImage(writingValue, i)){
+            htmlElement += "<img class='hangul' src='hangul/" + writingValue + '_' + i + ".svg' style='height:100px; position:absolute;'>";
+        }
+    }
+    $("#writingArea").append(htmlElement);
+}
+
+checkImage = function(imageValue, imageOrder){
+    var http = new XMLHttpRequest();
+    try {
+        http.open('HEAD', 'hangul/' + imageValue + '_' + imageOrder + '.svg', false);
+        debugger;
+        http.send();
+    }catch(error){
+        return;
+    }
+    return http.status != 404;
+}
+        </script>
+    </body>
+</html>

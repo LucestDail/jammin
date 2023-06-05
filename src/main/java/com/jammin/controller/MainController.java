@@ -48,4 +48,12 @@ public class MainController {
 		mav.setViewName("help");
 		return mav;
 	}
+
+	@GetMapping("/writing")
+	public ModelAndView writing(Model model) {
+		log.info("{} >> MainController.writing", dateFormat.format(new Date()));
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("writing");
+		return mav;
+	}
 }
