@@ -140,22 +140,36 @@ addWriting = function(writingValue){
     var htmlElement = "";
     for(var i = 0; i < 10; i++){
         if(checkImage(writingValue, i)){
-            htmlElement += "<img class='hangul' src='hangul/" + writingValue + '_' + i + ".svg' style='height:100px; position:absolute;'>";
+            htmlElement += "<img class='hangul cho' src='hangul/" + writingValue + '_' + i + ".svg' style='height:500px; position:absolute; display:none;' order='" + i + "'>";
         }
     }
     $("#writingArea").append(htmlElement);
+
+    runAnimation();
 }
 
 checkImage = function(imageValue, imageOrder){
     var http = new XMLHttpRequest();
     try {
         http.open('HEAD', 'hangul/' + imageValue + '_' + imageOrder + '.svg', false);
-        debugger;
         http.send();
     }catch(error){
         return;
     }
     return http.status != 404;
+}
+
+runAnimation = function(){
+    var elements = $(".hangul"); 
+    fadeInElements(0, elements);
+}
+
+fadeInElements = function(index, elements){
+    if (index < elements.length) {
+        $(elements[index]).fadeIn(2000, function() {
+            fadeInElements(index + 1, elements); // Recursively call the function for the next element
+        });
+    }
 }
         </script>
     </body>
