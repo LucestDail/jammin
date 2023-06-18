@@ -824,6 +824,8 @@ editTest = function(data, fullWord){
         }
     }
     htmlElement += "</div>";
+    htmlElement += "<button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
+    htmlElement += "<button class='btn rounded-0 btn-orderdown' type='button' title='Up' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
     htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
     htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
     htmlElement += "</div>"
@@ -1127,6 +1129,8 @@ syncWordLineBreak = function(){
                     }
                 }
                 htmlElement += "</div>";
+                htmlElement += "<button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
+                htmlElement += "<button class='btn rounded-0 btn-orderdown' type='button' title='Up' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
                 htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
                 htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
                 htmlElement += "</div>"
@@ -1199,6 +1203,28 @@ syncTestNumber = function(isVisible){
         });
     }
     
+}
+
+orderUpSide = function(targetElement){
+    var currentOrderNumber = Number($(targetElement).parent().attr("ordering"));
+    if(currentOrderNumber === 0){
+        toastr.warning('초민정음 관리자', '처음 문제입니다.');
+        return;
+    }
+    $(targetElement).parent().attr("ordering", currentOrderNumber - 1);
+    $(targetElement).parent().prev().attr("ordering", currentOrderNumber);
+    syncHangulOrdering();
+}
+
+orderDownSide = function(targetElement){
+    var currentOrderNumber = Number($(targetElement).parent().attr("ordering"));
+    if(currentOrderNumber === orderingNumber - 1){
+        toastr.warning('초민정음 관리자', '마지막 문제입니다.');
+        return;
+    }
+    $(targetElement).parent().attr("ordering", currentOrderNumber + 1);
+    $(targetElement).parent().next().attr("ordering", currentOrderNumber);
+    syncHangulOrdering();
 }
         </script>
     </body>
