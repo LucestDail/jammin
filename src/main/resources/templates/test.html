@@ -797,8 +797,9 @@ addTest = function(data, fullWord){
 }
 
 editTest = function(data, fullWord){
+
     var jsonArray = JSON.parse(data);
-    var htmlElement = "<div class='hangulWrapper d-flex' style='width:100%;' ordering='" + orderingNumber++ +"'>";
+    var htmlElement = "<div class='hangulWrapper d-flex' style='width:100%;' ordering='" + currentEditElement.parent().attr("ordering") +"'>";
         htmlElement += "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
         htmlElement += "<div class='hangul-row-Wrapper' style='width:100%;'>";
     for(var i = 0; i < jsonArray.length; i++){
@@ -829,7 +830,8 @@ editTest = function(data, fullWord){
     htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
     htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
     htmlElement += "</div>"
-    currentEditElement.parent().html(htmlElement);
+    currentEditElement.parent().remove();
+    $("#wordList").append(htmlElement);
     $("#editWord").modal('toggle');
     $("#editWordValue").val("");
     syncCheckRemove();
