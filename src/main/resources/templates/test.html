@@ -551,79 +551,19 @@
                                     break;
                             }
                             if (this.checked) {
-                                var targetHideElements = null;
-                                var elements = null;
-                                var elementsExt = null;
-                                for (var i = 0; i < alls.length; i++) {
-                                    alls[i].checked = true;
-                                    targetHideElements = alls[i]
-                                    if($(targetHideElements).val().indexOf("_") === -1){
-                                        elements = $("." + $(targetHideElements).val());
-                                        if (targetHideElements.checked) {
-                                            elements.each(function(index, item){
-                                                $(item).addClass('hidebox');
-                                            })
-                                        } else {
-                                            elements.each(function(index, item){
-                                                $(item).removeClass('hidebox');
-                                            })
-                                        }
+                                for (var i = 1; i < alls.length; i++) {
+                                    if(alls[i].checked){
+                                        continue;
                                     }else{
-                                        elements = $("." + $(targetHideElements).val().split("_")[0]);
-                                        elementsExt = $("." + $(targetHideElements).val().split("_")[1]);
-                                        if (targetHideElements.checked) {
-                                            elements.each(function(index, item){
-                                                $(item).addClass('hidebox');
-                                            })
-                                            elementsExt.each(function(index, item){
-                                                $(item).addClass('hidebox');
-                                            })
-                                        } else {
-                                            elements.each(function(index, item){
-                                                $(item).removeClass('hidebox');
-                                            })
-                                            elementsExt.each(function(index, item){
-                                                $(item).removeClass('hidebox');
-                                            })
-                                        }
+                                        alls[i].click();
                                     }
                                 }
                             } else {
-                                var targetHideElements = null;
-                                var elements = null;
-                                var elementsExt = null;
-                                for (var i = 0; i < alls.length; i++) {
-                                    alls[i].checked = false;
-                                    targetHideElements = alls[i]
-                                    if($(targetHideElements).val().indexOf("_") === -1){
-                                        elements = $("." + $(targetHideElements).val());
-                                        if (targetHideElements.checked) {
-                                            elements.each(function(index, item){
-                                                $(item).addClass('hidebox');
-                                            })
-                                        } else {
-                                            elements.each(function(index, item){
-                                                $(item).removeClass('hidebox');
-                                            })
-                                        }
+                                for (var i = 1; i < alls.length; i++) {
+                                    if(!alls[i].checked){
+                                        continue;
                                     }else{
-                                        elements = $("." + $(targetHideElements).val().split("_")[0]);
-                                        elementsExt = $("." + $(targetHideElements).val().split("_")[1]);
-                                        if (targetHideElements.checked) {
-                                            elements.each(function(index, item){
-                                                $(item).addClass('hidebox');
-                                            })
-                                            elementsExt.each(function(index, item){
-                                                $(item).addClass('hidebox');
-                                            })
-                                        } else {
-                                            elements.each(function(index, item){
-                                                $(item).removeClass('hidebox');
-                                            })
-                                            elementsExt.each(function(index, item){
-                                                $(item).removeClass('hidebox');
-                                            })
-                                        }
+                                        alls[i].click();
                                     }
                                 }
                             }
