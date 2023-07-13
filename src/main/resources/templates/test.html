@@ -821,18 +821,18 @@ addTest = function(data, fullWord){
         if(i % lineBreakCount === 0){
             htmlElement += "<div class='row hangul-row' style='height:170px;'>";
         }
-        htmlElement += "<div class='hangulSet' style='width:70px; height:100px;'>";
+        htmlElement += "<div class='hangulSet' style='width:100px; height:100px;'>";
         if(jsonArray[i].specialFlag){
-            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
+            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:65px;'></div>";
         }else{
-            htmlElement +=  "<div class='cho'><img class='hangul cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height:100px; position:absolute;'></div>";
-            htmlElement +=  "<div class='jung'><img class='hangul jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:100px; position:absolute;'></div>";
+            htmlElement +=  "<div class='cho'><img class='hangul kccdodamdodma-font cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height:65px; position:absolute;'></div>";
+            htmlElement +=  "<div class='jung'><img class='hangul kccdodamdodma-font jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:65px; position:absolute;'></div>";
             if(jsonArray[i].jongsung){
-                htmlElement += "<div class='jong'><img class='hangul jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height:100px; position:absolute;'></div>";
+                htmlElement += "<div class='jong'><img class='hangul kccdodamdodma-font jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height:65px; position:absolute;'></div>";
             }
         }
         htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
-        htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul emptyWordSvg' src='hangul/000000.svg' style='height:100px;position: absolute;top: 70px;'></div>";
+        htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul kccdodamdodma-font emptyWordSvg' src='hangul/000000.svg' style='height:65px;position: absolute;top: 70px;'></div>";
         htmlElement += "</div>";
         htmlElement += "</div>";
         if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){
@@ -860,18 +860,18 @@ editTest = function(data, fullWord){
         if(i % lineBreakCount === 0){
             htmlElement += "<div class='row hangul-row' style='height:170px;'>";
         }
-        htmlElement += "<div class='hangulSet' style='width:70px; height:100px;'>";
+        htmlElement += "<div class='hangulSet' style='width:100px; height:100px;'>";
         if(jsonArray[i].specialFlag){
-            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
+            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:65px;'></div>";
         }else{
-            htmlElement +=  "<div class='cho'><img class='hangul cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height:100px; position:absolute;'></div>";
-            htmlElement +=  "<div class='jung'><img class='hangul jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:100px; position:absolute;'></div>";
+            htmlElement +=  "<div class='cho'><img class='hangul kccdodamdodma-font cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height:65px; position:absolute;'></div>";
+            htmlElement +=  "<div class='jung'><img class='hangul kccdodamdodma-font jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:65px; position:absolute;'></div>";
             if(jsonArray[i].jongsung){
-                htmlElement += "<div class='jong'><img class='hangul jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height:100px; position:absolute;'></div>";
+                htmlElement += "<div class='jong'><img class='hangul kccdodamdodma-font jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height:65px; position:absolute;'></div>";
             }
         }
         htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
-        htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul emptyWordSvg' src='hangul/000000.svg' style='height:100px;position: absolute;top: 70px;'></div>";
+        htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul kccdodamdodma-font emptyWordSvg' src='hangul/000000.svg' style='height:65px;position: absolute;top: 70px;'></div>";
         htmlElement += "</div>";
         htmlElement += "</div>";
         if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){
@@ -1172,18 +1172,18 @@ syncWordLineBreak = function(){
                     if(i % lineBreakCount === 0){
                         htmlElement += "<div class='row hangul-row' style='height:170px;'>";
                     }
-                    htmlElement += "<div class='hangulSet' style='width:70px; height:100px;'>";
+                    htmlElement += "<div class='hangulSet' style='width:100px; height:100px;'>";
                     if(jsonArray[i].specialFlag){
-                        htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:100px;'></div>";
+                        htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height:65px;'></div>";
                     }else{
-                        htmlElement +=  "<div class='cho'><img class='hangul cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height:100px; position:absolute;'></div>";
-                        htmlElement +=  "<div class='jung'><img class='hangul jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:100px; position:absolute;'></div>";
+                        htmlElement +=  "<div class='cho'><img class='hangul kccdodamdodma-font cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height:65px; position:absolute;'></div>";
+                        htmlElement +=  "<div class='jung'><img class='hangul kccdodamdodma-font jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height:65px; position:absolute;'></div>";
                         if(jsonArray[i].jongsung){
-                            htmlElement += "<div class='jong'><img class='hangul jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height:100px; position:absolute;'></div>";
+                            htmlElement += "<div class='jong'><img class='hangul kccdodamdodma-font jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height:65px; position:absolute;'></div>";
                         }
                     }
                     htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
-                    htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul emptyWordSvg' src='hangul/000000.svg' style='height:100px;position: absolute;top: 70px;'></div>";
+                    htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul kccdodamdodma-font emptyWordSvg' src='hangul/000000.svg' style='height:65px;position: absolute;top: 70px;'></div>";
                     htmlElement += "</div>";
                     htmlElement += "</div>";
                     if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){

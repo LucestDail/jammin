@@ -1,127 +1,74 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 598.28 598.28">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: 0 0 0 0 9.92 9.92 9.92 9.92;
+      }
 
-<svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
-   version="1.1"
-   id="svg5"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
-   sodipodi:docname="ㄹㄱ.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     showgrid="false"
-     inkscape:zoom="0.71891835"
-     inkscape:cx="264.98141"
-     inkscape:cy="566.82376"
-     inkscape:window-width="1920"
-     inkscape:window-height="1027"
-     inkscape:window-x="-1"
-     inkscape:window-y="25"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs2">
-    <rect
-       x="361.65442"
-       y="485.45151"
-       width="376.95519"
-       height="322.70702"
-       id="rect1568" />
-    <rect
-       x="102.93241"
-       y="219.77461"
-       width="401.9928"
-       height="223.94754"
-       id="rect1562" />
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        fill: none;
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-6, .cls-7, .cls-8 {
+        stroke-width: 3px;
+      }
+
+      .cls-3 {
+        stroke-dasharray: 0 0 0 0 11.08 11.08 11.08 11.08;
+      }
+
+      .cls-4 {
+        stroke-dasharray: 0 0 0 0 0 0 11.08 11.08 11.08 11.08 11.08 11.08;
+      }
+
+      .cls-5 {
+        stroke-linecap: round;
+        stroke-width: 20px;
+      }
+
+      .cls-6 {
+        stroke-dasharray: 0 0 0 0 0 0 9.92 9.92 9.92 9.92 9.92 9.92;
+      }
+
+      .cls-7 {
+        stroke-dasharray: 0 0 0 0 9.44 9.44 9.44 9.44;
+      }
+
+      .cls-8 {
+        stroke-dasharray: 0 0 0 0 0 0 9.44 9.44 9.44 9.44 9.44 9.44;
+      }
+    </style>
   </defs>
-  <g
-     inkscape:label="레이어 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     style="display:inline">
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
-       id="rect1428"
-       width="174.44611"
-       height="0.36802974"
-       x="16.561338"
-       y="45.267658" />
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
-       id="rect1432"
-       width="0.36802974"
-       height="192.11153"
-       x="16.561338"
-       y="45.267658" />
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
-       id="rect1438"
-       width="0.36802673"
-       height="191.37547"
-       x="190.63939"
-       y="45.267658" />
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
-       id="rect1440"
-       width="174.44611"
-       height="0.73605949"
-       x="17.297398"
-       y="236.64313" />
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
-       id="rect1444"
-       width="172.97397"
-       height="0.36802974"
-       x="17.297398"
-       y="171.50185" />
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
-       id="rect1450"
-       width="173.71004"
-       height="0.36802974"
-       x="16.929367"
-       y="100.84015" />
-    <rect
-       style="fill:#000000;stroke:#000000;stroke-width:0.264583"
-       id="rect1452"
-       width="0.36802974"
-       height="125.49814"
-       x="103.41635"
-       y="46.003716" />
-    <text
-       xml:space="preserve"
-       style="font-size:3.175px;white-space:pre;inline-size:46.2813;display:inline;fill:#000000;stroke:#000000;stroke-width:0.264583"
-       x="32.754646"
-       y="65.877319"
-       id="text1508" />
-    <text
-       xml:space="preserve"
-       transform="matrix(0.32666401,0,0,0.37126163,7.8732383,85.299775)"
-       id="text1560"
-       style="white-space:pre;shape-inside:url(#rect1562);display:inline;fill:#000000;stroke:#000000"><tspan
-         x="102.93164"
-         y="392.79777"
-         id="tspan2834"><tspan
-           style="font-size:192px;-inkscape-font-specification:'sans-serif, Normal'"
-           id="tspan2832">ㄹㄱ</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       transform="scale(0.26458333)"
-       id="text1566"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:192px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;shape-inside:url(#rect1568);display:inline;fill:#000000;stroke:#000000" />
+  <line class="cls-2" x1="1.5" y1="596.78" x2="1.5" y2="1.5"/>
+  <line class="cls-2" x1="596.78" y1="596.78" x2="596.78" y2="1.5"/>
+  <line class="cls-2" x1="1.5" y1="1.5" x2="596.78" y2="1.5"/>
+  <line class="cls-2" x1="1.5" y1="596.78" x2="596.78" y2="596.78"/>
+  <g>
+    <line class="cls-2" x1="1.5" y1="395.18" x2="6.5" y2="395.18"/>
+    <line class="cls-1" x1="16.42" y1="395.18" x2="51.14" y2="395.18"/>
+    <line class="cls-6" x1="56.1" y1="395.18" x2="586.82" y2="395.18"/>
+    <line class="cls-2" x1="591.78" y1="395.18" x2="596.78" y2="395.18"/>
   </g>
+  <g>
+    <line class="cls-2" x1="1.5" y1="199.93" x2="6.5" y2="199.93"/>
+    <line class="cls-7" x1="15.94" y1="199.93" x2="48.96" y2="199.93"/>
+    <line class="cls-8" x1="53.68" y1="199.93" x2="388.63" y2="199.93"/>
+    <line class="cls-2" x1="393.35" y1="199.93" x2="398.35" y2="199.93"/>
+  </g>
+  <g>
+    <line class="cls-2" x1="398.35" y1="199.93" x2="398.35" y2="194.93"/>
+    <line class="cls-3" x1="398.35" y1="183.84" x2="398.35" y2="145.05"/>
+    <line class="cls-4" x1="398.35" y1="139.51" x2="398.35" y2="12.04"/>
+    <line class="cls-2" x1="398.35" y1="6.5" x2="398.35" y2="1.5"/>
+  </g>
+  <line id="_" data-name="ㄹ" class="cls-5" x1="163.46" y1="564.39" x2="163.46" y2="507.7"/>
+  <line id="_-2" data-name="ㄲ" class="cls-5" x1="251.38" y1="564.82" x2="163.33" y2="564.82"/>
+  <line id="_-3" data-name="ㄲ" class="cls-5" x1="374.35" y1="569.91" x2="374.35" y2="442.35"/>
+  <line id="_-4" data-name="ㄲ" class="cls-5" x1="251.38" y1="439.33" x2="163.33" y2="439.33"/>
+  <line id="_-5" data-name="ㄲ" class="cls-5" x1="251.38" y1="501.52" x2="163.33" y2="501.52"/>
+  <line id="_-6" data-name="ㄹ" class="cls-5" x1="251.33" y1="501.86" x2="251.33" y2="445.17"/>
+  <line id="_-7" data-name="ㄲ" class="cls-5" x1="374.35" y1="439.33" x2="286.3" y2="439.33"/>
 </svg>
