@@ -740,7 +740,7 @@
         <script src="js/scripts.js"></script>
         <script>
 var lineBreakCount = 10;
-var currentFontSize = null;
+var currentFontSize = 60;
 var requestHangulArray = [];
 var currentEditElement = null;
 var currentRemoveCheck = "ja";
@@ -1056,33 +1056,33 @@ syncRadioRemove = function(){
 
 editFontConfig = function(clickElement){
     if($(clickElement).val() === "small"){
-        currentFontSize = 100
+        currentFontSize = 60
     }else if($(clickElement).val() === "middle"){
-        currentFontSize = 150
+        currentFontSize = 120
     }else if($(clickElement).val() === "big"){
-        currentFontSize = 200
+        currentFontSize = 180
     }else{
-        currentFontSize = 100
+        currentFontSize = 60
     }
     syncWordLineBreak();
     $(".hangul").each(function(index, item){
         $(item).css("height", Number(currentFontSize));
     })
     $(".emptyWordSvg").each(function(index, item){
-        $(item).css("top", Number(currentFontSize) * 0.7);
+        $(item).css("top", Number(currentFontSize) * 1);
     })
     $(".hangulSet").each(function(index, item){
-        $(item).css("width", Number(currentFontSize) * 0.7);
+        $(item).css("width", Number(currentFontSize) * 1);
     })
     $(".hangul-row").each(function(index, item){
-        if(currentFontSize === 100){
-            $(item).css("height", Number(currentFontSize) * 1.6);
-        }else if(currentFontSize === 150){
-            $(item).css("height", Number(currentFontSize) * 1.6);
-        }else if(currentFontSize === 200){
-            $(item).css("height", Number(currentFontSize) * 1.7);
+        if(currentFontSize === 60){
+            $(item).css("height", Number(currentFontSize) * 2);
+        }else if(currentFontSize === 120){
+            $(item).css("height", Number(currentFontSize) * 2);
+        }else if(currentFontSize === 180){
+            $(item).css("height", Number(currentFontSize) * 2.5);
         }else{
-            $(item).css("height", Number(currentFontSize) * 1.6);
+            $(item).css("height", Number(currentFontSize) * 2);
         }
     })
 }
@@ -1093,20 +1093,20 @@ syncFontConfig = function(){
             $(item).css("height", Number(currentFontSize));
         })
         $(".emptyWordSvg").each(function(index, item){
-            $(item).css("top", Number(currentFontSize) * 0.7);
+            $(item).css("top", Number(currentFontSize) * 1);
         })
         $(".hangulSet").each(function(index, item){
-            $(item).css("width", Number(currentFontSize) * 0.7);
+            $(item).css("width", Number(currentFontSize) * 1);
         })
         $(".hangul-row").each(function(index, item){
-            if(currentFontSize === 100){
-                $(item).css("height", Number(currentFontSize) * 1.6);
-            }else if(currentFontSize === 150){
-                $(item).css("height", Number(currentFontSize) * 1.6);
-            }else if(currentFontSize === 200){
-                $(item).css("height", Number(currentFontSize) * 1.7);
+            if(currentFontSize === 60){
+                $(item).css("height", Number(currentFontSize) * 2);
+            }else if(currentFontSize === 120){
+                $(item).css("height", Number(currentFontSize) * 2);
+            }else if(currentFontSize === 180){
+                $(item).css("height", Number(currentFontSize) * 2.5);
             }else{
-                $(item).css("height", Number(currentFontSize) * 1.6);
+                $(item).css("height", Number(currentFontSize) * 2);
             }
         })
     }
@@ -1130,11 +1130,11 @@ syncHangulOrdering = function(){
 
 syncWordLineBreak = function(){
     lineBreakCount = 10;
-    if(currentFontSize === 100){
+    if(currentFontSize === 60){
         lineBreakCount = 10;
-    }else if(currentFontSize === 150){
+    }else if(currentFontSize === 120){
         lineBreakCount = 6;
-    }else if(currentFontSize === 200){
+    }else if(currentFontSize === 180){
         lineBreakCount = 5;
     }else{
         lineBreakCount = 10;
@@ -1206,20 +1206,20 @@ syncWordLineBreak = function(){
                         $(item).css("height", Number(currentFontSize));
                     })
                     $(".emptyWordSvg").each(function(index, item){
-                        $(item).css("top", Number(currentFontSize) * 0.7);
+                        $(item).css("top", Number(currentFontSize) * 1);
                     })
                     $(".hangulSet").each(function(index, item){
-                        $(item).css("width", Number(currentFontSize) * 0.7);
+                        $(item).css("width", Number(currentFontSize) * 1);
                     })
                     $(".hangul-row").each(function(index, item){
-                        if(currentFontSize === 100){
-                            $(item).css("height", Number(currentFontSize) * 1.6);
-                        }else if(currentFontSize === 150){
-                            $(item).css("height", Number(currentFontSize) * 1.6);
-                        }else if(currentFontSize === 200){
-                            $(item).css("height", Number(currentFontSize) * 1.7);
+                        if(currentFontSize === 60){
+                            $(item).css("height", Number(currentFontSize) * 2);
+                        }else if(currentFontSize === 120){
+                            $(item).css("height", Number(currentFontSize) * 2);
+                        }else if(currentFontSize === 180){
+                            $(item).css("height", Number(currentFontSize) * 2.5);
                         }else{
-                            $(item).css("height", Number(currentFontSize) * 1.6);
+                            $(item).css("height", Number(currentFontSize) * 2);
                         }
 
                     })
