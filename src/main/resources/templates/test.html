@@ -758,6 +758,8 @@ window.onbeforeprint = function () {
     $("#userInfo").show();
     $(".btn-edit").hide();
     $(".btn-delete").hide();
+    $(".btn-orderup").hide();
+    $(".btn-orderdown").hide();
     $("#removeJa").hide();
     $("#removeJaPlus").hide();
     $("#removeJaDouble").hide();
@@ -788,6 +790,8 @@ window.onafterprint = function () {
     $("#userInfo").hide();
     $(".btn-edit").show();
     $(".btn-delete").show();
+    $(".btn-orderup").show();
+    $(".btn-orderdown").show();
     if(currentRemoveCheck === "ja"){
         $("#removeJa").show();
         $("#removeJaPlus").show();
