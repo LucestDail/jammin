@@ -19,6 +19,58 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+        <style>
+            @media print {
+            body {
+                overflow: hidden;
+            }
+            .print-line-break {
+                page-break-after: always; /* Add page break after each printed page */
+            }
+            }
+            .hidebox{
+                display:none;
+            }
+            .printAreaWrapper{
+                display: flex;
+                border: solid black 2px;
+                height: 5.5rem;
+                border-radius: 8px;
+            }
+            .printAreaLeft{
+                font-size: 2rem;
+                width: 50%;
+            }
+            .printAreaRight{
+                font-size: 1rem;
+                width: 50%;
+            }
+            .printAreaLeftLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: left;
+            }
+            .printAreaLeftLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: left;
+            }
+            .printAreaRightLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 15px;
+                text-align: right;
+            }
+            .printAreaRightLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 15px;
+                text-align: right;
+            }
+            .printAreaRightLine3{
+                margin: 10px 10px 10px 20px;
+                line-height: 15px;
+                text-align: right;
+            }
+        </style>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -42,15 +94,24 @@
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
+                <div class="" id="printArea">
+                    <div class="printAreaWrapper">
+                        <div class="printAreaLeft">
+                            <p class="kccdodamdodma-font printAreaLeftLine1">초민정음</h2>
+                            <p class="kccdodamdodma-font printAreaLeftLine2">긴글연습</h2>
+                        </div>
+                        <div class="printAreaRight">
+                            <p class="kccdodamdodma-font printAreaRightLine1">초등학교</h3>
+                            <p class="kccdodamdodma-font printAreaRightLine2">학년 &nbsp;&nbsp;&nbsp;반&nbsp;&nbsp;&nbsp;번호</h3>
+                            <p class="kccdodamdodma-font printAreaRightLine3">이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                        </div>
+                    </div>
+                    <h3 class="kccdodamdodma-font">* 긴글연습을 해봅시다.</h3>
+                </div>
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">긴글연습</h2>
+                    <h2 class="section-heading text-uppercase"id="titleMain">긴글연습</h2>
                     <h3 class="section-subheading text-muted" id="titleSub">알림장을 비롯해 생활속에서 활용할 수 있는 쓰기 활동지를 제작합니다.</h3>
                 </div>
-                <p class="text-right" id="userInfo">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;학년&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;반&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    이름&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                 <div class="row" id="sentenceList">
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -211,9 +272,12 @@ var currentEditElement = null;
 
 window.onload = function(){
     $("#userInfo").hide();
+    $("#printArea").hide();
 }
 
 window.onbeforeprint = function () { 
+    $("#printArea").show();
+    $("#titleMain").hide();
     $("#addSentenceButton").hide();
     $("#printTest").hide();
     $("#titleSub").hide();
@@ -225,6 +289,8 @@ window.onbeforeprint = function () {
 }
 
 window.onafterprint = function () { 
+    $("#printArea").hide();
+    $("#titleMain").show();
     $("#addSentenceButton").show();
     $("#printTest").show();
     $("#titleSub").show();
