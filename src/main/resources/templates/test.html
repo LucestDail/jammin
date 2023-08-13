@@ -55,9 +55,29 @@
         </nav>
         <!-- Services-->
         <section class="page-section" id="services">
+
             <div class="container">
+                <div class="text-center" id="printArea">
+                    <div class="">
+                        <div class="">
+
+                        </div>
+                        <div class="">
+                            <div class="">
+
+                            </div>
+                            <div class="">
+
+                            </div>
+                            <div class="">
+
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="section-heading text-uppercase" id="printMain">받아쓰기 출력</h2>
+                </div>
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">받아쓰기</h2>
+                    <h2 class="section-heading text-uppercase" id="titleMain">받아쓰기</h2>
                     <h3 class="section-subheading text-muted" id="titleSub">한글 자모의 소릿값을 연습할 수 있는 받아쓰기 시험지를 선생님의 수업 의도에 맞게 제작합니다.</h3>
                 </div>
                 <p class="text-right" id="userInfo">
@@ -747,12 +767,15 @@ var currentRemoveCheck = "ja";
 var orderingNumber = 0;
 window.onload = function(){
     $("#userInfo").hide();
+    //$("#printArea").hide();
     showJaCheck();
 }
 
 window.onbeforeprint = function () { 
+    //$("#printArea").show();
     $("#addWordButton").hide();
     $("#printTest").hide();
+    $("#titleMain").hide();
     $("#titleSub").hide();
     $("#mainNav").hide();
     $("#userInfo").show();
@@ -783,8 +806,10 @@ window.onbeforeprint = function () {
 
 
 window.onafterprint = function () { 
+    //$("#printArea").hide();
     $("#addWordButton").show();
     $("#printTest").show();
+    $("#titleMain").show();
     $("#titleSub").show();
     $("#mainNav").show();
     $("#userInfo").hide();
