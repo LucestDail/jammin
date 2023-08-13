@@ -31,7 +31,45 @@
             .hidebox{
                 display:none;
             }
-
+            .printAreaWrapper{
+                display: flex;
+                border: solid black 2px;
+                height: 5.5rem;
+                border-radius: 8px;
+            }
+            .printAreaLeft{
+                font-size: 2rem;
+                width: 50%;
+            }
+            .printAreaRight{
+                font-size: 1rem;
+                width: 50%;
+            }
+            .printAreaLeftLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: left;
+            }
+            .printAreaLeftLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: left;
+            }
+            .printAreaRightLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 15px;
+                text-align: right;
+            }
+            .printAreaRightLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 15px;
+                text-align: right;
+            }
+            .printAreaRightLine3{
+                margin: 10px 10px 10px 20px;
+                line-height: 15px;
+                text-align: right;
+            }
         </style>
     </head>
     <body id="page-top">
@@ -57,24 +95,19 @@
         <section class="page-section" id="services">
 
             <div class="container">
-                <div class="text-center" id="printArea">
-                    <div class="">
-                        <div class="">
-
+                <div class="" id="printArea">
+                    <div class="printAreaWrapper">
+                        <div class="printAreaLeft">
+                            <p class="kccdodamdodma-font printAreaLeftLine1">초민정음</h2>
+                            <p class="kccdodamdodma-font printAreaLeftLine2">받아쓰기</h2>
                         </div>
-                        <div class="">
-                            <div class="">
-
-                            </div>
-                            <div class="">
-
-                            </div>
-                            <div class="">
-
-                            </div>
+                        <div class="printAreaRight">
+                            <p class="kccdodamdodma-font printAreaRightLine1">초등학교</h3>
+                            <p class="kccdodamdodma-font printAreaRightLine2">학년 &nbsp;&nbsp;&nbsp;반&nbsp;&nbsp;&nbsp;번호</h3>
+                            <p class="kccdodamdodma-font printAreaRightLine3">이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
                         </div>
                     </div>
-                    <h2 class="section-heading text-uppercase" id="printMain">받아쓰기 출력</h2>
+                    <h3 class="kccdodamdodma-font">* 자음과 모음의 소리를 생각하며 받아쓰기를 해봅시다.</h3>
                 </div>
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase" id="titleMain">받아쓰기</h2>
@@ -767,12 +800,12 @@ var currentRemoveCheck = "ja";
 var orderingNumber = 0;
 window.onload = function(){
     $("#userInfo").hide();
-    //$("#printArea").hide();
+    $("#printArea").hide();
     showJaCheck();
 }
 
 window.onbeforeprint = function () { 
-    //$("#printArea").show();
+    $("#printArea").show();
     $("#addWordButton").hide();
     $("#printTest").hide();
     $("#titleMain").hide();
@@ -806,7 +839,7 @@ window.onbeforeprint = function () {
 
 
 window.onafterprint = function () { 
-    //$("#printArea").hide();
+    $("#printArea").hide();
     $("#addWordButton").show();
     $("#printTest").show();
     $("#titleMain").show();
