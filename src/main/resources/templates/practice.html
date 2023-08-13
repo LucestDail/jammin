@@ -21,12 +21,15 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
         <style>
             @media print {
-            body {
-                overflow: hidden;
+                body {
+                    overflow: hidden;
+                }
+                .print-line-break {
+                    page-break-after: always; /* Add page break after each printed page */
+                }
             }
-            .print-line-break {
-                page-break-after: always; /* Add page break after each printed page */
-            }
+            .no-padding{
+                padding: 0 !important;
             }
             .hidebox{
                 display:none;
@@ -275,7 +278,8 @@ window.onload = function(){
     $("#printArea").hide();
 }
 
-window.onbeforeprint = function () { 
+window.onbeforeprint = function () {
+    $("#services").addClass("no-padding")
     $("#printArea").show();
     $("#titleMain").hide();
     $("#addSentenceButton").hide();
@@ -288,7 +292,8 @@ window.onbeforeprint = function () {
     $("#fontConfigModalButton").hide();
 }
 
-window.onafterprint = function () { 
+window.onafterprint = function () {
+    $("#services").removeClass("no-padding")
     $("#printArea").hide();
     $("#titleMain").show();
     $("#addSentenceButton").show();
