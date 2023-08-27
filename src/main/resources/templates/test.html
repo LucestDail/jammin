@@ -37,40 +37,40 @@
             .printAreaWrapper{
                 display: flex;
                 border: solid black 2px;
-                height: 5.5rem;
+                height: 8rem;
                 border-radius: 8px;
             }
             .printAreaLeft{
-                font-size: 2rem;
+                font-size: 3rem;
                 width: 50%;
             }
             .printAreaRight{
-                font-size: 1rem;
+                font-size: 2.5rem;
                 width: 50%;
             }
             .printAreaLeftLine1{
                 margin: 10px 10px 10px 20px;
-                line-height: 30px;
+                line-height: 50px;
                 text-align: left;
             }
             .printAreaLeftLine2{
                 margin: 10px 10px 10px 20px;
-                line-height: 30px;
+                line-height: 50px;
                 text-align: left;
             }
             .printAreaRightLine1{
                 margin: 10px 10px 10px 20px;
-                line-height: 15px;
+                line-height: 30px;
                 text-align: right;
             }
             .printAreaRightLine2{
                 margin: 10px 10px 10px 20px;
-                line-height: 15px;
+                line-height: 30px;
                 text-align: right;
             }
             .printAreaRightLine3{
                 margin: 10px 10px 10px 20px;
-                line-height: 15px;
+                line-height: 30px;
                 text-align: right;
             }
         </style>
@@ -791,8 +791,8 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
-var lineBreakCount = 10;
-var currentFontSize = 60;
+var lineBreakCount = 6;
+var currentFontSize = 80;
 var requestHangulArray = [];
 var currentEditElement = null;
 var currentRemoveCheck = "ja";
@@ -1195,9 +1195,9 @@ syncWordLineBreak = function(){
     lineBreakCount = 10;
     if(currentFontSize === 60){
         lineBreakCount = 10;
-    }else if(currentFontSize === 120){
+    }else if(currentFontSize === 80){
         lineBreakCount = 6;
-    }else if(currentFontSize === 180){
+    }else if(currentFontSize === 100){
         lineBreakCount = 5;
     }else{
         lineBreakCount = 10;
