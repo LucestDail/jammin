@@ -56,4 +56,12 @@ public class MainController {
 		mav.setViewName("writing");
 		return mav;
 	}
+
+	@GetMapping("/paper")
+	public ModelAndView paper(Model model) {
+		log.info("{} >> MainController.paper", dateFormat.format(new Date()));
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("paper");
+		return mav;
+	}
 }
