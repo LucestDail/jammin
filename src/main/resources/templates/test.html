@@ -73,6 +73,9 @@
                 line-height: 30px;
                 text-align: right;
             }
+            .beforePrintArea{
+                max-width: 100%;
+            }
         </style>
     </head>
     <body id="page-top">
@@ -121,18 +124,15 @@
                     <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addWord" id="addWordButton">
                         문제 추가하기
                     </button>
-                    <!--
                     <div class="dropdown">
                         <button class="btn btn-outline-dark dropdown-toggle" type="button" id="fontConfigMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             글자크기 조정하기
                         </button>
                         <div class="dropdown-menu" aria-labelledby="fontConfigMenu">
                             <button class="dropdown-item" type="button" value="small" onclick="editFontConfig(this)">작게</button>
-                            <button class="dropdown-item" type="button" value="middle" onclick="editFontConfig(this)">중간</button>
-                            <button class="dropdown-item" type="button" value="big" onclick="editFontConfig(this)">크게</button>
+                            <button class="dropdown-item" type="button" value="middle" onclick="editFontConfig(this)">보통</button>
                         </div>
                     </div>
-                    -->
                     <button type="button" class="btn btn-outline-dark" id="printTest">
                         출력하기
                     </button>
@@ -793,7 +793,7 @@
         <script src="js/scripts.js"></script>
         <script>
 var lineBreakCount = 6;
-var currentFontSize = 80;
+var currentFontSize = 82;
 var requestHangulArray = [];
 var currentEditElement = null;
 var currentRemoveCheck = "ja";
@@ -834,8 +834,8 @@ window.onbeforeprint = function () {
     $("#btnRadio5-btn").hide();
     $("#fontConfigMenu").hide();
     syncPrintLineBreak();
-    syncTestNumber(true);
     toastr.remove();
+    $(".container").addClass("beforePrintArea");
 }
 
 
@@ -873,7 +873,7 @@ window.onafterprint = function () {
     $("#btnRadio4-btn").show();
     $("#btnRadio5-btn").show();
     $("#fontConfigMenu").show();
-    syncTestNumber(false);
+    $(".container").removeClass("beforePrintArea");
 }
 
 addTest = function(data, fullWord){
@@ -1122,11 +1122,9 @@ editFontConfig = function(clickElement){
     if($(clickElement).val() === "small"){
         currentFontSize = 60
     }else if($(clickElement).val() === "middle"){
-        currentFontSize = 120
-    }else if($(clickElement).val() === "big"){
-        currentFontSize = 180
+        currentFontSize = 82
     }else{
-        currentFontSize = 60
+        currentFontSize = 82
     }
     syncWordLineBreak();
     $(".hangul").each(function(index, item){
@@ -1190,13 +1188,14 @@ syncHangulOrdering = function(){
 
     var parentContainer = divElements[0].parentNode;
     divArray.forEach(div => parentContainer.appendChild(div));
+    
 }
 
 syncWordLineBreak = function(){
     lineBreakCount = 10;
     if(currentFontSize === 60){
         lineBreakCount = 10;
-    }else if(currentFontSize === 80){
+    }else if(currentFontSize === 82){
         lineBreakCount = 8;
     }else if(currentFontSize === 100){
         lineBreakCount = 5;
@@ -1231,7 +1230,8 @@ syncWordLineBreak = function(){
                 var jsonArray = JSON.parse(data);
                 var htmlElement = "<div class='hangulWrapper d-flex' style='width:100%;' ordering='" + targetWordOrdering +"'>";
                     htmlElement += "<input class='fullWord' type='hidden' value='" + targetWordSentence + "'>";
-                    htmlElement += "<div class='hangul-row-Wrapper' style='width:100%;'>";
+                    // htmlElement += "<div class='hangul-row-Wrapper' style='width:100%;'>";
+                    htmlElement += "<div class='hangul-row-Wrapper' style=''>";
                 for(var i = 0; i < jsonArray.length; i++){
                     if(i % lineBreakCount === 0){
                         htmlElement += "<div class='row hangul-row' style='height:170px;'>";
@@ -1255,7 +1255,7 @@ syncWordLineBreak = function(){
                     }
                 }
                 htmlElement += "</div>";
-                htmlElement += "<button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
+                htmlElement += "<button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)' style='margin-left:40px;'><i class='fas fa-arrow-up'></i></button>"
                 htmlElement += "<button class='btn rounded-0 btn-orderdown' type='button' title='Up' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
                 htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
                 htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
@@ -1289,6 +1289,7 @@ syncWordLineBreak = function(){
                     })
                 }
                 targetWordElement.remove();
+                syncTestNumber();
             }
         })
         .fail(function (error) {
@@ -1297,7 +1298,6 @@ syncWordLineBreak = function(){
             console.log('문제 수정 실패');
         });
     })
-    
 }
 
 syncPrintLineBreak = function(){
@@ -1317,19 +1317,19 @@ syncPrintLineBreak = function(){
     });
 }
 
-syncTestNumber = function(isVisible){
+syncTestNumber = function(){
     var orderCount = 1;
-    if(isVisible){
-        $(".hangulWrapper").each(function(index, item){
-            $(item).prepend("<p class='orderCount' style='padding-top:10px;'>" + orderCount++ + ". </p>");
-        });
-    }else{
-        $(".hangulWrapper").each(function(index, item){
-            $(item).find(".orderCount").remove();
-        });
-    }
-    
+
+    $(".hangulWrapper").each(function(index, item){
+        $(item).find(".orderCount").remove();
+    });
+
+    $(".hangulWrapper").each(function(index, item){
+        $(item).prepend("<p class='orderCount' style='padding-top:10px;'>" + orderCount++ + ". </p>");
+    });
 }
+
+
 
 orderUpSide = function(targetElement){
     var currentOrderNumber = Number($(targetElement).parent().attr("ordering"));
@@ -1340,6 +1340,7 @@ orderUpSide = function(targetElement){
     $(targetElement).parent().attr("ordering", currentOrderNumber - 1);
     $(targetElement).parent().prev().attr("ordering", currentOrderNumber);
     syncHangulOrdering();
+    syncTestNumber();
 }
 
 orderDownSide = function(targetElement){
@@ -1351,6 +1352,7 @@ orderDownSide = function(targetElement){
     $(targetElement).parent().attr("ordering", currentOrderNumber + 1);
     $(targetElement).parent().next().attr("ordering", currentOrderNumber);
     syncHangulOrdering();
+    syncTestNumber();
 }
         </script>
     </body>

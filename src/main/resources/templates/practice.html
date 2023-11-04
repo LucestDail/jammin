@@ -73,6 +73,9 @@
                 line-height: 15px;
                 text-align: right;
             }
+            .beforePrintArea{
+                max-width: 100%;
+            }
         </style>
     </head>
     <body id="page-top">
@@ -293,6 +296,7 @@ window.onbeforeprint = function () {
     $(".btn-edit").hide();
     $(".btn-delete").hide();
     $("#fontConfigModalButton").hide();
+    $(".container").addClass("beforePrintArea");
 }
 
 window.onafterprint = function () {
@@ -307,6 +311,7 @@ window.onafterprint = function () {
     $(".btn-edit").show();
     $(".btn-delete").show();
     $("#fontConfigModalButton").show();
+    $(".container").removeClass("beforePrintArea");
 }
 
 deleteSentence = function(element){
