@@ -1,5 +1,5 @@
-# Cho-min 
- (가칭) 잼민정음
+# Cho-min JungUm
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![](https://img.shields.io/badge/Maintained-yes-green.svg)
