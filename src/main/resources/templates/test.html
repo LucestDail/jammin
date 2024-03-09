@@ -32,7 +32,9 @@
                 padding: 0 !important;
             }
             .hidebox{
-                display:none;
+                /* background-color: white; */
+                opacity: 0;
+                /* visibility:hidden; */
             }
             .printAreaWrapper{
                 display: flex;
@@ -1380,7 +1382,11 @@ orderDownSide = function(targetElement){
 }
 
 openHangulToggle = function(e){
-    $(e).addClass('hidebox');
+    if($(e).hasClass('hidebox')){
+        $(e).removeClass('hidebox');
+    }else{
+        $(e).addClass('hidebox');
+    }
 }
         </script>
     </body>
