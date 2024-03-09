@@ -76,6 +76,9 @@
             .beforePrintArea{
                 max-width: 100%;
             }
+            .opacity-40{
+                opacity: 0.4 !important;
+            }
         </style>
     </head>
     <body id="page-top">
@@ -167,7 +170,7 @@
                                 for(var i = 0; i < requestSentenceArray.length; i++){
                                     htmlElement += "<div class='sentence-set d-flex'>";
                                     htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
-                                    htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-25 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
                                     htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
                                     htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteSentence(this)'><i class='fa fa-trash'></i></button>";
                                     htmlElement += "</div>";
@@ -246,7 +249,7 @@
                                 for(var i = 0; i < requestSentenceArray.length; i++){
                                     htmlElement += "<div class='sentence-set d-flex'>";
                                     htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
-                                    htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-25 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
                                     htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
                                     htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteSentence(this)'><i class='fa fa-trash'></i></button>";
                                     htmlElement += "</div>";
