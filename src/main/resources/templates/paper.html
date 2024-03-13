@@ -47,8 +47,14 @@
                     <h2 class="section-heading text-uppercase" id="titleMain">교안자료실</h2>
                     <h3 class="section-subheading text-muted" id="titleSub">한글자모 교육을 위한 학습지를 다운로드하여 학습간 활용이 가능합니다.</h3>
                 </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end" id="removeChoJungJong" >
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked onclick="paperView(true)">
+                    <label class="btn btn-outline-primary" for="btnradio1" id="btnRadio1-btn">자음</label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="paperView(false)">
+                    <label class="btn btn-outline-primary" for="btnradio3" id="btnRadio3-btn">모음</label>
+                </div>
             </div>
-            <div class="container">
+            <div class="container" id="jaPaper">
                 <table class="table">
                     <thead>
                         <tr>
@@ -61,7 +67,7 @@
                     <tbody>
                         <tr>
                             <th scope="row">ㄱ</th>
-                            <td><img src="img/paper/1.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㄱ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㄱ"를 색칠한다.<br/>
@@ -70,11 +76,24 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㄱ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/1.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㄱ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㄲ</th>
+                            <td><img src="img/paper/ㄲ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 자음 "ㄲ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 자음 "ㄲ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㄲ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㄲ.jpg" download >다운로드</a></td>
                         </tr>
                         <tr>
                             <th scope="row">ㄴ</th>
-                            <td><img src="img/paper/2.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㄴ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㄴ"를 색칠한다.<br/>
@@ -83,11 +102,11 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㄴ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/2.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㄴ.jpg" download >다운로드</a></td>
                         </tr>
                         <tr>
                             <th scope="row">ㄷ</th>
-                            <td><img src="img/paper/3.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㄷ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㄷ"를 색칠한다.<br/>
@@ -96,12 +115,24 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㄷ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/3.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㄷ.jpg" download >다운로드</a></td>
                         </tr>
-
+                        <tr>
+                            <th scope="row">ㄸ</th>
+                            <td><img src="img/paper/ㄸ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 자음 "ㄸ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 자음 "ㄸ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㄸ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㄸ.jpg" download >다운로드</a></td>
+                        </tr>
                         <tr>
                             <th scope="row">ㄹ</th>
-                            <td><img src="img/paper/4.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㄹ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㄹ"를 색칠한다.<br/>
@@ -110,12 +141,11 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㄹ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/4.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㄹ.jpg" download >다운로드</a></td>
                         </tr>
-
                         <tr>
                             <th scope="row">ㅁ</th>
-                            <td><img src="img/paper/5.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅁ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅁ"를 색칠한다.<br/>
@@ -124,12 +154,11 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅁ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/5.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅁ.jpg" download >다운로드</a></td>
                         </tr>
-
                         <tr>
                             <th scope="row">ㅂ</th>
-                            <td><img src="img/paper/6.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅂ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅂ"를 색칠한다.<br/>
@@ -138,12 +167,24 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅂ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/6.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅂ.jpg" download >다운로드</a></td>
                         </tr>
-
+                        <tr>
+                            <th scope="row">ㅃ</th>
+                            <td><img src="img/paper/ㅃ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 자음 "ㅃ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 자음 "ㅃ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅃ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅃ.jpg" download >다운로드</a></td>
+                        </tr>
                         <tr>
                             <th scope="row">ㅅ</th>
-                            <td><img src="img/paper/7.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅅ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅅ"를 색칠한다.<br/>
@@ -152,12 +193,24 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅅ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/7.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅅ.jpg" download >다운로드</a></td>
                         </tr>
-
+                        <tr>
+                            <th scope="row">ㅆ</th>
+                            <td><img src="img/paper/ㅆ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 자음 "ㅆ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 자음 "ㅆ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅆ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅆ.jpg" download >다운로드</a></td>
+                        </tr>
                         <tr>
                             <th scope="row">ㅇ</th>
-                            <td><img src="img/paper/8.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅇ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅇ"를 색칠한다.<br/>
@@ -166,12 +219,11 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅇ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/8.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅇ.jpg" download >다운로드</a></td>
                         </tr>
-
                         <tr>
                             <th scope="row">ㅈ</th>
-                            <td><img src="img/paper/9.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅈ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅈ"를 색칠한다.<br/>
@@ -180,12 +232,24 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅈ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/9.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅈ.jpg" download >다운로드</a></td>
                         </tr>
-
+                        <tr>
+                            <th scope="row">ㅉ</th>
+                            <td><img src="img/paper/ㅉ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 자음 "ㅉ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 자음 "ㅉ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅉ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅉ.jpg" download >다운로드</a></td>
+                        </tr>
                         <tr>
                             <th scope="row">ㅊ</th>
-                            <td><img src="img/paper/10.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅊ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅊ"를 색칠한다.<br/>
@@ -194,12 +258,11 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅊ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/10.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅊ.jpg" download >다운로드</a></td>
                         </tr>
-
                         <tr>
                             <th scope="row">ㅋ</th>
-                            <td><img src="img/paper/11.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅋ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅋ"를 색칠한다.<br/>
@@ -208,12 +271,11 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅋ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/11.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅋ.jpg" download >다운로드</a></td>
                         </tr>
-
                         <tr>
                             <th scope="row">ㅌ</th>
-                            <td><img src="img/paper/12.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅌ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅌ"를 색칠한다.<br/>
@@ -222,12 +284,11 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅌ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/12.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅌ.jpg" download >다운로드</a></td>
                         </tr>
-
                         <tr>
                             <th scope="row">ㅍ</th>
-                            <td><img src="img/paper/13.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅍ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅍ"를 색칠한다.<br/>
@@ -236,12 +297,11 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅍ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/13.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅍ.jpg" download >다운로드</a></td>
                         </tr>
-
                         <tr>
                             <th scope="row">ㅎ</th>
-                            <td><img src="img/paper/14.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td><img src="img/paper/ㅎ.jpg" style="width:50%; height:50%;" alt="..." /></td>
                             <td>
                                 <p>
                                     1. 한글 자음 "ㅎ"를 색칠한다.<br/>
@@ -250,9 +310,295 @@
                                     4. 완성한 후, 만든 연필의 어느 부분에 한글 자음 "ㅎ" 모양이 있는지 다시 한번 확인한다.<br/>
                                 </p>
                             </td>
-                            <td><a href="img/paper/14.jpg" download >다운로드</a></td>
+                            <td><a href="img/paper/ㅎ.jpg" download >다운로드</a></td>
                         </tr>
-                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="container" id="moPaper">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">모음</th>
+                            <th scope="col" style="width:30%;">미리보기</th>
+                            <th scope="col">교안설명</th>
+                            <th scope="col">다운로드</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">ㅏ</th>
+                            <td><img src="img/paper/ㅏ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅏ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅏ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅏ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅏ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅐ</th>
+                            <td><img src="img/paper/ㅐ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅐ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅐ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅐ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅐ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅑ</th>
+                            <td><img src="img/paper/ㅑ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅑ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅑ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅑ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅑ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅒ</th>
+                            <td><img src="img/paper/ㅒ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅒ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅒ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅒ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅒ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅓ</th>
+                            <td><img src="img/paper/ㅓ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅓ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅓ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅓ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅓ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅔ</th>
+                            <td><img src="img/paper/ㅔ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅔ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅔ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅔ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅔ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅕ</th>
+                            <td><img src="img/paper/ㅕ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅕ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅕ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅕ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅕ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅖ</th>
+                            <td><img src="img/paper/ㅖ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅖ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅖ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅖ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅖ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅗ</th>
+                            <td><img src="img/paper/ㅗ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅗ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅗ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅗ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅗ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅘ</th>
+                            <td><img src="img/paper/ㅘ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅘ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅘ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅘ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅘ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅙ</th>
+                            <td><img src="img/paper/ㅙ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅙ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅙ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅙ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅙ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅚ</th>
+                            <td><img src="img/paper/01.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅚ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅚ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅚ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/01.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅛ</th>
+                            <td><img src="img/paper/02.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅛ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅛ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅛ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/02.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅜ</th>
+                            <td><img src="img/paper/ㅜ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅜ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅜ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅜ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅜ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅝ</th>
+                            <td><img src="img/paper/ㅝ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅝ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅝ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅝ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅝ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅞ</th>
+                            <td><img src="img/paper/ㅞ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅞ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅞ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅞ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅞ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅟ</th>
+                            <td><img src="img/paper/ㅟ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅟ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅟ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅟ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅟ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅠ</th>
+                            <td><img src="img/paper/ㅠ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅠ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅠ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅠ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅠ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅡ</th>
+                            <td><img src="img/paper/ㅡ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅡ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅡ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅡ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅡ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅢ</th>
+                            <td><img src="img/paper/ㅢ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅢ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅢ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅢ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅢ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅣ</th>
+                            <td><img src="img/paper/ㅣ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. 한글 모음 "ㅣ"를 색칠한다.<br/>
+                                    2. 실선을 따라 그림들을 오린다.<br/>
+                                    3. 연필대 그림 위에 한글 모음 "ㅣ" 를 연필심 부분에 붙여서 연필 완성.<br/>
+                                    4. 완성한 후, 만든 연필의 어느 부분에 한글 모음 "ㅣ" 모양이 있는지 다시 한번 확인한다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅣ.jpg" download >다운로드</a></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -273,6 +619,7 @@
 
 window.onload = function(){
     console.log("onload activated");
+    $("#moPaper").hide();
 }
 
 window.onbeforeprint = function () { 
@@ -281,6 +628,18 @@ window.onbeforeprint = function () {
 
 window.onafterprint = function () { 
     console.log("onafterprint activated");
+}
+
+function paperView(isJa){
+    if(isJa){
+        // 자음 학습지 노출
+        $("#moPaper").hide();
+        $("#jaPaper").show();
+    }else{
+        // 모음 학습지 노출
+        $("#jaPaper").hide();
+        $("#moPaper").show();
+    }
 }
         </script>
     </body>
