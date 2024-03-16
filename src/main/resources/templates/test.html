@@ -79,6 +79,9 @@
             .beforePrintArea{
                 max-width: 100%;
             }
+            .printHideElement{
+                display: none;
+            }
         </style>
     </head>
     <body id="page-top">
@@ -712,10 +715,22 @@
                                     console.log(jsonArray);
                                     if(data === "" || jsonArray.length === 0){
                                         toastr.warning('초민정음 관리자', '한글이 아니거나, 완성된 한글 단어가 아닌 문자가 포함되어있습니다.');
+                                    }else if(jsonArray.length > 16){
+                                        toastr.warning('초민정음 관리자', '16글자 이상의 문장은 추가할 수 없습니다.');
                                     }else{
-                                        toastr.success('초민정음 관리자', '문제 추가 완료');
-                                        addTest(data, $('#requestWord').val());
-                                        $('#requestWord').val("");
+                                        var hangulRowCount = $(".hangul-row").length;
+                                        if(jsonArray.length < 9){
+                                            hangulRowCount += 1;
+                                        }else{
+                                            hangulRowCount += 2;
+                                        }
+                                        if(hangulRowCount > 20){
+                                            toastr.warning('초민정음 관리자', '학습지 전체 줄수는 20줄을 넘을 수 없습니다.');
+                                        }else{
+                                            toastr.success('초민정음 관리자', '문제 추가 완료');
+                                            addTest(data, $('#requestWord').val());
+                                            $('#requestWord').val("");
+                                        }
                                     }
                                 })
                                 .fail(function (error) {
@@ -1328,7 +1343,7 @@ syncPrintLineBreak = function(){
     var sizeCounter = 1;
     $(".hangul-row").each(function(index, item){
         console.log($(item).offset().top);
-        if($(item).offset().top / 800 > sizeCounter){
+        if($(item).offset().top / 880 > sizeCounter){
             sizeCounter += 1;
             $(item).addClass("print-line-break");
         }
