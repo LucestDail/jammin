@@ -1271,8 +1271,10 @@ syncWordLineBreak = function(){
                             htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 70px;position: absolute;top: 2px;left: 2px;'></div>"; 
                         }else if(jsonArray[i].specialTypeCode === 46){ // .
                             htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 87px;position: absolute;top: 2px;left: 2px;'></div>"; 
-                        }else{  // ,
+                        }else if(jsonArray[i].specialTypeCode === 46){  // ,
                             htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 82px;position: absolute;top: 2px;left: 2px;'></div>";
+                        }else{
+                            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 70px;position: absolute;top: 2px;left: 2px;'></div>"; 
                         }
                     }else{
                         htmlElement +=  "<div class='cho'><img class='hangul kccdodamdodma-font cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height: 25px;position:absolute;top: 0px;z-index: 1;' onclick='openHangulToggle(this)'></div>";
