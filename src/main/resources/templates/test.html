@@ -1001,6 +1001,8 @@ editTestReady = function(element){
 
 deleteTest = function(element){
     $(element).parent().remove();
+    syncHangulOrdering();
+    syncTestNumber();
 }
 
 showJaCheck = function(){
