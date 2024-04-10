@@ -168,9 +168,11 @@
                                 requestSentence = requestSentence.replace(/\n\r?/g, '<br/>');
                                 var requestSentenceArray = requestSentence.split('<br/>');
                                 for(var i = 0; i < requestSentenceArray.length; i++){
-                                    htmlElement += "<div class='sentence-set d-flex'>";
+                                    htmlElement += "<div class='sentence-set d-flex' ordering='" + orderingNumber++ +"'>";
                                     htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
                                     htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement += "    <button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
+                                    htmlElement += "    <button class='btn rounded-0 btn-orderdown' type='button' title='Down' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
                                     htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
                                     htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteSentence(this)'><i class='fa fa-trash'></i></button>";
                                     htmlElement += "</div>";
@@ -178,6 +180,7 @@
                                 $("#sentenceList").append(htmlElement);    
                                 $("#requestSentence").val("");
                                 syncFontConfig();
+                                // syncNumber();
                             })
                         </script>
                     </div>
@@ -247,9 +250,11 @@
                                 requestSentence = requestSentence.replace(/\n\r?/g, '<br/>');
                                 var requestSentenceArray = requestSentence.split('<br/>');
                                 for(var i = 0; i < requestSentenceArray.length; i++){
-                                    htmlElement += "<div class='sentence-set d-flex'>";
+                                    htmlElement += "<div class='sentence-set d-flex' ordering='" + orderingNumber++ +"'>";
                                     htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
                                     htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement += "    <button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
+                                    htmlElement += "    <button class='btn rounded-0 btn-orderdown' type='button' title='Down' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
                                     htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
                                     htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteSentence(this)'><i class='fa fa-trash'></i></button>";
                                     htmlElement += "</div>";
@@ -259,6 +264,7 @@
                                 $("#editSentence").modal('toggle');
                                 $("#editSentenceValue").val("");
                                 syncFontConfig();
+                                // syncNumber();
                             })
                         </script>
                     </div>
@@ -281,6 +287,7 @@
 
 var currentFontSize = null;
 var currentEditElement = null;
+var orderingNumber = 0;
 
 window.onload = function(){
     $("#userInfo").hide();
@@ -298,6 +305,8 @@ window.onbeforeprint = function () {
     $("#userInfo").show();
     $(".btn-edit").hide();
     $(".btn-delete").hide();
+    $(".btn-orderup").hide();
+    $(".btn-orderdown").hide();
     $("#fontConfigModalButton").hide();
     $(".container").addClass("beforePrintArea");
 }
@@ -313,6 +322,8 @@ window.onafterprint = function () {
     $("#userInfo").hide();
     $(".btn-edit").show();
     $(".btn-delete").show();
+    $(".btn-orderup").show();
+    $(".btn-orderdown").show();
     $("#fontConfigModalButton").show();
     $(".container").removeClass("beforePrintArea");
 }
@@ -332,6 +343,55 @@ syncFontConfig = function(){
             $(item).css("font-size", Number(currentFontSize));
         })
     }
+}
+
+orderUpSide = function(targetElement){
+    console.log($(targetElement).parent());
+    var currentOrderNumber = Number($(targetElement).parent().attr("ordering"));
+    if(currentOrderNumber === 0){
+        toastr.warning('초민정음 관리자', '처음 문제입니다.');
+        return;
+    }
+    $(targetElement).parent().attr("ordering", currentOrderNumber - 1);
+    $(targetElement).parent().prev().attr("ordering", currentOrderNumber);
+    syncOrdering();
+    // syncNumber();
+}
+
+orderDownSide = function(targetElement){
+    var currentOrderNumber = Number($(targetElement).parent().attr("ordering"));
+    if(currentOrderNumber === orderingNumber - 1){
+        toastr.warning('초민정음 관리자', '마지막 문제입니다.');
+        return;
+    }
+    $(targetElement).parent().attr("ordering", currentOrderNumber + 1);
+    $(targetElement).parent().next().attr("ordering", currentOrderNumber);
+    syncOrdering();
+    // syncNumber();
+}
+
+syncOrdering = function(){
+    var divElements = document.getElementsByClassName('sentence-set');
+    var divArray = Array.from(divElements);
+    divArray.sort((a, b) => {
+        var orderingA = parseInt(a.getAttribute('ordering'));
+        var orderingB = parseInt(b.getAttribute('ordering'));
+        return orderingA - orderingB;
+    });
+    var parentContainer = divElements[0].parentNode;
+    divArray.forEach(div => parentContainer.appendChild(div));
+}
+
+syncNumber = function(){
+    var orderCount = 1;
+
+    $(".sentence-set").each(function(index, item){
+        $(item).find(".orderCount").remove();
+    });
+
+    $(".sentence-set").each(function(index, item){
+        $(item).prepend("<p class='orderCount' style='padding-top:10px;'>" + orderCount++ + ". </p>");
+    });
 }
         </script>
     </body>
