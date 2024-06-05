@@ -1,0 +1,3 @@
+cd /etc/letsencrypt/live/xn--lg3by0shrak2n.com/
+sudo openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out keystore.p12 -name ttp -CAfile chain.pem -caname root
+scp -P 55555 keystore.p12 oseunghyeon@106.255.29.51:/Users/oseunghyeon/DevWorkSpace/test/jammin/jammin/src/main/resources/ssl
