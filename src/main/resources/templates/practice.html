@@ -85,7 +85,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav" >
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="img/navbar-logo.svg" alt="..." /></a>
+                <a class="navbar-brand" href="/"><img src="img/navbar-logo.png" alt="..." /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -96,7 +96,7 @@
                         <li class="nav-item"><a class="nav-link" href="test">받아쓰기</a></li>
                         <li class="nav-item"><a class="nav-link" href="practice">긴글연습</a></li>
                         <!-- <li class="nav-item"><a class="nav-link" href="writing">획순연습</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="paper">교안자료실</a></li>
+                        <li class="nav-item"><a class="nav-link" href="paper">자료실</a></li>
                     </ul>
                 </div>
             </div>
@@ -107,26 +107,25 @@
                 <div class="" id="printArea">
                     <div class="printAreaWrapper">
                         <div class="printAreaLeft">
-                            <p class="kccdodamdodma-font printAreaLeftLine1">초민정음</h2>
-                            <p class="kccdodamdodma-font printAreaLeftLine2">긴글연습</h2>
+                            <p class="printAreaLeftLine1">초민정음</h2>
+                            <p class="printAreaLeftLine2">긴글연습</h2>
                         </div>
                         <div class="printAreaRight">
-                            <p class="kccdodamdodma-font printAreaRightLine1">초등학교</h3>
-                            <p class="kccdodamdodma-font printAreaRightLine2">학년 &nbsp;&nbsp;&nbsp;반&nbsp;&nbsp;&nbsp;번호</h3>
-                            <p class="kccdodamdodma-font printAreaRightLine3">이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                            <p class="printAreaRightLine1">초등학교</h3>
+                            <p class="printAreaRightLine2">학년 &nbsp;&nbsp;&nbsp;반&nbsp;&nbsp;&nbsp;번호</h3>
+                            <p class="printAreaRightLine3">이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
                         </div>
                     </div>
-                    <h3 class="kccdodamdodma-font">* 긴글연습을 해봅시다.</h3>
+                    <h3 class="">* 긴글연습을 해봅시다.</h3>
                 </div>
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase"id="titleMain">긴글연습</h2>
                     <h3 class="section-subheading text-muted" id="titleSub">알림장을 비롯해 생활속에서 활용할 수 있는 쓰기 활동지를 제작합니다.</h3>
                 </div>
-                <div class="row" id="sentenceList">
-                </div>
+               
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addSentence" id="addSentenceButton">
-                        문장 추가하기
+                        <img src="img/add-file.png" alt="추가하기" width="80px" height="80px"><br>문제 추가하기
                     </button>
                     <!--
                     <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#fontConfig" id="fontConfigModalButton">
@@ -134,7 +133,7 @@
                     </button>
                     -->
                     <button type="button" class="btn btn-outline-dark" id="printTest">
-                        출력하기
+                        <img src="img/printer.png" alt="출력하기" width="80px" height="80px"><br>출력하기
                     </button>
                     <script>
                         $("#printTest").click(function(e){
@@ -142,6 +141,7 @@
                         })
                     </script>
                   </div>
+                  <div class="row" id="sentenceList"></div>
             </div>
         </section>
         <div class="modal fade" id="addSentence" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -160,7 +160,7 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" value="추가" id="requestSentenceButton" class="btn btn-primary">
+                        <input type="button" value="추가" id="requestSentenceButton" class="btn btn-success">
                         <script>
                             $("#requestSentenceButton").click(function(e){
                                 var htmlElement = "";
@@ -170,7 +170,7 @@
                                 for(var i = 0; i < requestSentenceArray.length; i++){
                                     htmlElement += "<div class='sentence-set d-flex' ordering='" + orderingNumber++ +"'>";
                                     htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
-                                    htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement +=     "<p class='sentence text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
                                     htmlElement += "    <button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
                                     htmlElement += "    <button class='btn rounded-0 btn-orderdown' type='button' title='Down' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
                                     htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
@@ -207,7 +207,7 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" value="변경" id="fontConfigButton" class="btn btn-primary">
+                        <input type="button" value="변경" id="fontConfigButton" class="btn btn-success">
                         <script>
                             $("#fontConfigButton").click(function(e){
                                 if($("#fontSize").val() < 10 || $("#fontSize").val() > 120){
@@ -242,7 +242,7 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" value="수정" id="editSentenceButton" class="btn btn-primary">
+                        <input type="button" value="수정" id="editSentenceButton" class="btn btn-success">
                         <script>
                             $("#editSentenceButton").click(function(e){
                                 var htmlElement = "";
@@ -252,7 +252,7 @@
                                 for(var i = 0; i < requestSentenceArray.length; i++){
                                     htmlElement += "<div class='sentence-set d-flex' ordering='" + orderingNumber++ +"'>";
                                     htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
-                                    htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement +=     "<p class='sentence text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
                                     htmlElement += "    <button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
                                     htmlElement += "    <button class='btn rounded-0 btn-orderdown' type='button' title='Down' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
                                     htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
@@ -275,7 +275,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 text-lg-start">Copyright &copy; Cho-MinJungum 2024</div>
+                    <div class="col-lg-6 text-lg-start">Copyright &copy; Cho-MinJungum 2023</div>
                 </div>
             </div>
         </footer>

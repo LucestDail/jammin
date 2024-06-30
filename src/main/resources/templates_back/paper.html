@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>초민정음</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- JQuery Core JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav" >
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="img/navbar-logo.svg" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="help">도움말</a></li>
+                        <li class="nav-item"><a class="nav-link" href="test">받아쓰기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="practice">긴글연습</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="writing">획순연습</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="paper">교안자료실</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase" id="titleMain">교안자료실</h2>
+                    <h3 class="section-subheading text-muted" id="titleSub">한글자모 교육을 위한 학습지를 다운로드하여 학습간 활용이 가능합니다.</h3>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end" id="removeChoJungJong" >
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked onclick="paperView(true)">
+                    <label class="btn btn-outline-primary" for="btnradio1" id="btnRadio1-btn">자음</label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="paperView(false)">
+                    <label class="btn btn-outline-primary" for="btnradio3" id="btnRadio3-btn">모음</label>
+                </div>
+            </div>
+            <div class="container" id="jaPaper">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">자음</th>
+                            <th scope="col" style="width:30%;">미리보기</th>
+                            <th scope="col">교안설명</th>
+                            <th scope="col">다운로드</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">ㄱ</th>
+                            <td><img src="img/paper/ㄱ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㄱ이 첫소리로 올 때에는 ‘그’, 끝소리로 올 때에는 ‘윽’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㄱ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(그)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㄱ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(그+아=가, 브+아+응=방, 가방!)<br/>
+                                    4. 그림 속 ‘ㄱ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(그+오+음=곰) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㄱ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㄲ</th>
+                            <td><img src="img/paper/ㄲ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㄲ이 첫소리로 올 때에는 ‘끄’, 끝소리로 올 때에는 ‘윽’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㄲ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(끄)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㄲ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(느+아+윾=낚, 스+이=시 낚시!)<br/>
+                                    4. 그림 속 ‘ㄲ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(끄+오+읓=꽃) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㄲ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㄴ</th>
+                            <td><img src="img/paper/ㄴ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㄴ이 첫소리로 올 때에는 ’느’, 끝소리로 올 때에는 ‘은’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㄴ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(느)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㄴ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(느+아=나, 브+이=비 나비!)<br/>
+                                    4. 그림 속 ‘ㄴ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(느+우+은=눈) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㄴ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㄷ</th>
+                            <td><img src="img/paper/ㄷ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㄷ이 첫소리로 올 때에는 ’드’, 끝소리로 올 때에는 ‘읃’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㄷ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(드)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㄷ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(드+아=다, 르+이=리 다리!)<br/>
+                                    4. 그림 속 ‘ㄷ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(드+아+을=달) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㄷ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㄸ</th>
+                            <td><img src="img/paper/ㄸ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㄸ이 첫소리로 올 때에는 ’뜨’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㄸ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(뜨)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㄷ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(뜨+우=뚜, 끄+어+응=껑 뚜껑!)<br/>
+                                    4. 그림 속 ‘ㄸ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(뜨+오+응=똥) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㄸ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㄹ</th>
+                            <td><img src="img/paper/ㄹ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㄹ이 첫소리로 올 때에는 ’르’, 끝소리로 올 때에는 ‘을’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㄹ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(르)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㄹ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(르+오=로, 브+오+읏=봇 로봇!)<br/>
+                                    4. 그림 속 ‘ㄹ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(르+오=로) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㄹ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅁ</th>
+                            <td><img src="img/paper/ㅁ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅁ이 첫소리로 올 때에는 ’므’, 끝소리로 올 때에는 ‘음’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅁ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(므)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅁ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(므+이=미, 여+윽=역 미역!)<br/>
+                                    4. 그림 속 ‘ㅁ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(므+우=무) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅁ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅂ</th>
+                            <td><img src="img/paper/ㅂ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅂ이 첫소리로 올 때에는 ’브’, 끝소리로 올 때에는 ‘읍’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅂ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(브)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅂ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(브+아=바, 느+아=나, 느+아=나 바나나!)<br/>
+                                    4. 그림 속 ‘ㅂ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(브+어=버) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅂ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅃ</th>
+                            <td><img src="img/paper/ㅃ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅃ이 첫소리로 올 때에는 ’쁘’, 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅃ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(쁘)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅃ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(쁘+아+을=빨, 드+애=대, 빨대!)<br/>
+                                    4. 그림 속 ‘ㅃ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(쁘+아+응=빵) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅃ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅅ</th>
+                            <td><img src="img/paper/ㅅ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅅ이 첫소리로 올 때에는 ’스’, 끝소리로 올 때에는 ‘읏’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅅ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(스)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅅ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(스+이=시, 그+예=계, 시계!)<br/>
+                                    4. 그림 속 ‘ㅅ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(스+아=사) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅅ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅆ</th>
+                            <td><img src="img/paper/ㅆ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅆ이 첫소리로 올 때에는 ’쓰’, 끝소리로 올 때에는 ‘읐’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅆ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(쓰)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅅ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(쓰+이=씨, 아+읏=앗, 씨앗!)<br/>
+                                    4. 그림 속 ‘ㅆ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(쓰+어+을=썰) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅆ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅇ</th>
+                            <td><img src="img/paper/ㅇ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅇ은 첫소리 소릿값이 없으며, 끝소리로 올 때에만 ‘응’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅇ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ㅇ을 따라 씁니다.<br/>
+                                    3. ‘ㅇ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(아=아, 그+이=기, 아기!)<br/>
+                                    4. 그림 속 ‘ㅇ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(여+은=연) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅇ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅈ</th>
+                            <td><img src="img/paper/ㅈ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅈ은 첫소리로 올 때에는 ‘즈’, 끝소리로 올 때에는 ‘읒’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅈ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(즈)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅈ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(즈+오=조, 그+애=개, 조개!)<br/>
+                                    4. 그림 속 ‘ㅈ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(즈+우=주) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅈ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅉ</th>
+                            <td><img src="img/paper/ㅉ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅉ은 첫소리로 올 때 ‘쯔’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅉ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(쯔)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅉ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(쯔+아+윽=짝, 짝!)<br/>
+                                    4. 그림 속 ‘ㅉ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(쯔+이=찌) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅉ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅊ</th>
+                            <td><img src="img/paper/ㅊ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅊ은 첫소리로 올 때에는 ‘츠’, 끝소리로 올 때에는 ‘읓’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅊ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(츠)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅊ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(츠+애=채, 스+오=소, 채소!)<br/>
+                                    4. 그림 속 ‘ㅊ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(츠+어+응=청) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅊ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅋ</th>
+                            <td><img src="img/paper/ㅋ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅋ은 첫소리로 올 때에는 ‘크’, 끝소리로 올 때에는 ‘읔’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅋ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(크)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅋ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(크+오=코, 끄+이=끼, 르+이=리, 코끼리!)<br/>
+                                    4. 그림 속 ‘ㅋ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(크+아=카) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅋ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅌ</th>
+                            <td><img src="img/paper/ㅌ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅌ은 첫소리로 올 때에는 ‘트’, 끝소리로 올 때에는 ‘읕’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅌ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(트)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅌ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(트+오=토, 끄+이=끼, 토끼!)<br/>
+                                    4. 그림 속 ‘ㅌ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(트+으=트) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅌ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅍ</th>
+                            <td><img src="img/paper/ㅍ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅍ은 첫소리로 올 때에는 ‘프’, 끝소리로 올 때에는 ‘읖’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅍ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(프)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅍ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(프+애+응=팽, 이=이, 팽이!)<br/>
+                                    4. 그림 속 ‘ㅍ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(프+오=포) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅍ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅎ</th>
+                            <td><img src="img/paper/ㅎ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅎ은 첫소리로 올 때에는 ‘흐’, 끝소리로 올 때에는 ‘읗’ 소리가 난다는 것을 배운 후 원하는 색상으로 자음 ㅎ을 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 초성 소리(흐)를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅎ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(흐+오=호, 브+아+윽=박, 호박!)<br/>
+                                    4. 그림 속 ‘ㅎ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(흐+아+윽=학) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅎ.jpg" download >다운로드</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container" id="moPaper">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">모음</th>
+                            <th scope="col" style="width:30%;">미리보기</th>
+                            <th scope="col">교안설명</th>
+                            <th scope="col">다운로드</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">ㅏ</th>
+                            <td><img src="img/paper/ㅏ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅏ는 ‘아’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅏ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅏ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅏ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(느+아=나, 므+우=무, 나무!)<br/>
+                                    4. 그림 속 ‘ㅏ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(느+아=나) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅏ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅐ</th>
+                            <td><img src="img/paper/ㅐ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅐ는 ‘애’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅐ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅐ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘새’ 안에 들어있는 ‘ㅐ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅐ’을 찾아 색칠한 후, 그림이 나타내는 단어(그+애=개, 므+이=미, 개미!)를 완성하여 읽어봅니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅐ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅑ</th>
+                            <td><img src="img/paper/ㅑ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅑ는 ‘야’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅑ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅑ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅑ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(야=야, 그+우=구, 야구!)<br/>
+                                    4. 그림 속 ‘ㅑ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(야+응=양) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅑ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅒ</th>
+                            <td><img src="img/paper/ㅒ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅒ는 ‘얘’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅒ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅒ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘얘’ 안에 들어있는 ‘ㅒ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅒ’을 찾아 색칠한 후, 그림이 나타내는 단어(얘=얘, 그+이=기, 얘기!)를 완성하여 읽어봅니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅒ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅓ</th>
+                            <td><img src="img/paper/ㅓ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅓ는 ‘어’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅓ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅓ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅓ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(브+어=버, 스+으=스, 버스!)<br/>
+                                    4. 그림 속 ‘ㅓ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(느+어=너) 오리기 등 다양한 활동과 연계합니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅓ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅔ</th>
+                            <td><img src="img/paper/ㅔ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅔ는 ‘에’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅔ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅔ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘게’ 안에 들어있는 ‘ㅔ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅔ’을 찾아 색칠한 후, 그림이 나타내는 단어(스+에=세, 므+오=모, 세모!)를 완성하여 읽어봅니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅔ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅕ</th>
+                            <td><img src="img/paper/ㅕ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅕ는 ‘여’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅕ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅕ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅕ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(브+여=벼, 벼!)<br/>
+                                    4. 그림 속 ‘ㅕ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(여+은=연) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅕ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅖ</th>
+                            <td><img src="img/paper/ㅖ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅖ는 ‘예’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅖ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅖ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘예’ 안에 들어있는 ‘ㅖ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅖ’을 찾아 색칠한 후, 그림이 나타내는 단어(스+이+윽=식, 흐+예=혜, 식혜!)를 완성하여 읽어봅니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅖ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅗ</th>
+                            <td><img src="img/paper/ㅗ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅗ는 ‘오’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅗ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅗ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅗ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(트+오=토, 끄+이=끼, 토끼!)<br/>
+                                    4. 그림 속 ‘ㅗ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(크+오=코) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅗ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅘ</th>
+                            <td><img src="img/paper/ㅘ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅘ는 ‘와’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅘ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅘ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘화’ 안에 들어있는 ‘ㅘ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅘ’를 찾아 색칠한 후, 그림이 나타내는 단어(스+아=사, 그+와=과, 사과!)를 완성하여 읽어봅니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅘ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅙ</th>
+                            <td><img src="img/paper/ㅙ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅙ는 ‘왜’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅙ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅙ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘왜’ 안에 들어있는 ‘ㅙ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅙ’를 찾아 색칠한 후, 그림이 나타내는 단어(드+왜=돼, 즈+이=지, 돼지!)를 완성하여 읽어봅니다.  <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅙ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅚ</th>
+                            <td><img src="img/paper/01.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅚ는 ‘외’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅚ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅚ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘뇌’ 안에 들어있는 ‘ㅚ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅚ’를 찾아 색칠한 후, 그림이 나타내는 단어(츠+아+음=참, 외=외, 참외!)를 완성하여 읽어봅니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/01.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅛ</th>
+                            <td><img src="img/paper/02.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅛ는 ‘요’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅛ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅛ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅛ’을 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(그+오+응=공, 르+요+응=룡, 공룡!)<br/>
+                                    4. 그림 속 ‘ㅛ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(요=요) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/02.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅜ</th>
+                            <td><img src="img/paper/ㅜ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅜ는 ‘우’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅜ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅜ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅜ’를 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(드+우=두, 브+우=부, 두부!)<br/>
+                                    4. 그림 속 ‘ㅜ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(그+우=구) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅜ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅝ</th>
+                            <td><img src="img/paper/ㅝ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅝ는 ‘워’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅝ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅝ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘뭐’ 안에 들어있는 ‘ㅝ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅝ’를 찾아 색칠한 후, 그림이 나타내는 단어(워+은=원)를 완성하여 읽어봅니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅝ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅞ</th>
+                            <td><img src="img/paper/ㅞ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅞ는 ‘웨’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅞ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅞ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘퉤’ 안에 들어있는 ‘ㅞ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅞ’를 찾아 색칠한 후, 그림이 나타내는 단어(웨+윽=웩)를 완성하여 읽어봅니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅞ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅟ</th>
+                            <td><img src="img/paper/ㅟ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅟ는 ‘위’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅟ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅟ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘귀’ 안에 들어있는 ‘ㅟ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅟ’를 찾아 색칠한 후, 그림이 나타내는 단어(크+위=퀴)를 완성하여 읽어봅니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅟ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅠ</th>
+                            <td><img src="img/paper/ㅠ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅠ는 ‘유’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅠ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅠ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅠ’를 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(스+유=슈, 프+어=퍼, 슈퍼!)<br/>
+                                    4. 그림 속 ‘ㅠ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅠ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅡ</th>
+                            <td><img src="img/paper/ㅡ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅡ는 ‘으’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅡ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅡ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅡ’를 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(으+음=음, 아+윽=악, 음악!)<br/>
+                                    4. 그림 속 ‘ㅡ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(스+으+음=슴) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅡ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅢ</th>
+                            <td><img src="img/paper/ㅢ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅢ는 ‘의’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅢ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅢ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. 단어 ‘의자’ 안에 들어있는 ‘ㅢ’ 소리와 모양, 획순을 떠올리며 단어를 완성해 보세요.<br/>
+                                    4. ‘ㅢ’를 찾아 색칠한 후, 그림이 나타내는 단어(ㅢ=의, 스+아=사, 의사!)를 완성하여 읽어봅니다. <br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅢ.jpg" download >다운로드</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ㅣ</th>
+                            <td><img src="img/paper/ㅣ.jpg" style="width:50%; height:50%;" alt="..." /></td>
+                            <td>
+                                <p>
+                                    1. ㅣ는 ‘이’ 소리가 난다는 것을 배운 후 원하는 색상으로 모음 ㅣ를 색칠합니다.<br/>
+                                    2. 모양을 익히고 획순을 기억할 수 있도록 ‘ㅣ’ 소리를 발음하며 따라 씁니다.<br/>
+                                    3. ‘ㅣ’를 단어에서 찾아 동그라미 한 후, 자모 소릿값을 조합하며 단어를 읽어봅니다(느+아=나, 브+이=비, 나비!)<br/>
+                                    4. 그림 속 ‘ㅣ’을 찾아 색칠한 후, 그림이 나타내는 단어를 읽고(그+이=기) 오리기 등 다양한 활동과 연계합니다.<br/>
+                                </p>
+                            </td>
+                            <td><a href="img/paper/ㅣ.jpg" download >다운로드</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-lg-start">Copyright &copy; Cho-MinJungum 2024</div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+
+window.onload = function(){
+    console.log("onload activated");
+    $("#moPaper").hide();
+}
+
+window.onbeforeprint = function () { 
+    console.log("onbeforeprint activated");
+}
+
+window.onafterprint = function () { 
+    console.log("onafterprint activated");
+}
+
+function paperView(isJa){
+    if(isJa){
+        // 자음 학습지 노출
+        $("#moPaper").hide();
+        $("#jaPaper").show();
+    }else{
+        // 모음 학습지 노출
+        $("#jaPaper").hide();
+        $("#moPaper").show();
+    }
+}
+        </script>
+    </body>
+</html>

@@ -1,18 +1,27 @@
 package com.jammin.util;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.text.SimpleDateFormat;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import com.jammin.controller.TestRestController;
 
 @Component
 public class HangulUtil {
+
+	private static final Logger log = LoggerFactory.getLogger(TestRestController.class);
+	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
 	private char[] specialTypeArray = {' ', '.', ',', '?', '!'};
 	private char[] numberTypeArray = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
 	
     public List<Hangul> hangulSplit(String s) {
-
+		log.info("{} >> HangulUtil.hangulSplit(String {})", new Object[]{dateFormat.format(new Date()), s});
 		List<Hangul> hangulList = new ArrayList<Hangul>();
 		Hangul hangul = null;
 		for (int i = 0; i < s.length(); i++) {

@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>초민정음</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- JQuery Core JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+        <style>
+            @media print {
+                body {
+                    overflow: hidden;
+                }
+                .print-line-break {
+                    page-break-after: always; /* Add page break after each printed page */
+                    page-break-inside: avoid;
+                }
+            }
+            .no-padding{
+                padding: 0 !important;
+            }
+            .hidebox{
+                /* background-color: white; */
+                opacity: 0;
+                /* visibility:hidden; */
+            }
+            .printAreaWrapper{
+                display: flex;
+                border: solid black 2px;
+                height: 8rem;
+                border-radius: 8px;
+            }
+            .printAreaLeft{
+                font-size: 3rem;
+                width: 50%;
+            }
+            .printAreaRight{
+                font-size: 2.5rem;
+                width: 50%;
+            }
+            .printAreaLeftLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 50px;
+                text-align: left;
+            }
+            .printAreaLeftLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 50px;
+                text-align: left;
+            }
+            .printAreaRightLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: right;
+            }
+            .printAreaRightLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: right;
+            }
+            .printAreaRightLine3{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: right;
+            }
+            .beforePrintArea{
+                max-width: 100%;
+            }
+            .printHideElement{
+                display: none;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav" >
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="img/navbar-logo.svg" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="help">도움말</a></li>
+                        <li class="nav-item"><a class="nav-link" href="test">받아쓰기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="practice">긴글연습</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="writing">획순연습</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="paper">교안자료실</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Services-->
+        <section class="page-section" id="services">
+
+            <div class="container" id="services-area">
+                <div class="" id="printArea">
+                    <div class="printAreaWrapper">
+                        <div class="printAreaLeft">
+                            <p class="kccdodamdodma-font printAreaLeftLine1">초민정음</h2>
+                            <p class="kccdodamdodma-font printAreaLeftLine2">받아쓰기</h2>
+                        </div>
+                        <div class="printAreaRight">
+                            <p class="kccdodamdodma-font printAreaRightLine1">초등학교</h3>
+                            <p class="kccdodamdodma-font printAreaRightLine2">학년 &nbsp;&nbsp;&nbsp;반&nbsp;&nbsp;&nbsp;번호</h3>
+                            <p class="kccdodamdodma-font printAreaRightLine3">이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                        </div>
+                    </div>
+                    <h3 class="kccdodamdodma-font">* 자음과 모음의 소리를 생각하며 받아쓰기를 해봅시다.</h3>
+                </div>
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase" id="titleMain">받아쓰기</h2>
+                    <h3 class="section-subheading text-muted" id="titleSub">한글 자모의 소릿값을 연습할 수 있는 받아쓰기 시험지를 선생님의 수업 의도에 맞게 제작합니다.</h3>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end" id="removeChoJungJong" >
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addWord" id="addWordButton">
+                        문제 추가하기
+                    </button>
+                    <!-- 
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="fontConfigMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            글자크기 조정하기
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="fontConfigMenu">
+                            <button class="dropdown-item" type="button" value="small" onclick="editFontConfig(this)">작게</button>
+                            <button class="dropdown-item" type="button" value="middle" onclick="editFontConfig(this)">보통</button>
+                        </div>
+                    </div>
+                     -->
+                    <button type="button" class="btn btn-outline-dark" id="printTest">
+                        출력하기
+                    </button>
+                    <script>
+                        $("#printTest").click(function(e){
+                            window.print();
+                        })
+                    </script>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" value="jaremove" autocomplete="off" checked onclick="showJaCheck()">
+                    <label class="btn btn-outline-primary" for="btnradio1" id="btnRadio1-btn">자음 제거</label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" value="choremove" autocomplete="off" onclick="showChoCheck()">
+                    <label class="btn btn-outline-primary" for="btnradio3" id="btnRadio3-btn">초성 제거</label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" value="jungremove" autocomplete="off" onclick="showJungCheck()">
+                    <label class="btn btn-outline-primary" for="btnradio4" id="btnRadio4-btn">중성 제거</label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio5" value="jongremove" autocomplete="off" onclick="showJongCheck()">
+                    <label class="btn btn-outline-primary" for="btnradio5" id="btnRadio5-btn">종성 제거</label>
+                </div>
+                <div class="text-right" id="removeJa">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="all-ja">
+                        <label class="form-check-label" >전체</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4352_4520">
+                        <label class="form-check-label" >ㄱ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4354_4523">
+                        <label class="form-check-label" >ㄴ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4355_4526">
+                        <label class="form-check-label" >ㄷ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4357_4527">
+                        <label class="form-check-label" >ㄹ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4358_4535">
+                        <label class="form-check-label" >ㅁ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4359_4536">
+                        <label class="form-check-label" >ㅂ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4361_4538">
+                        <label class="form-check-label" >ㅅ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4363_4540">
+                        <label class="form-check-label" >ㅇ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4364_4541">
+                        <label class="form-check-label" >ㅈ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4366_4542">
+                        <label class="form-check-label" >ㅊ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4367_4543">
+                        <label class="form-check-label" >ㅋ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4368_4544">
+                        <label class="form-check-label" >ㅌ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4369_4545">
+                        <label class="form-check-label" >ㅍ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4370_4546">
+                        <label class="form-check-label" >ㅎ</label>
+                    </div>
+                </div>
+                <div class="text-right" id="removeJaPlus">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4353_4521">
+                        <label class="form-check-label" >ㄲ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4356">
+                        <label class="form-check-label" >ㄸ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4360">
+                        <label class="form-check-label" >ㅃ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4362_4539">
+                        <label class="form-check-label" >ㅆ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4365">
+                        <label class="form-check-label" >ㅉ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4522">
+                        <label class="form-check-label" >ㄳ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4524">
+                        <label class="form-check-label" >ㄵ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4525">
+                        <label class="form-check-label" >ㄶ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4528">
+                        <label class="form-check-label" >ㄺ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4529">
+                        <label class="form-check-label" >ㄻ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4530">
+                        <label class="form-check-label" >ㄼ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4531">
+                        <label class="form-check-label" >ㄽ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4532">
+                        <label class="form-check-label" >ㄾ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4533">
+                        <label class="form-check-label" >ㄿ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4534">
+                        <label class="form-check-label" >ㅀ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4537">
+                        <label class="form-check-label" >ㅄ</label>
+                    </div>
+                </div>
+                <div class="text-right" id="removeCho">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="all-cho">
+                        <label class="form-check-label" >전체</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4352">
+                        <label class="form-check-label" >ㄱ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4354">
+                        <label class="form-check-label" >ㄴ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4355">
+                        <label class="form-check-label" >ㄷ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4357">
+                        <label class="form-check-label" >ㄹ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4358">
+                        <label class="form-check-label" >ㅁ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4359">
+                        <label class="form-check-label" >ㅂ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4361">
+                        <label class="form-check-label" >ㅅ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4363">
+                        <label class="form-check-label" >ㅇ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4364">
+                        <label class="form-check-label" >ㅈ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4366">
+                        <label class="form-check-label" >ㅊ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4367">
+                        <label class="form-check-label" >ㅋ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4368">
+                        <label class="form-check-label" >ㅌ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4369">
+                        <label class="form-check-label" >ㅍ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4370">
+                        <label class="form-check-label" >ㅎ</label>
+                    </div>
+                </div>
+                <div class="text-right" id="removeChoDouble">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4353">
+                        <label class="form-check-label" >ㄲ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4356">
+                        <label class="form-check-label" >ㄸ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4360">
+                        <label class="form-check-label" >ㅃ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4362">
+                        <label class="form-check-label" >ㅆ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4365">
+                        <label class="form-check-label" >ㅉ</label>
+                    </div>
+                </div>
+                <div class="text-right" id="removeJung">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="all-jung">
+                        <label class="form-check-label" >전체</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4449">
+                        <label class="form-check-label" >ㅏ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4451">
+                        <label class="form-check-label" >ㅑ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4453">
+                        <label class="form-check-label" >ㅓ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4455">
+                        <label class="form-check-label" >ㅕ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4457">
+                        <label class="form-check-label" >ㅗ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4461">
+                        <label class="form-check-label" >ㅛ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4462">
+                        <label class="form-check-label" >ㅜ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4466">
+                        <label class="form-check-label" >ㅠ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4467">
+                        <label class="form-check-label" >ㅡ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4469">
+                        <label class="form-check-label" >ㅣ</label>
+                    </div>
+                </div>
+                <div class="text-right" id="removeJungPlus">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4450">
+                        <label class="form-check-label" >ㅐ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4452">
+                        <label class="form-check-label" >ㅒ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4454">
+                        <label class="form-check-label" >ㅔ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4456">
+                        <label class="form-check-label" >ㅖ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4458">
+                        <label class="form-check-label" >ㅘ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4459">
+                        <label class="form-check-label" >ㅙ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4460">
+                        <label class="form-check-label" >ㅚ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4463">
+                        <label class="form-check-label" >ㅝ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4464">
+                        <label class="form-check-label" >ㅞ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4465">
+                        <label class="form-check-label" >ㅟ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4468">
+                        <label class="form-check-label" >ㅢ</label>
+                    </div>
+                </div>
+
+                <div class="text-right" id="removeJong">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="all-jong">
+                        <label class="form-check-label" >전체</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4520">
+                        <label class="form-check-label" >ㄱ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4523">
+                        <label class="form-check-label" >ㄴ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4526">
+                        <label class="form-check-label" >ㄷ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4527">
+                        <label class="form-check-label" >ㄹ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4535">
+                        <label class="form-check-label" >ㅁ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4536">
+                        <label class="form-check-label" >ㅂ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4538">
+                        <label class="form-check-label" >ㅅ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4540">
+                        <label class="form-check-label" >ㅇ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4541">
+                        <label class="form-check-label" >ㅈ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4542">
+                        <label class="form-check-label" >ㅊ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4543">
+                        <label class="form-check-label" >ㅋ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4544">
+                        <label class="form-check-label" >ㅌ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4545">
+                        <label class="form-check-label" >ㅍ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4546">
+                        <label class="form-check-label" >ㅎ</label>
+                    </div>
+                </div>
+                <div class="text-right" id="removeJongPlus">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4521">
+                        <label class="form-check-label" >ㄲ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4539">
+                        <label class="form-check-label" >ㅆ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4522">
+                        <label class="form-check-label" >ㄳ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4524">
+                        <label class="form-check-label" >ㄵ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4525">
+                        <label class="form-check-label" >ㄶ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4528">
+                        <label class="form-check-label" >ㄺ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4529">
+                        <label class="form-check-label" >ㄻ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4530">
+                        <label class="form-check-label" >ㄼ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4531">
+                        <label class="form-check-label" >ㄽ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4532">
+                        <label class="form-check-label" >ㄾ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4533">
+                        <label class="form-check-label" >ㄿ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4534">
+                        <label class="form-check-label" >ㅀ</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="4537">
+                        <label class="form-check-label" >ㅄ</label>
+                    </div>
+                </div>
+
+                <script>
+                $('input[type=checkbox]').change(function() {
+                        if($(this).val().includes("all")){
+                            var allExt = $(this).val().split("-")[1];
+                            var alls = null;
+                            switch(allExt){
+                                case "ja":
+                                alls = $("#removeJaPlus, #removeJa").find('input[type=checkbox]');
+                                    break;
+                                case "cho":
+                                alls = $("#removeChoDouble, #removeCho").find('input[type=checkbox]');
+                                    break;
+                                case "jung":
+                                alls = $("#removeJungPlus, #removeJung").find('input[type=checkbox]');
+                                    break;
+                                case "jong":
+                                alls = $("#removeJongPlus, #removeJong").find('input[type=checkbox]');
+                                    break;
+                                default:
+                                alls = null;
+                                    break;
+                            }
+                            if (this.checked) {
+                                for (var i = 1; i < alls.length; i++) {
+                                    if(alls[i].checked){
+                                        continue;
+                                    }else{
+                                        alls[i].click();
+                                    }
+                                }
+                            } else {
+                                for (var i = 1; i < alls.length; i++) {
+                                    if(!alls[i].checked){
+                                        continue;
+                                    }else{
+                                        alls[i].click();
+                                    }
+                                }
+                            }
+                            syncCheckRemove();
+                        }else{
+                            
+                            var elements = null;
+                            var elementsExt = null;
+                            if($(this).val().indexOf("_") === -1){
+                                elements = $("." + $(this).val());
+                                if (this.checked) {
+                                    elements.each(function(index, item){
+                                        $(item).addClass('hidebox');
+                                    })
+                                } else {
+                                    elements.each(function(index, item){
+                                        $(item).removeClass('hidebox');
+                                    })
+                                }
+                            }else{
+                                if($(this).val().includes("all")){
+                                    return;
+                                }
+                                elements = $("." + $(this).val().split("_")[0]);
+                                elementsExt = $("." + $(this).val().split("_")[1]);
+                                if (this.checked) {
+                                    elements.each(function(index, item){
+                                        $(item).addClass('hidebox');
+                                    })
+                                    elementsExt.each(function(index, item){
+                                        $(item).addClass('hidebox');
+                                    })
+                                } else {
+                                    elements.each(function(index, item){
+                                        $(item).removeClass('hidebox');
+                                    })
+                                    elementsExt.each(function(index, item){
+                                        $(item).removeClass('hidebox');
+                                    })
+                                }
+                            }
+                            syncCheckRemove();
+                        }
+
+                        
+                    });
+                    $('input[type=radio]').change(function() {
+                        var checkboxes = document.querySelectorAll("input[type='checkbox']");
+                        for (var i = 0; i < checkboxes.length; i++) {
+                            checkboxes[i].checked = false;
+                        }
+                        var elements = document.querySelectorAll('.hidebox');
+                        elements.forEach(element => {
+                            element.classList.remove('hidebox');
+                        });
+                    });
+                </script>
+                <div class="row" id="wordList">
+                </div>
+            </div>
+        </section>
+        <div class="modal fade" id="addWord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">추가하기</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>문장</th>
+                                <td><input type="text" id="requestWord" class="form-control"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="추가" id="requestWordButton" class="btn btn-primary">
+                        <script>
+                            $("#requestWordButton").click(function(e){
+                                console.log("[REQUEST] >>> requestWordButton  ---> [SERVER] >>> hangulParse");
+                                var data={
+                                    requestWord:$('#requestWord').val(),
+                                    }
+                                console.log(data);
+                                var url="/addWord";
+                                $.ajax({
+                                    type:'POST',
+                                    url:url,
+                                    dataType:"text",
+                                    contentType:'application/json; charset=utf-8',
+                                    data:JSON.stringify(data),
+                                })
+                                .done(function(data) {
+                                    console.log("[RESPONSE] >>> DONE  ---> [SERVER] >>> hangulParse");
+                                    var jsonArray = JSON.parse(data);
+                                    console.log(jsonArray);
+                                    if(data === "" || jsonArray.length === 0){
+                                        toastr.warning('초민정음 관리자', '한글이 아니거나, 완성된 한글 단어가 아닌 문자가 포함되어있습니다.');
+                                    }else if(jsonArray.length > 16){
+                                        toastr.warning('초민정음 관리자', '16글자 이상의 문장은 추가할 수 없습니다.');
+                                    }else{
+                                        var hangulRowCount = $(".hangul-row").length;
+                                        if(jsonArray.length < 9){
+                                            hangulRowCount += 1;
+                                        }else{
+                                            hangulRowCount += 2;
+                                        }
+                                        if(hangulRowCount > 20){
+                                            toastr.warning('초민정음 관리자', '학습지 전체 줄수는 20줄을 넘을 수 없습니다.');
+                                        }else{
+                                            toastr.success('초민정음 관리자', '문제 추가 완료');
+                                            addTest(data, $('#requestWord').val());
+                                            $('#requestWord').val("");
+                                        }
+                                    }
+                                })
+                                .fail(function (error) {
+                                    console.log("[RESPONSE] >>> FAIL  ---> [SERVER] >>> hangulParse");
+                                    console.log(JSON.stringify(error));
+                                    toastr.error('초민정음 관리자', '문제 추가 실패');
+                                });
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editWord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">수정하기</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>문장</th>
+                                <td><input type="text" id="editWordValue" class="form-control"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="수정" id="editWordButton" class="btn btn-primary">
+                        <script>
+                            $("#editWordButton").click(function(e){
+                                console.log("[REQUEST] >>> editWordButton  ---> [SERVER] >>> hangulParse");
+                                var data={
+                                    requestWord:$('#editWordValue').val(),
+                                    }
+                                console.log(data);
+                                var url="/addWord";
+                                $.ajax({
+                                    type:'POST',
+                                    url:url,
+                                    dataType:"text",
+                                    contentType:'application/json; charset=utf-8',
+                                    data:JSON.stringify(data),
+                                })
+                                .done(function(data) {
+                                    console.log("[RESPONSE] >>> DONE  ---> [SERVER] >>> hangulParse");
+                                    var jsonArray = JSON.parse(data);
+                                    console.log(jsonArray);
+                                    if(data === "" || jsonArray.length === 0){
+                                        toastr.warning('초민정음 관리자', '한글이 아니거나, 완성된 한글 단어가 아닌 문자가 포함되어있습니다.');
+                                    }else{
+                                        toastr.success('초민정음 관리자', '문제 수정 완료');
+                                        editTest(data, $('#editWordValue').val());
+                                        $('#editWordValue').val("");
+                                    }
+                                })
+                                .fail(function (error) {
+                                    console.log("[RESPONSE] >>> FAIL  ---> [SERVER] >>> hangulParse");
+                                    console.log(JSON.stringify(error));
+                                    toastr.error('초민정음 관리자', '문제 수정 실패');
+                                });
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-lg-start">Copyright &copy; Cho-MinJungum 2024</div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+var lineBreakCount = 8;
+var currentFontSize = 60;
+var requestHangulArray = [];
+var currentEditElement = null;
+var currentRemoveCheck = "ja";
+var orderingNumber = 0;
+window.onload = function(){
+    $("#userInfo").hide();
+    $("#printArea").hide();
+    showJaCheck();
+}
+
+window.onbeforeprint = function () { 
+    $("#services").addClass("no-padding")
+    $("#printArea").show();
+    $("#addWordButton").hide();
+    $("#printTest").hide();
+    $("#titleMain").hide();
+    $("#titleSub").hide();
+    $("#mainNav").hide();
+    $("#userInfo").show();
+    $(".btn-edit").hide();
+    $(".btn-delete").hide();
+    $(".btn-orderup").hide();
+    $(".btn-orderdown").hide();
+    $("#removeJa").hide();
+    $("#removeJaPlus").hide();
+    $("#removeJaDouble").hide();
+    $("#removeCho").hide();
+    $("#removeChoDouble").hide();
+    $("#removeJung").hide();
+    $("#removeJungPlus").hide();
+    $("#removeJong").hide();
+    $("#removeJongPlus").hide();
+    $("#removeJongDouble").hide();
+    $("#btnRadio1-btn").hide();
+    $("#btnRadio2-btn").hide();
+    $("#btnRadio3-btn").hide();
+    $("#btnRadio4-btn").hide();
+    $("#btnRadio5-btn").hide();
+    $("#fontConfigMenu").hide();
+    $("#services-area").css("max-width","100%");
+    syncPrintLineBreak();
+    toastr.remove();
+    $(".container").addClass("beforePrintArea");
+}
+
+
+window.onafterprint = function () { 
+    $("#services").removeClass("no-padding")
+    $("#printArea").hide();
+    $("#addWordButton").show();
+    $("#printTest").show();
+    $("#titleMain").show();
+    $("#titleSub").show();
+    $("#mainNav").show();
+    $("#userInfo").hide();
+    $(".btn-edit").show();
+    $(".btn-delete").show();
+    $(".btn-orderup").show();
+    $(".btn-orderdown").show();
+    if(currentRemoveCheck === "ja"){
+        $("#removeJa").show();
+        $("#removeJaPlus").show();
+        $("#removeJaDouble").show();
+    }else if(currentRemoveCheck === "cho"){
+        $("#removeCho").show();
+        $("#removeChoDouble").show();
+    }else if(currentRemoveCheck === "jung"){
+        $("#removeJung").show();
+        $("#removeJungPlus").show();
+    }else if(currentRemoveCheck === "jong"){
+        $("#removeJong").show();
+        $("#removeJongPlus").show();
+        $("#removeJongDouble").show();
+    }
+    $("#btnRadio1-btn").show();
+    $("#btnRadio2-btn").show();
+    $("#btnRadio3-btn").show();
+    $("#btnRadio4-btn").show();
+    $("#btnRadio5-btn").show();
+    $("#fontConfigMenu").show();
+    $(".container").removeClass("beforePrintArea");
+    $("#services-area").css("max-width","1320px");
+    //syncPrintLineBreak();
+}
+
+addTest = function(data, fullWord){
+    var jsonArray = JSON.parse(data);
+    var htmlElement = "<div class='hangulWrapper d-flex' style='width:100%;' ordering='" + orderingNumber++ +"'>";
+        htmlElement += "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
+        htmlElement += "<div class='hangul-row-Wrapper' style='width:100%;'>";
+    for(var i = 0; i < jsonArray.length; i++){
+        if(i % lineBreakCount === 0){
+            htmlElement += "<div class='row hangul-row' style='height:170px;'>";
+        }
+        htmlElement += "<div class='hangulSet' style='width:100px; height:100px; position: relative;'>";
+        htmlElement +=  "<div class='hangul-background'><img class='hangul-background-element' src='hangul/32.svg' style='height: 90px;position:absolute;top: 2px;left: 13px;'></div>";
+        if(jsonArray[i].specialFlag){
+            if(jsonArray[i].specialTypeCode === 32 || jsonArray[i].specialTypeCode === 33 || jsonArray[i].specialTypeCode === 63){ //space, !, ?
+                htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 114px;position: absolute;top: 2px;left: 2px;'></div>"; 
+            }else if(jsonArray[i].specialTypeCode === 46){ // .
+                htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 142px;position: absolute;top: 2px;left: 2px;'></div>"; 
+            }else{  // ,
+                htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 136px;position: absolute;top: 2px;left: 2px;'></div>";
+            }
+        }else{
+            htmlElement +=  "<div class='cho'><img class='hangul kccdodamdodma-font cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height: 32.5px;position:absolute;top: 0px;z-index: 1;' onclick='openHangulToggle(this)'></div>";
+            htmlElement +=  "<div class='jung'><img class='hangul kccdodamdodma-font jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height: 59.5px;position:absolute;top: 0px;' onclick='openHangulToggle(this)'></div>";
+            if(jsonArray[i].jongsung){
+                htmlElement += "<div class='jong'><img class='hangul kccdodamdodma-font jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height: 33px;position:absolute;t;top: 59px;' onclick='openHangulToggle(this)'></div>";
+            }
+        }
+        htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
+        // htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul kccdodamdodma-font emptyWordSvg' src='hangul/000000.svg' style='height:65px;position: absolute;top: 70px;'></div>";
+        htmlElement += "</div>";
+        htmlElement += "</div>";
+        if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){
+            htmlElement += "</div>";
+        }
+    }
+    htmlElement += "</div>";
+    htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
+    htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
+    htmlElement += "</div>"
+    $("#wordList").append(htmlElement);
+    $("#requestWord").val("");
+    syncCheckRemove();
+    syncRadioRemove();
+    syncFontConfig();
+}
+
+editTest = function(data, fullWord){
+
+    var jsonArray = JSON.parse(data);
+    var htmlElement = "<div class='hangulWrapper d-flex' style='width:100%;' ordering='" + currentEditElement.parent().attr("ordering") +"'>";
+        htmlElement += "<input class='fullWord' type='hidden' value='" + fullWord + "'>";
+        htmlElement += "<div class='hangul-row-Wrapper' style='width:100%;'>";
+    for(var i = 0; i < jsonArray.length; i++){
+        if(i % lineBreakCount === 0){
+            htmlElement += "<div class='row hangul-row' style='height:170px;'>";
+        }
+        htmlElement += "<div class='hangulSet' style='width:100px; height:100px; position: relative;'>";
+        htmlElement +=  "<div class='hangul-background'><img class='hangul-background-element' src='hangul/32.svg' style='height: 90px;position:absolute;top: 2px;left: 13px;'></div>";
+        if(jsonArray[i].specialFlag){
+            if(jsonArray[i].specialTypeCode === 32 || jsonArray[i].specialTypeCode === 33 || jsonArray[i].specialTypeCode === 63){ //space, !, ?
+                htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 114px;position: absolute;top: 2px;left: 2px;'></div>"; 
+            }else if(jsonArray[i].specialTypeCode === 46){ // .
+                htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 142px;position: absolute;top: 2px;left: 2px;'></div>"; 
+            }else{  // ,
+                htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 136px;position: absolute;top: 2px;left: 2px;'></div>";
+            }
+        }else{
+            htmlElement +=  "<div class='cho'><img class='hangul kccdodamdodma-font cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height: 32.5px;position:absolute;top: 0px;z-index: 1;' onclick='openHangulToggle(this)'></div>";
+            htmlElement +=  "<div class='jung'><img class='hangul kccdodamdodma-font jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height: 59.5px;position:absolute;top: 0px;' onclick='openHangulToggle(this)'></div>";
+            if(jsonArray[i].jongsung){
+                htmlElement += "<div class='jong'><img class='hangul kccdodamdodma-font jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height: 33px;position:absolute;t;top: 59px;' onclick='openHangulToggle(this)'></div>";
+            }
+        }
+        htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
+        // htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul kccdodamdodma-font emptyWordSvg' src='hangul/000000.svg' style='height:65px;position: absolute;top: 70px;'></div>";
+        htmlElement += "</div>";
+        htmlElement += "</div>";
+        if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){
+            htmlElement += "</div>";
+        }
+    }
+    htmlElement += "</div>";
+    htmlElement += "<button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
+    htmlElement += "<button class='btn rounded-0 btn-orderdown' type='button' title='Down' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
+    htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
+    htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
+    htmlElement += "</div>"
+    currentEditElement.parent().remove();
+    $("#wordList").append(htmlElement);
+    $("#editWord").modal('toggle');
+    $("#editWordValue").val("");
+    syncCheckRemove();
+    syncRadioRemove();
+    syncFontConfig();
+}
+
+editTestReady = function(element){
+    $('#editWordValue').val($(element).parent().find(".fullWord").val());
+    currentEditElement = $(element);
+}
+
+deleteTest = function(element){
+    $(element).parent().remove();
+    syncHangulOrdering();
+    syncTestNumber();
+}
+
+showJaCheck = function(){
+    jaCheckControl(false);
+    choCheckControl(true);
+    jungCheckControl(true);
+    jongCheckControl(true);
+    currentRemoveCheck = "ja";
+}
+
+showChoCheck = function(){
+    jaCheckControl(true);
+    choCheckControl(false);
+    jungCheckControl(true);
+    jongCheckControl(true);
+    currentRemoveCheck = "cho";
+}
+
+showJungCheck = function(){
+    jaCheckControl(true);
+    choCheckControl(true);
+    jungCheckControl(false);
+    jongCheckControl(true);
+    currentRemoveCheck = "jung";
+}
+
+showJongCheck = function(){
+    jaCheckControl(true);
+    choCheckControl(true);
+    jungCheckControl(true);
+    jongCheckControl(false);
+    currentRemoveCheck = "jong";
+}
+
+hideCheck = function(){
+    jaCheckControl(true);
+    choCheckControl(true);
+    jungCheckControl(true);
+    jongCheckControl(true);
+    currentRemoveCheck = "";
+}
+
+jaCheckControl = function(isHide){
+    if(isHide){
+        $("#removeJa").hide();
+        $("#removeJaPlus").hide();
+        $("#removeJaDouble").hide();
+    }else{
+        $("#removeJa").show();
+        $("#removeJaPlus").show();
+        $("#removeJaDouble").show();
+    }
+}
+
+choCheckControl = function(isHide){
+    if(isHide){
+        $("#removeCho").hide();
+        $("#removeChoPlus").hide();
+        $("#removeChoDouble").hide();
+    }else{
+        $("#removeCho").show();
+        $("#removeChoPlus").show();
+        $("#removeChoDouble").show();
+    }
+}
+
+jungCheckControl = function(isHide){
+    if(isHide){
+        $("#removeJung").hide();
+        $("#removeJungPlus").hide();
+        $("#removeJungDouble").hide();
+    }else{
+        $("#removeJung").show();
+        $("#removeJungPlus").show();
+        $("#removeJungDouble").show();
+    }
+}
+
+jongCheckControl = function(isHide){
+    if(isHide){
+        $("#removeJong").hide();
+        $("#removeJongPlus").hide();
+        $("#removeJongDouble").hide();
+    }else{
+        $("#removeJong").show();
+        $("#removeJongPlus").show();
+        $("#removeJongDouble").show();
+    }
+}
+
+syncCheckRemove = function(){
+
+    var hideElements = document.querySelectorAll('.hidebox');
+    hideElements.forEach(element => {
+        element.classList.remove('hidebox');
+    });
+
+    var elements = null;
+    var elementsExt = null;
+    var checks = $("input[type=checkbox]:checked")
+    checks.each(function(){
+        if($(this).val().indexOf("_") === -1){
+            elements = $("." + $(this).val());
+            if (this.checked) {
+                elements.each(function(index, item){
+                    $(item).addClass('hidebox');
+                })
+            } else {
+                elements.each(function(index, item){
+                    $(item).removeClass('hidebox');
+                })
+            }
+        }else{
+            elements = $("." + $(this).val().split("_")[0]);
+            elementsExt = $("." + $(this).val().split("_")[1]);
+            if (this.checked) {
+                elements.each(function(index, item){
+                    $(item).addClass('hidebox');
+                })
+                elementsExt.each(function(index, item){
+                    $(item).addClass('hidebox');
+                })
+            } else {
+                elements.each(function(index, item){
+                    $(item).removeClass('hidebox');
+                })
+                elementsExt.each(function(index, item){
+                    $(item).removeClass('hidebox');
+                })
+            }
+        }
+    })
+}
+
+syncRadioRemove = function(){
+    var removeTarget = $("input[type=radio]:checked").val();
+    if(removeTarget === "choremove"){
+        elements = document.querySelectorAll('.hangul.cho');
+        elements.forEach(element => {
+            element.classList.add('hidebox');
+        });
+    }else if(removeTarget === "jungremove"){
+        elements = document.querySelectorAll('.hangul.jung');
+        elements.forEach(element => {
+            element.classList.add('hidebox');
+        });
+    }else if(removeTarget === "jongremove"){
+        elements = document.querySelectorAll('.hangul.jong');
+        elements.forEach(element => {
+            element.classList.add('hidebox');
+        });
+    }
+}
+
+editFontConfig = function(clickElement){
+    if($(clickElement).val() === "small"){
+        currentFontSize = 60
+    }else if($(clickElement).val() === "middle"){
+        currentFontSize = 100
+    }else{
+        currentFontSize = 100
+    }
+    syncWordLineBreak();
+    $(".hangul").each(function(index, item){
+        $(item).css("height", Number(currentFontSize));
+    })
+    $(".emptyWordSvg").each(function(index, item){
+        $(item).css("top", Number(currentFontSize) * 1);
+    })
+    $(".hangulSet").each(function(index, item){
+        $(item).css("width", Number(currentFontSize) * 1);
+    })
+    $(".hangul-row").each(function(index, item){
+        if(currentFontSize === 60){
+            $(item).css("height", Number(currentFontSize) * 2);
+        }else if(currentFontSize === 120){
+            $(item).css("height", Number(currentFontSize) * 2);
+        }else if(currentFontSize === 180){
+            $(item).css("height", Number(currentFontSize) * 2.5);
+        }else{
+            $(item).css("height", Number(currentFontSize) * 2);
+        }
+    })
+}
+
+syncFontConfig = function(){
+    if(currentFontSize){
+        $(".hangul").each(function(index, item){
+            $(item).css("height", Number(currentFontSize));
+        })
+        $(".emptyWordSvg").each(function(index, item){
+            $(item).css("top", Number(currentFontSize) * 1);
+        })
+        $(".hangulSet").each(function(index, item){
+            $(item).css("width", Number(currentFontSize) * 1);
+        })
+        $(".hangul-row").each(function(index, item){
+            if(currentFontSize === 60){
+                $(item).css("height", Number(currentFontSize) * 2);
+            }else if(currentFontSize === 120){
+                $(item).css("height", Number(currentFontSize) * 2);
+            }else if(currentFontSize === 180){
+                $(item).css("height", Number(currentFontSize) * 2.5);
+            }else{
+                $(item).css("height", Number(currentFontSize) * 2);
+            }
+        })
+    }
+    syncWordLineBreak();
+}
+
+syncHangulOrdering = function(){
+    var divElements = document.getElementsByClassName('hangulWrapper');
+
+    var divArray = Array.from(divElements);
+
+    divArray.sort((a, b) => {
+        var orderingA = parseInt(a.getAttribute('ordering'));
+        var orderingB = parseInt(b.getAttribute('ordering'));
+        return orderingA - orderingB;
+    });
+
+    var parentContainer = divElements[0].parentNode;
+    divArray.forEach(div => parentContainer.appendChild(div));
+    
+}
+
+syncWordLineBreak = function(){
+    lineBreakCount = 8;
+    $(".hangulWrapper").each(function(index, item){
+        console.log("[REQUEST] >>> editWordButton  ---> [SERVER] >>> hangulParse");
+        var targetWordElement = $(item); 
+        var targetWordSentence = $(item).find(".fullWord").val();
+        var targetWordOrdering = $(item).attr("ordering");
+        var data={
+            requestWord:targetWordSentence,
+            }
+        console.log(data);
+        var url="/addWord";
+        $.ajax({
+            type:'POST',
+            url:url,
+            dataType:"text",
+            contentType:'application/json; charset=utf-8',
+            data:JSON.stringify(data),
+        })
+        .done(function(data) {
+            console.log("[RESPONSE] >>> DONE  ---> [SERVER] >>> hangulParse");
+            var jsonArray = JSON.parse(data);
+            console.log(jsonArray);
+            if(data === "" || jsonArray.length === 0){
+                console.log('한글이 아니거나, 완성된 한글 단어가 아닌 문자가 포함되어있습니다.');
+            }else{
+                console.log('문제 수정 완료');
+                var jsonArray = JSON.parse(data);
+                var htmlElement = "<div class='hangulWrapper d-flex' style='width:100%;' ordering='" + targetWordOrdering +"'>";
+                    htmlElement += "<input class='fullWord' type='hidden' value='" + targetWordSentence + "'>";
+                    // htmlElement += "<div class='hangul-row-Wrapper' style='width:100%;'>";
+                    htmlElement += "<div class='hangul-row-Wrapper' style=''>";
+                for(var i = 0; i < jsonArray.length; i++){
+                    if(i % lineBreakCount === 0){
+                        htmlElement += "<div class='row hangul-row' style='height:80px;'>";
+                    }
+                    htmlElement += "<div class='hangulSet' style='width:80px; height:100px; position: relative;'>";
+                    htmlElement +=  "<div class='hangul-background'><img class='hangul-background-element' src='hangul/32.svg' style='height: 70px;position:absolute;top: 2px;left: 13px;'></div>";
+                    if(jsonArray[i].specialFlag){
+                        if(jsonArray[i].specialTypeCode === 32 || jsonArray[i].specialTypeCode === 33 || jsonArray[i].specialTypeCode === 63){ //space, !, ?
+                            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 70px;position: absolute;top: 2px;left: 2px;'></div>"; 
+                        }else if(jsonArray[i].specialTypeCode === 46){ // .
+                            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 87px;position: absolute;top: 2px;left: 2px;'></div>"; 
+                        }else if(jsonArray[i].specialTypeCode === 46){  // ,
+                            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 82px;position: absolute;top: 2px;left: 2px;'></div>";
+                        }else{
+                            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 70px;position: absolute;top: 2px;left: 2px;'></div>"; 
+                        }
+                    }else{
+                        htmlElement +=  "<div class='cho'><img class='hangul kccdodamdodma-font cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height: 25px;position:absolute;top: 0px;z-index: 1;' onclick='openHangulToggle(this)'></div>";
+                        htmlElement +=  "<div class='jung'><img class='hangul kccdodamdodma-font jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height: 46px;position:absolute;top: 0px;' onclick='openHangulToggle(this)'></div>";
+                        if(jsonArray[i].jongsung){
+                            htmlElement += "<div class='jong'><img class='hangul kccdodamdodma-font jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height: 25.5px;position:absolute;t;top: 48px;' onclick='openHangulToggle(this)'></div>";
+                        }
+                    }
+                    htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
+                    // htmlElement +=  "<div class='emptyWord' style='position:absolute;'><img class='hangul kccdodamdodma-font emptyWordSvg' src='hangul/000000.svg' style='height:65px;position: absolute;top: 70px;'></div>";
+                    htmlElement += "</div>";
+                    htmlElement += "</div>";
+                    if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){
+                        htmlElement += "</div>";
+                    }
+                }
+                htmlElement += "</div>";
+                htmlElement += "<button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)' style='margin-left:40px;'><i class='fas fa-arrow-up'></i></button>"
+                htmlElement += "<button class='btn rounded-0 btn-orderdown' type='button' title='Down' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
+                htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
+                htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
+                htmlElement += "</div>"
+                $("#wordList").append(htmlElement);
+                $("#requestWord").val("");
+                syncCheckRemove();
+                syncRadioRemove();
+                syncHangulOrdering();
+                // if(currentFontSize){
+                //     $(".hangul").each(function(index, item){
+                //         $(item).css("height", Number(currentFontSize));
+                //     })
+                //     $(".emptyWordSvg").each(function(index, item){
+                //         $(item).css("top", Number(currentFontSize) * 1);
+                //     })
+                //     $(".hangulSet").each(function(index, item){
+                //         $(item).css("width", Number(currentFontSize) * 1);
+                //     })
+                //     $(".hangul-row").each(function(index, item){
+                //         if(currentFontSize === 60){
+                //             $(item).css("height", Number(currentFontSize) * 2);
+                //         }else if(currentFontSize === 120){
+                //             $(item).css("height", Number(currentFontSize) * 2);
+                //         }else if(currentFontSize === 180){
+                //             $(item).css("height", Number(currentFontSize) * 2.5);
+                //         }else{
+                //             $(item).css("height", Number(currentFontSize) * 2);
+                //         }
+
+                //     })
+                // }
+                targetWordElement.remove();
+                syncTestNumber();
+            }
+        })
+        .fail(function (error) {
+            console.log("[RESPONSE] >>> FAIL  ---> [SERVER] >>> hangulParse");
+            console.log(JSON.stringify(error));
+            console.log('문제 수정 실패');
+        });
+    })
+}
+
+syncPrintLineBreak = function(){
+    console.log("-------------------------------syncPrintLineBreak----------------------------");
+    $(".hangul-row").each(function(index, item){
+        $(item).removeClass("print-line-break");
+    });
+    var sizeCounter = 1;
+    $(".hangul-row").each(function(index, item){
+        console.log($(item).offset().top);
+        if($(item).offset().top / 880 > sizeCounter){
+            sizeCounter += 1;
+            $(item).addClass("print-line-break");
+        }
+    });
+}
+
+syncTestNumber = function(){
+    var orderCount = 1;
+
+    $(".hangulWrapper").each(function(index, item){
+        $(item).find(".orderCount").remove();
+    });
+
+    $(".hangulWrapper").each(function(index, item){
+        $(item).prepend("<p class='orderCount' style='padding-top:10px;'>" + orderCount++ + ". </p>");
+    });
+}
+
+
+
+orderUpSide = function(targetElement){
+    var currentOrderNumber = Number($(targetElement).parent().attr("ordering"));
+    if(currentOrderNumber === 0){
+        toastr.warning('초민정음 관리자', '처음 문제입니다.');
+        return;
+    }
+    $(targetElement).parent().attr("ordering", currentOrderNumber - 1);
+    $(targetElement).parent().prev().attr("ordering", currentOrderNumber);
+    syncHangulOrdering();
+    syncTestNumber();
+}
+
+orderDownSide = function(targetElement){
+    var currentOrderNumber = Number($(targetElement).parent().attr("ordering"));
+    if(currentOrderNumber === orderingNumber - 1){
+        toastr.warning('초민정음 관리자', '마지막 문제입니다.');
+        return;
+    }
+    $(targetElement).parent().attr("ordering", currentOrderNumber + 1);
+    $(targetElement).parent().next().attr("ordering", currentOrderNumber);
+    syncHangulOrdering();
+    syncTestNumber();
+}
+
+openHangulToggle = function(e){
+    if($(e).hasClass('hidebox')){
+        $(e).removeClass('hidebox');
+    }else{
+        $(e).addClass('hidebox');
+    }
+}
+
+generateTestSet = function(testValue){
+    for(var i = 0; i < testValue; i++){
+        var randomword = "";
+        var randomLength = Math.floor(Math.random() * 100);
+        for( var j=0; j<randomLength; j++ ) randomword += random_hangul();
+        var data={
+            requestWord:randomword,
+            }
+        var url="/addWord";
+        $.ajax({
+            type:'POST',
+            url:url,
+            dataType:"text",
+            contentType:'application/json; charset=utf-8',
+            data:JSON.stringify(data),
+        })
+        .done(function(data) {
+            var jsonArray = JSON.parse(data);
+            if(data === "" || jsonArray.length === 0){
+            }else{
+                var jsonArray = JSON.parse(data);
+                var htmlElement = "<div class='hangulWrapper d-flex' style='width:100%;' ordering='" + i +"'>";
+                    htmlElement += "<input class='fullWord' type='hidden' value='" + randomword + "'>";
+                    htmlElement += "<div class='hangul-row-Wrapper' style=''>";
+                for(var i = 0; i < jsonArray.length; i++){
+                    if(i % lineBreakCount === 0){
+                        htmlElement += "<div class='row hangul-row' style='height:80px;'>";
+                    }
+                    htmlElement += "<div class='hangulSet' style='width:80px; height:100px; position: relative;'>";
+                    htmlElement +=  "<div class='hangul-background'><img class='hangul-background-element' src='hangul/32.svg' style='height: 70px;position:absolute;top: 2px;left: 13px;'></div>";
+                    if(jsonArray[i].specialFlag){
+                        if(jsonArray[i].specialTypeCode === 32 || jsonArray[i].specialTypeCode === 33 || jsonArray[i].specialTypeCode === 63){ //space, !, ?
+                            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 70px;position: absolute;top: 2px;left: 2px;'></div>"; 
+                        }else if(jsonArray[i].specialTypeCode === 46){ // .
+                            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 87px;position: absolute;top: 2px;left: 2px;'></div>"; 
+                        }else{  // ,
+                            htmlElement +=  "<div class='special' style='position:absolute;'><img class='hangul kccdodamdodma-font' src='hangul/" + jsonArray[i].specialTypeCode + ".svg' style='height: 82px;position: absolute;top: 2px;left: 2px;'></div>";
+                        }
+                    }else{
+                        htmlElement +=  "<div class='cho'><img class='hangul kccdodamdodma-font cho " + jsonArray[i].choCode + "' src='hangul/" + jsonArray[i].choCode + ".svg' style='height: 25px;position:absolute;top: 0px;z-index: 1;' onclick='openHangulToggle(this)'></div>";
+                        htmlElement +=  "<div class='jung'><img class='hangul kccdodamdodma-font jung " + jsonArray[i].jungCode + "' src='hangul/" + jsonArray[i].jungCode + ".svg' style='height: 46px;position:absolute;top: 0px;' onclick='openHangulToggle(this)'></div>";
+                        if(jsonArray[i].jongsung){
+                            htmlElement += "<div class='jong'><img class='hangul kccdodamdodma-font jong " + jsonArray[i].jongCode + "' src='hangul/" + jsonArray[i].jongCode + ".svg' style='height: 25.5px;position:absolute;t;top: 48px;' onclick='openHangulToggle(this)'></div>";
+                        }
+                    }
+                    htmlElement += "<div class='hangulFullWord' style='width:70px; height:100px;'>";
+                    htmlElement += "</div>";
+                    htmlElement += "</div>";
+                    if(i % lineBreakCount === lineBreakCount - 1 || i === jsonArray.length-1){
+                        htmlElement += "</div>";
+                    }
+                }
+                htmlElement += "</div>";
+                htmlElement += "<button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)' style='margin-left:40px;'><i class='fas fa-arrow-up'></i></button>"
+                htmlElement += "<button class='btn rounded-0 btn-orderdown' type='button' title='Up' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
+                htmlElement += "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editWord' onclick='editTestReady(this)'><i class='fa fa-edit'></i></button>"
+                htmlElement += "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteTest(this)'><i class='fa fa-trash'></i></button>"
+                htmlElement += "</div>"
+                $("#wordList").append(htmlElement);
+                $("#requestWord").val("");
+                syncCheckRemove();
+                syncRadioRemove();
+                syncHangulOrdering();
+                syncTestNumber();
+            }
+        })
+        .fail(function (error) {
+            console.log(JSON.stringify(error));
+        });
+    }
+}
+function random_hangul() {
+  return String.fromCharCode( 44031 + Math.ceil( 11172 * Math.random() ) );
+}
+        </script>
+    </body>
+</html>

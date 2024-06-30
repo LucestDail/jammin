@@ -15,12 +15,18 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Bootstrap core JS-->
+        <script src="js/jquery-3.7.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!-- <script src="js/bootstrap.min.js"></script> -->
+        <!-- Core theme JS-->
+        <!-- <script src="js/scripts.js"></script> -->
     </head>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav" >
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="img/navbar-logo.svg" alt="..." /></a>
+                <a class="navbar-brand" href="/"><img src="img/navbar-logo.png" alt="..." /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -31,7 +37,7 @@
                         <li class="nav-item"><a class="nav-link" href="test">받아쓰기</a></li>
                         <li class="nav-item"><a class="nav-link" href="practice">긴글연습</a></li>
                         <!-- <li class="nav-item"><a class="nav-link" href="writing">획순연습</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="paper">교안자료실</a></li>
+                        <li class="nav-item"><a class="nav-link" href="paper">자료실</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,87 +50,143 @@
                     <h3 class="section-subheading text-muted">초민정음은 이렇게 사용할 수 있습니다.</h3>
                 </div>
                 <div class="row">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                초민정음이란
-                            </button>
-                          </h2>
-                          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p class="card-text">
-                                    초민정음은 '초등학생을 가르치는 바른 소리'라는 뜻으로,<br>
-                                    ‘초등학생’과 '훈민정음'을 합친 합성어입니다.<br>
-                                    어떻게 해야 한 아이도 낙오되지 않는 한글책임교육을 할 수 있을까 라는 고민 끝에,<br>
-                                    선생님의 한글교육을 돕기 위한 에듀테크를 개발하였습니다.<br>
-                                    현장에서 느끼는 한글교육의 가장 큰 문제는,<br>
-                                    아이들이 한글을 ‘쓰지’ 않고 ‘그리고’ 있다는 것입니다.<br>
-                                    표음문자 중에서도 음소문자인 한글의 경우,<br>
-                                    각 자모 문자의 모양과 소릿값을 연결하는 '음운인식 능력'이 매우 중요합니다.<br>
-                                    (ex. 호랑이는 흐(ㅎ)+오(ㅗ)+르(ㄹ)+아(ㅏ)+응(ㅇ)+ㅣ(이) 7개 음소의 합성으로 이뤄진 문자임을 이해해야 합니다.)<br>
-                                    그러나 흔히 통용되는 '받아쓰기 시험'은 음운인식 능력과는 상관없이,<br>
-                                    단어의 모양을 통으로 외워 그리게 만드는 것으로 한글 원리 습득에 전혀 도움이 되지 않습니다.<br>
-                                    이에 초민정음은 '한글 읽기 발달단계'에 맞추어 음운인식능력 향상을 위한 과학적인 학습교재를 만듦과 동시에,<br>
-                                    현장 교사들이 수업에 바로 적용 및 활용할 수 있도록 자유도가<br>
-                                    높은 한글 쓰기교육 학습지 생성 프로그램을 만드는 것을 목표로 달려가고 있습니다.<br>
-                                </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                받아쓰기
-                            </button>
-                          </h2>
-                          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p class="card-text">
-                                    한글 자모의 소릿값을 연습할 수 있는 받아쓰기 시험지를 <br>
-                                    선생님의 수업 의도에 맞게 제작합니다.<br>
-                                </p>
-                                <a href="test" class="btn btn-primary">바로 시작하기</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                긴글연습
-                            </button>
-                          </h2>
-                          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p class="card-text">
-                                    알림장을 비롯해 생활속에서 활용할 수 있는 <br>
-                                    쓰기 활동지를 제작합니다.<br>
-                                </p>
-                                <a href="practice" class="btn btn-primary">바로 시작하기</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFour">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                  교안자료실
-                              </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                  <p class="card-text">
-                                      한글자모 교육을 위한 학습지를 다운로드하여, <br>
-                                      학습간 활용이 가능합니다.<br>
-                                  </p>
-                                  <a href="paper" class="btn btn-primary">바로 시작하기</a>
-                              </div>
-                            </div>
-                          </div>
+                    <div class="col-4">
+                      <div class="list-group" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">초민정음이란?</a>
+                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">받아쓰기</a>
+                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">긴글연습</a>
+                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">자료실</a>
                       </div>
+                    </div>
+                    <div class="col-8">
+                      <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                            <h4 id="list-item-1">초민정음이란?</h4>
+                        <p>초민정음은 '초등학생을 가르치는 바른 소리'라는 뜻으로,
+                            ‘초등학생’과 '훈민정음'을 합친 합성어입니다. 어떻게 해야 한 아이도 낙오되지 않는 한글책임교육을 할 수 있을까 라는 고민 끝에, 
+                            선생님의 한글교육을 돕기 위한 에듀테크를 개발하였습니다.</p>
+                        <p>현장에서 느끼는 한글교육의 가장 큰 문제는, 아이들이 한글을 ‘쓰지’ 않고 ‘그리고’ 있다는 것입니다.</p>
+                        <p>표음문자 중에서도 음소문자인 한글의 경우, 각 자모 문자의 모양과 소릿값을 연결하는 '음운인식 능력'이 매우 중요합니다. (ex. 호랑이는 흐(ㅎ)+오(ㅗ)+르(ㄹ)+아(ㅏ)+응(ㅇ)+ㅣ(이) 7개 음소의 합성으로 이뤄진 문자임을 이해해야 합니다.) 그러나 흔히 통용되는 '받아쓰기 시험'은 음운인식 능력과는 상관없이, 단어의 모양을 통으로 외워 그리게 만드는 것으로 한글 원리 습득에 전혀 도움이 되지 않습니다.</p>  
+                        <p>이에 초민정음은 '한글 읽기 발달단계'에 맞추어 음운인식능력 향상을 위한 과학적인 학습교재를 만듦과 동시에, 현장 교사들이 수업에 바로 적용 및 활용할 수 있도록 자유도가 높은 한글 쓰기교육 학습지 생성 프로그램을 만드는 것을 목표로 달려가고 있습니다.</p>
+
+                        </div>
+                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                            <h4 id="list-item-2">받아쓰기</h4>
+                        <p><img src="img/test1.jpg" width="250px" height="150px"><br>
+                            1. '문장 추가하기' 버튼을 눌러 선생님이 원하는 글귀를 입력합니다.<br></p>     
+                        <p><br><img src="img/test2.jpg"><br>
+                            2. 동요 가사를 입력해 보았습니다.</p>
+                        <p><br><img src="img/test3.jpg"><br>
+                            3. 이 부분이 핵심입니다. 선생님이 원하시는 자모를 선택해 지우실 수 있는데요,
+                            영역을 누르시면 자동으로 삭제, 또다시 누르시면 원래대로 글자가 돌아옵니다.<br></p>
+                        <p><br><img src="img/test4.jpg"><br>
+                            4. 예를 들어 오늘 'ㄴ'을 처음 배웠기 때문에 초성 'ㄴ' 소리를 모두 없애고 싶다! 하시면, 
+                            '초성제거'를 클릭하고 ㄴ 체크박스를 클릭하셔서 초성 'ㄴ'을 한번에 지울 수 있습니다. 
+                            '자음제거'를 클릭하고 ㄴ을 체크할 경우, 초성과 종성 ㄴ이 모두 제거됩니다.<br></p>
+                        <p><br><img src="img/test5.jpg"><br>
+                            5. 원하는 자모를 지우셨다면, '출력하기'버튼을 눌러 학습지를 출력 하실 수 있습니다.
+                            위의 학습지로 학생들은 초성 'ㄴ', 종성 'ㄹ'과 'ㅇ'의 소릿값을 배우겠네요!
+                            아이들이 '나리'라는 글자를 통으로 외워서 쓰는 것이 아니라,
+                            느+ㅏ=나 르+ㅣ=리 라고 말하며 쓸 수 있도록 지도해 주세요.<br></p>
+                        </div>
+                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                            <h4 id="list-item-3">긴글연습</h4>
+                        <p>1. 선생님이 원하는 글귀로 아이들의 글씨연습을 위한 학습지를 만들 수 있습니다.<br></p>
+                          
+                        <p><br><img src="img/practice1.jpg"><br>
+                          2. '문장 추가하기'를 누르시면 원하는 문장을 추가하실 수 있습니다. 저는 동요 가사를 적어보았습니다.<br></p>
+          
+                        <p><br><img src="img/practice2.jpg"><br>
+                          3. 짠! 아이들에게 인지적 혼란을 최대한 방지할 수 있는 서체로 글귀가 출력되었습니다.<br> 
+                          '출력하기' 버튼을 누르시면 학습지가 출력됩니다.<br></p>
+                        </div>
+                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                            <h4 id="list-item-4">자료실</h4>
+                        <p>한글 자모의 형태와 소릿값을 익히기 위한 활동지를 다운받으실 수 있습니다.</p>
+                        <p>1번. 위치에 따른 자모의 발음에 집중하여 소릿값을 익힙니다.</p>
+                        <p>2번. 알맞은 자모 쓰기 순서에 따라 써봅니다.</p>
+                        <p>3번. 단어 속에서 배운 자모가 어디에 위치하는지 어떤 모양으로 자리하고 있는지 
+                           찾아보는 시간을 가집니다.</p> 
+                        <p>4번. 배운 자모를 색칠하여 숨은 그림을 찾아냅니다. 
+                          이때 소근육 발달 및 활동으로 연계하여 테두리를 따라 가위질 한 작품을 
+                             전시 및 놀이에 활용할 수 있습니다.</p>      
+                        <p>&#8251; ㄱ, ㄷ, ㅅ 학습지는 기역, 디귿, 시옷이 아닌 초성과 종성에 위치할 때의 
+                            소릿값을 익히기 위한 목적으로 기윽, 디읃, 시읏으로 표기되었습니다.</p>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
         </section>
         
+          <!--
+        <section class="page-section" id="services">
+            <div class="container h-100">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">도움말</h2>
+                    <h3 class="section-subheading text-muted">초민정음은 이렇게 사용할 수 있습니다.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                      <div id="list-example" class="list-group">
+                        <a class="list-group-item list-group-item-action" href="#list-item-1">초민정음이란?</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-2">받아쓰기</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-3">긴글연습</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-4">자료실</a>
+                      </div>
+                    </div>
+                    <div class="col-8">
+                      <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                        <h4 id="list-item-1">초민정음이란?</h4>
+                        <p>초민정음은 '초등학생을 가르치는 바른 소리'라는 뜻으로,
+                            ‘초등학생’과 '훈민정음'을 합친 합성어입니다. 어떻게 해야 한 아이도 낙오되지 않는 한글책임교육을 할 수 있을까 라는 고민 끝에, 
+                            선생님의 한글교육을 돕기 위한 에듀테크를 개발하였습니다.</p>
+                        <p>현장에서 느끼는 한글교육의 가장 큰 문제는, 아이들이 한글을 ‘쓰지’ 않고 ‘그리고’ 있다는 것입니다.</p>
+                        <p>표음문자 중에서도 음소문자인 한글의 경우, 각 자모 문자의 모양과 소릿값을 연결하는 '음운인식 능력'이 매우 중요합니다. (ex. 호랑이는 흐(ㅎ)+오(ㅗ)+르(ㄹ)+아(ㅏ)+응(ㅇ)+ㅣ(이) 7개 음소의 합성으로 이뤄진 문자임을 이해해야 합니다.) 그러나 흔히 통용되는 '받아쓰기 시험'은 음운인식 능력과는 상관없이, 단어의 모양을 통으로 외워 그리게 만드는 것으로 한글 원리 습득에 전혀 도움이 되지 않습니다.</p>  
+                        <p>이에 초민정음은 '한글 읽기 발달단계'에 맞추어 음운인식능력 향상을 위한 과학적인 학습교재를 만듦과 동시에, 현장 교사들이 수업에 바로 적용 및 활용할 수 있도록 자유도가 높은 한글 쓰기교육 학습지 생성 프로그램을 만드는 것을 목표로 달려가고 있습니다.</p>
+                        <h4 id="list-item-2">받아쓰기</h4>
+                        <p><img src="img/test1.jpg" width="250px" height="150px"><br>
+                            1. '문장 추가하기' 버튼을 눌러 선생님이 원하는 글귀를 입력합니다.</p>     
+                        <p><img src="img/test2.jpg"><br>
+                            2. 동요 가사를 입력해 보았습니다.</p>
+                        <p><img src="img/test3.jpg"><br>
+                            3. 이 부분이 핵심입니다. 선생님이 원하시는 자모를 선택해 지우실 수 있는데요,
+                            영역을 누르시면 자동으로 삭제, 또다시 누르시면 원래대로 글자가 돌아옵니다.</p>
+                        <p><img src="img/test4.jpg"><br>
+                            4. 예를 들어 오늘 'ㄴ'을 처음 배웠기 때문에 초성 'ㄴ' 소리를 모두 없애고 싶다! 하시면, 
+                            '초성제거'를 클릭하고 ㄴ 체크박스를 클릭하셔서 초성 'ㄴ'을 한번에 지울 수 있습니다. 
+                            '자음제거'를 클릭하고 ㄴ을 체크할 경우, 초성과 종성 ㄴ이 모두 제거됩니다.</p>
+                        <p><img src="img/test5.jpg"><br>
+                            5. 원하는 자모를 지우셨다면, '출력하기'버튼을 눌러 학습지를 출력 하실 수 있습니다.
+                            위의 학습지로 학생들은 초성 'ㄴ', 종성 'ㄹ'과 'ㅇ'의 소릿값을 배우겠네요!
+                            아이들이 '나리'라는 글자를 통으로 외워서 쓰는 것이 아니라,
+                            느+ㅏ=나 르+ㅣ=리 라고 말하며 쓸 수 있도록 지도해 주세요.</p>
+                        <h4 id="list-item-3">긴글연습</h4>
+                        <p>1. 선생님이 원하는 글귀로 아이들의 글씨연습을 위한 학습지를 만들 수 있습니다.</p>
+                          
+                        <p><img src="img/practice1.jpg"><br>
+                          2. '문장 추가하기'를 누르시면 원하는 문장을 추가하실 수 있습니다. 저는 동요 가사를 적어보았습니다.</p>
+          
+                        <p><img src="img/practice2.jpg"><br>
+                          3. 짠! 아이들에게 인지적 혼란을 최대한 방지할 수 있는 서체로 글귀가 출력되었습니다.<br> 
+                          '출력하기' 버튼을 누르시면 학습지가 출력됩니다.</p>
+                        <h4 id="list-item-4">자료실</h4>
+                        <p>한글 자모의 형태와 소릿값을 익히기 위한 활동지를 다운받으실 수 있습니다.</p>
+                        <p>1번. 위치에 따른 자모의 발음에 집중하여 소릿값을 익힙니다.</p>
+                        <p>2번. 알맞은 자모 쓰기 순서에 따라 써봅니다.</p>
+                        <p>3번. 단어 속에서 배운 자모가 어디에 위치하는지 어떤 모양으로 자리하고 있는지 
+                           찾아보는 시간을 가집니다.</p> 
+                        <p>4번. 배운 자모를 색칠하여 숨은 그림을 찾아냅니다. 
+                          이때 소근육 발달 및 활동으로 연계하여 테두리를 따라 가위질 한 작품을 
+                             전시 및 놀이에 활용할 수 있습니다.</p>      
+                        <p>&#8251; ㄱ, ㄷ, ㅅ 학습지는 기역, 디귿, 시옷이 아닌 초성과 종성에 위치할 때의 
+                            소릿값을 익히기 위한 목적으로 기윽, 디읃, 시읏으로 표기되었습니다.</p>
+                      </div>
+                    </div>
+                  </div>
+            </div> 
+        </section>
+-->
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
@@ -133,9 +195,5 @@
                 </div>
             </div>
         </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
     </body>
 </html>

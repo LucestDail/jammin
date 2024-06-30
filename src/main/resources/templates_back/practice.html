@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>초민정음</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- JQuery Core JS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+        <style>
+            @media print {
+                body {
+                    overflow: hidden;
+                }
+                .print-line-break {
+                    page-break-after: always; /* Add page break after each printed page */
+                }
+            }
+            .no-padding{
+                padding: 0 !important;
+            }
+            .hidebox{
+                display:none;
+            }
+            .printAreaWrapper{
+                display: flex;
+                border: solid black 2px;
+                height: 5.5rem;
+                border-radius: 8px;
+            }
+            .printAreaLeft{
+                font-size: 2rem;
+                width: 50%;
+            }
+            .printAreaRight{
+                font-size: 1rem;
+                width: 50%;
+            }
+            .printAreaLeftLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: left;
+            }
+            .printAreaLeftLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: left;
+            }
+            .printAreaRightLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 15px;
+                text-align: right;
+            }
+            .printAreaRightLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 15px;
+                text-align: right;
+            }
+            .printAreaRightLine3{
+                margin: 10px 10px 10px 20px;
+                line-height: 15px;
+                text-align: right;
+            }
+            .beforePrintArea{
+                max-width: 100%;
+            }
+            .opacity-40{
+                opacity: 0.4 !important;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav" >
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="img/navbar-logo.svg" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="help">도움말</a></li>
+                        <li class="nav-item"><a class="nav-link" href="test">받아쓰기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="practice">긴글연습</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="writing">획순연습</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="paper">교안자료실</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="" id="printArea">
+                    <div class="printAreaWrapper">
+                        <div class="printAreaLeft">
+                            <p class="kccdodamdodma-font printAreaLeftLine1">초민정음</h2>
+                            <p class="kccdodamdodma-font printAreaLeftLine2">긴글연습</h2>
+                        </div>
+                        <div class="printAreaRight">
+                            <p class="kccdodamdodma-font printAreaRightLine1">초등학교</h3>
+                            <p class="kccdodamdodma-font printAreaRightLine2">학년 &nbsp;&nbsp;&nbsp;반&nbsp;&nbsp;&nbsp;번호</h3>
+                            <p class="kccdodamdodma-font printAreaRightLine3">이름&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                        </div>
+                    </div>
+                    <h3 class="kccdodamdodma-font">* 긴글연습을 해봅시다.</h3>
+                </div>
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase"id="titleMain">긴글연습</h2>
+                    <h3 class="section-subheading text-muted" id="titleSub">알림장을 비롯해 생활속에서 활용할 수 있는 쓰기 활동지를 제작합니다.</h3>
+                </div>
+                <div class="row" id="sentenceList">
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#addSentence" id="addSentenceButton">
+                        문장 추가하기
+                    </button>
+                    <!--
+                    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#fontConfig" id="fontConfigModalButton">
+                        글자크기 조정하기
+                    </button>
+                    -->
+                    <button type="button" class="btn btn-outline-dark" id="printTest">
+                        출력하기
+                    </button>
+                    <script>
+                        $("#printTest").click(function(e){
+                            window.print();
+                        })
+                    </script>
+                  </div>
+            </div>
+        </section>
+        <div class="modal fade" id="addSentence" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">문장 추가</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>문장</th>
+                                <td><textarea class="form-control" id="requestSentence" rows="5"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="추가" id="requestSentenceButton" class="btn btn-primary">
+                        <script>
+                            $("#requestSentenceButton").click(function(e){
+                                var htmlElement = "";
+                                var requestSentence = $("#requestSentence").val();
+                                requestSentence = requestSentence.replace(/\n\r?/g, '<br/>');
+                                var requestSentenceArray = requestSentence.split('<br/>');
+                                for(var i = 0; i < requestSentenceArray.length; i++){
+                                    htmlElement += "<div class='sentence-set d-flex' ordering='" + orderingNumber++ +"'>";
+                                    htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
+                                    htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement += "    <button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
+                                    htmlElement += "    <button class='btn rounded-0 btn-orderdown' type='button' title='Down' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
+                                    htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
+                                    htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteSentence(this)'><i class='fa fa-trash'></i></button>";
+                                    htmlElement += "</div>";
+                                }
+                                $("#sentenceList").append(htmlElement);    
+                                $("#requestSentence").val("");
+                                syncFontConfig();
+                                // syncNumber();
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="fontConfig" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">글자크기 변경</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>크기(10~120)</th>
+                                <td>
+                                    <div class="form-outline">
+                                        <input type="number" id="fontSize" class="form-control" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="변경" id="fontConfigButton" class="btn btn-primary">
+                        <script>
+                            $("#fontConfigButton").click(function(e){
+                                if($("#fontSize").val() < 10 || $("#fontSize").val() > 120){
+                                    toastr.warning('초민정음 관리자', '10 이상 120 이하로 설정 가능합니다.');
+                                    return;
+                                }
+                                currentFontSize = $("#fontSize").val();
+                                $(".sentence").each(function(index, item){
+                                    $(item).css("font-size", Number(currentFontSize));
+                                })
+                                $("#fontConfig").modal('toggle');
+                                $("#fontSize").val("");
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editSentence" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">문장 수정</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tr>
+                                <th>문장</th>
+                                <td><textarea class="form-control" id="editSentenceValue" rows="5"></textarea></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" value="수정" id="editSentenceButton" class="btn btn-primary">
+                        <script>
+                            $("#editSentenceButton").click(function(e){
+                                var htmlElement = "";
+                                var requestSentence = $("#editSentenceValue").val();
+                                requestSentence = requestSentence.replace(/\n\r?/g, '<br/>');
+                                var requestSentenceArray = requestSentence.split('<br/>');
+                                for(var i = 0; i < requestSentenceArray.length; i++){
+                                    htmlElement += "<div class='sentence-set d-flex' ordering='" + orderingNumber++ +"'>";
+                                    htmlElement +=     "<input class='fullWord' type='hidden' value='" + requestSentenceArray[i] + "'>";
+                                    htmlElement +=     "<p class='sentence kccdodamdodma-font text-black-50 opacity-40 h1'>" + requestSentenceArray[i] + "</p>";
+                                    htmlElement += "    <button class='btn rounded-0 btn-orderup' type='button' title='Up' onclick='orderUpSide(this)'><i class='fas fa-arrow-up'></i></button>"
+                                    htmlElement += "    <button class='btn rounded-0 btn-orderdown' type='button' title='Down' onclick='orderDownSide(this)'><i class='fas fa-arrow-down'></i></button>"
+                                    htmlElement +=     "<button class='btn rounded-0 btn-edit' type='button' title='Edit' data-bs-toggle='modal' data-bs-target='#editSentence' onclick='editSentenceReady(this)'><i class='fa fa-edit'></i></button>";
+                                    htmlElement +=     "<button class='btn rounded-0 btn-delete' type='button' title='Delete' onclick='deleteSentence(this)'><i class='fa fa-trash'></i></button>";
+                                    htmlElement += "</div>";
+                                }
+                                currentEditElement.parent().after(htmlElement)
+                                currentEditElement.parent().remove();
+                                $("#editSentence").modal('toggle');
+                                $("#editSentenceValue").val("");
+                                syncFontConfig();
+                                // syncNumber();
+                            })
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-lg-start">Copyright &copy; Cho-MinJungum 2024</div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+
+var currentFontSize = null;
+var currentEditElement = null;
+var orderingNumber = 0;
+
+window.onload = function(){
+    $("#userInfo").hide();
+    $("#printArea").hide();
+}
+
+window.onbeforeprint = function () {
+    $("#services").addClass("no-padding")
+    $("#printArea").show();
+    $("#titleMain").hide();
+    $("#addSentenceButton").hide();
+    $("#printTest").hide();
+    $("#titleSub").hide();
+    $("#mainNav").hide();
+    $("#userInfo").show();
+    $(".btn-edit").hide();
+    $(".btn-delete").hide();
+    $(".btn-orderup").hide();
+    $(".btn-orderdown").hide();
+    $("#fontConfigModalButton").hide();
+    $(".container").addClass("beforePrintArea");
+}
+
+window.onafterprint = function () {
+    $("#services").removeClass("no-padding")
+    $("#printArea").hide();
+    $("#titleMain").show();
+    $("#addSentenceButton").show();
+    $("#printTest").show();
+    $("#titleSub").show();
+    $("#mainNav").show();
+    $("#userInfo").hide();
+    $(".btn-edit").show();
+    $(".btn-delete").show();
+    $(".btn-orderup").show();
+    $(".btn-orderdown").show();
+    $("#fontConfigModalButton").show();
+    $(".container").removeClass("beforePrintArea");
+}
+
+deleteSentence = function(element){
+    $(element).parent().remove();
+}
+
+editSentenceReady = function(element){
+    $('#editSentenceValue').val($(element).parent().find(".fullWord").val());
+    currentEditElement = $(element);
+}
+
+syncFontConfig = function(){
+    if(currentFontSize){
+        $(".sentence").each(function(index, item){
+            $(item).css("font-size", Number(currentFontSize));
+        })
+    }
+}
+
+orderUpSide = function(targetElement){
+    console.log($(targetElement).parent());
+    var currentOrderNumber = Number($(targetElement).parent().attr("ordering"));
+    if(currentOrderNumber === 0){
+        toastr.warning('초민정음 관리자', '처음 문제입니다.');
+        return;
+    }
+    $(targetElement).parent().attr("ordering", currentOrderNumber - 1);
+    $(targetElement).parent().prev().attr("ordering", currentOrderNumber);
+    syncOrdering();
+    // syncNumber();
+}
+
+orderDownSide = function(targetElement){
+    var currentOrderNumber = Number($(targetElement).parent().attr("ordering"));
+    if(currentOrderNumber === orderingNumber - 1){
+        toastr.warning('초민정음 관리자', '마지막 문제입니다.');
+        return;
+    }
+    $(targetElement).parent().attr("ordering", currentOrderNumber + 1);
+    $(targetElement).parent().next().attr("ordering", currentOrderNumber);
+    syncOrdering();
+    // syncNumber();
+}
+
+syncOrdering = function(){
+    var divElements = document.getElementsByClassName('sentence-set');
+    var divArray = Array.from(divElements);
+    divArray.sort((a, b) => {
+        var orderingA = parseInt(a.getAttribute('ordering'));
+        var orderingB = parseInt(b.getAttribute('ordering'));
+        return orderingA - orderingB;
+    });
+    var parentContainer = divElements[0].parentNode;
+    divArray.forEach(div => parentContainer.appendChild(div));
+}
+
+syncNumber = function(){
+    var orderCount = 1;
+
+    $(".sentence-set").each(function(index, item){
+        $(item).find(".orderCount").remove();
+    });
+
+    $(".sentence-set").each(function(index, item){
+        $(item).prepend("<p class='orderCount' style='padding-top:10px;'>" + orderCount++ + ". </p>");
+    });
+}
+        </script>
+    </body>
+</html>
