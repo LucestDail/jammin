@@ -1,0 +1,58 @@
+/* 받아쓰기 워크시트 전용 (가이드는 jammin-guide.css) */
+@media print {
+  body {
+    overflow: hidden;
+  }
+  .print-line-break {
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.hidebox {
+  opacity: 0;
+}
+
+.printAreaWrapper {
+  display: flex;
+  border: solid 2px var(--jammin-border);
+  height: 8rem;
+  border-radius: 8px;
+}
+
+.printAreaLeft {
+  font-size: 3rem;
+  width: 50%;
+}
+
+.printAreaRight {
+  font-size: 2.5rem;
+  width: 50%;
+}
+
+.printAreaLeftLine1,
+.printAreaLeftLine2 {
+  margin: 10px 10px 10px 20px;
+  line-height: 50px;
+  text-align: left;
+}
+
+.printAreaRightLine1,
+.printAreaRightLine2,
+.printAreaRightLine3 {
+  margin: 10px 10px 10px 20px;
+  line-height: 30px;
+  text-align: right;
+}
+
+.beforePrintArea {
+  max-width: 100%;
+}
+
+.printHideElement {
+  display: none;
+}

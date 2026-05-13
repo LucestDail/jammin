@@ -9,18 +9,13 @@
 
 window.addEventListener('DOMContentLoaded', event => {
 
-    // Navbar shrink function
+    // 스크롤 시 상단바 배경·로고 크기가 바뀌지 않도록 Agency 기본 동작(navbar-shrink) 비활성화
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
             return;
         }
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink')
-        }
-
+        navbarCollapsible.classList.remove('navbar-shrink');
     };
 
     // Shrink the navbar 

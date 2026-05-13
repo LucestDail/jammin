@@ -1,0 +1,53 @@
+/**
+ * 초민정음 전역 색 토큰 — 상단 내비와 동일한 초록(#296429 / rgb(41,100,41)) 계열
+ * 다른 jammin-*.css보다 먼저 로드
+ */
+:root {
+  /* --- 브랜드 초록 (Agency #mainNav 배경과 동일) --- */
+  --jammin-rgb-brand: 41, 100, 41;
+  --jammin-color-primary: rgb(var(--jammin-rgb-brand));
+  --jammin-color-primary-hex: #296429;
+  --jammin-color-primary-dark: #1e4a1e;
+  --jammin-color-primary-mid: #357a35;
+  --jammin-color-primary-light: #5f9a5f;
+  --jammin-color-primary-muted: #7aad7a;
+  --jammin-color-primary-soft: rgba(var(--jammin-rgb-brand), 0.14);
+  --jammin-color-primary-soft-strong: rgba(var(--jammin-rgb-brand), 0.4);
+
+  /* 포커스 (input / select / checkbox — 기존 lime·노랑 포커스 대체) */
+  --jammin-focus-border: var(--jammin-color-primary-mid);
+  --jammin-focus-ring: 0 0 0 0.22rem rgba(var(--jammin-rgb-brand), 0.28);
+  --jammin-focus-ring-btn: 0 0 0 0.22rem rgba(var(--jammin-rgb-brand), 0.32);
+
+  /* 표면·텍스트 */
+  --jammin-surface: #f8fafc;
+  --jammin-surface-elevated: #ffffff;
+  --jammin-text: #0f172a;
+  --jammin-text-muted: #64748b;
+  --jammin-border: #e2e8f0;
+  --jammin-border-strong: #cbd5e1;
+
+  /* 내비게이션 */
+  --jammin-nav-bg: var(--jammin-color-primary);
+  --jammin-nav-link-active: #000000;
+  /* 초록 바 위에서 가독되는 연한 톤 */
+  --jammin-nav-guide-fg: #d1fae5;
+
+  /* 포인트(보조 CTA, 강조) */
+  --jammin-accent: #d97706;
+  --jammin-accent-soft: rgba(217, 119, 6, 0.18);
+
+  /* 시맨틱 */
+  --jammin-danger: #b91c1c;
+  --jammin-danger-hover: #991b1b;
+  --jammin-success: #1b6e32;
+  --jammin-success-hover: #145226;
+
+  /* 하위 호환: 기존 jammin-guide 등에서 사용 */
+  --jammin-brand: var(--jammin-color-primary-hex);
+  --jammin-brand-dark: var(--jammin-color-primary-dark);
+  --jammin-brand-soft: var(--jammin-color-primary-soft);
+
+  /* Bootstrap 5.2 버튼 포커스용 RGB (일부 컴포넌트) */
+  --jammin-bs-focus-shadow-rgb: var(--jammin-rgb-brand);
+}

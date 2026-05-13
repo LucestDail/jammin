@@ -1,0 +1,53 @@
+/* 상단 내비·페이지 셸 (Bootstrap 보조) */
+.jammin-nav {
+  background: var(--jammin-nav-bg) !important;
+  box-shadow: 0 1px 0 var(--jammin-border);
+}
+
+/* 혹시 navbar-shrink 클래스가 남아 있어도 배경·로고 크기 유지 */
+#mainNav.jammin-nav.navbar-shrink {
+  background: var(--jammin-nav-bg) !important;
+}
+
+/* Agency #mainNav 규칙보다 구체적으로: 로고 크기 고정 */
+#mainNav.jammin-nav .navbar-brand img,
+#mainNav.jammin-nav.navbar-shrink .navbar-brand img {
+  max-height: none;
+  height: 3rem;
+}
+
+@media (min-width: 992px) {
+  #mainNav.jammin-nav .navbar-brand img,
+  #mainNav.jammin-nav.navbar-shrink .navbar-brand img {
+    height: 3.5rem;
+  }
+}
+
+.jammin-nav .nav-link {
+  letter-spacing: 0.04em;
+  color: #fff !important;
+}
+
+.jammin-nav .nav-link:hover,
+.jammin-nav .nav-link:focus,
+.jammin-nav .nav-link.active {
+  color: var(--jammin-nav-link-active) !important;
+}
+
+.jammin-nav .nav-link.jammin-nav-guide {
+  color: var(--jammin-nav-guide-fg) !important;
+}
+
+.jammin-nav .nav-link.jammin-nav-guide:hover,
+.jammin-nav .nav-link.jammin-nav-guide:focus {
+  color: #fff !important;
+}
+
+.jammin-page-shell.container {
+  max-width: 1140px;
+}
+
+section.page-section {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}

@@ -1,0 +1,86 @@
+/**
+ * Bootstrap 폼·버튼 등 UI — jammin-tokens 색으로 통일
+ * styles.css에 남아 있는 lime 포커스(rgba(0,255,51))·노란 border 등을 보정
+ * (jammin-tokens 이후, jammin-guide 이후 로드)
+ */
+
+/* ----- 텍스트 필드 ----- */
+.form-control:focus,
+.form-control:focus-visible,
+textarea.form-control:focus,
+textarea.form-control:focus-visible {
+  color: var(--jammin-text);
+  background-color: var(--jammin-surface-elevated);
+  border-color: var(--jammin-focus-border);
+  outline: 0;
+  box-shadow: var(--jammin-focus-ring);
+}
+
+.form-select:focus,
+.form-select:focus-visible {
+  border-color: var(--jammin-focus-border);
+  outline: 0;
+  box-shadow: var(--jammin-focus-ring);
+}
+
+/* ----- 체크·라디오 ----- */
+.form-check-input:focus,
+.form-check-input:focus-visible {
+  border-color: var(--jammin-focus-border);
+  outline: 0;
+  box-shadow: var(--jammin-focus-ring);
+}
+
+.form-check-input:checked,
+.form-check-input:checked[type="checkbox"],
+.form-check-input:checked[type="radio"],
+.form-check-input[type="checkbox"]:indeterminate {
+  background-color: var(--jammin-color-primary);
+  border-color: var(--jammin-color-primary);
+}
+
+/* 토글 스위치 포커스 시 노란 원 → 브랜드 연두 */
+.form-switch .form-check-input:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%235f9a5f'/%3e%3c/svg%3e");
+}
+
+.form-switch .form-check-input:checked {
+  background-color: var(--jammin-color-primary);
+  border-color: var(--jammin-color-primary);
+}
+
+/* ----- 주요 버튼(모달 «추가» 등 .btn-success) ----- */
+.btn-success {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--jammin-color-primary);
+  --bs-btn-border-color: var(--jammin-color-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--jammin-color-primary-dark);
+  --bs-btn-hover-border-color: var(--jammin-color-primary-dark);
+  --bs-btn-focus-shadow-rgb: var(--jammin-bs-focus-shadow-rgb);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--jammin-color-primary-dark);
+  --bs-btn-active-border-color: var(--jammin-color-primary-dark);
+}
+
+.btn-outline-success {
+  --bs-btn-color: var(--jammin-color-primary);
+  --bs-btn-border-color: var(--jammin-color-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--jammin-color-primary);
+  --bs-btn-hover-border-color: var(--jammin-color-primary);
+  --bs-btn-focus-shadow-rgb: var(--jammin-bs-focus-shadow-rgb);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--jammin-color-primary-dark);
+  --bs-btn-active-border-color: var(--jammin-color-primary-dark);
+}
+
+/* 받아쓰기·긴글 «문제 추가하기» 등 outline-dark 포커스 링 */
+.btn-outline-dark:focus-visible {
+  box-shadow: var(--jammin-focus-ring-btn);
+}
+
+.btn-close:focus {
+  box-shadow: var(--jammin-focus-ring);
+  opacity: 1;
+}

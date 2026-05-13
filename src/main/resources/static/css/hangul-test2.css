@@ -1,0 +1,254 @@
+            @media print {
+                body {
+                    overflow: hidden;
+                }
+                .print-line-break {
+                    page-break-after: always; /* Add page break after each printed page */
+                    page-break-inside: avoid;
+                }
+            }
+            .no-padding{
+                padding: 0 !important;
+            }
+            .hidebox{
+                /* background-color: white; */
+                opacity: 0;
+                /* visibility:hidden; */
+            }
+            .printAreaWrapper{
+                display: flex;
+                border: solid black 2px;
+                height: 8rem;
+                border-radius: 8px;
+            }
+            .printAreaLeft{
+                font-size: 3rem;
+                width: 50%;
+            }
+            .printAreaRight{
+                font-size: 2.5rem;
+                width: 50%;
+            }
+            .printAreaLeftLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 50px;
+                text-align: left;
+            }
+            .printAreaLeftLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 50px;
+                text-align: left;
+            }
+            .printAreaRightLine1{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: right;
+            }
+            .printAreaRightLine2{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: right;
+            }
+            .printAreaRightLine3{
+                margin: 10px 10px 10px 20px;
+                line-height: 30px;
+                text-align: right;
+            }
+            .beforePrintArea{
+                max-width: 100%;
+            }
+            .printHideElement{
+                display: none;
+            }
+            
+            /* 가이드 시스템 스타일 */
+            .guide-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(0.1px);
+                z-index: 9999;
+                display: none;
+                pointer-events: auto;
+            }
+            
+            .guide-highlight {
+                position: absolute;
+                border: 3px solid #007bff;
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+                background: rgba(0, 123, 255, 0.1);
+                pointer-events: auto;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                z-index: 10005;
+            }
+            
+            .guide-highlight:hover {
+                box-shadow: 0 0 30px rgba(0, 123, 255, 0.8);
+                transform: scale(1.02);
+            }
+            
+            .guide-sticker {
+                position: absolute;
+                background: #fff;
+                border: 3px solid #007bff;
+                border-radius: 15px;
+                padding: 25px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+                max-width: 400px;
+                min-width: 350px;
+                z-index: 10008;
+                pointer-events: auto;
+                animation: stickerPop 0.5s ease-out;
+            }
+            
+            .guide-sticker::before {
+                content: '';
+                position: absolute;
+                top: -15px;
+                left: 30px;
+                width: 0;
+                height: 0;
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                border-bottom: 15px solid #007bff;
+            }
+            
+            .guide-sticker::after {
+                content: '';
+                position: absolute;
+                top: -12px;
+                left: 33px;
+                width: 0;
+                height: 0;
+                border-left: 12px solid transparent;
+                border-right: 12px solid transparent;
+                border-bottom: 12px solid #fff;
+            }
+            
+            .guide-sticker h4 {
+                margin: 0 0 15px 0;
+                color: #007bff;
+                font-size: 22px;
+                font-weight: bold;
+            }
+            
+            .guide-sticker p {
+                margin: 0 0 15px 0;
+                font-size: 18px;
+                line-height: 1.5;
+            }
+            
+            .guide-sticker .guide-next-btn {
+                background: #007bff;
+                color: white;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+                transition: background 0.3s ease;
+            }
+            
+            .guide-sticker .guide-next-btn:hover {
+                background: #0056b3;
+            }
+            
+
+            
+            .guide-close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: #dc3545;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                z-index: 10010;
+                font-size: 14px;
+                transition: background 0.3s ease;
+                pointer-events: auto;
+            }
+            
+            .guide-close-btn:hover {
+                background: #c82333;
+            }
+            
+            .guide-restart-btn {
+                position: absolute;
+                top: 20px;
+                right: 120px;
+                background: #28a745;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                z-index: 10010;
+                font-size: 14px;
+                transition: background 0.3s ease;
+                pointer-events: auto;
+            }
+            
+            .guide-restart-btn:hover {
+                background: #218838;
+            }
+            
+            .guide-progress {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 10px 15px;
+                border-radius: 5px;
+                z-index: 10010;
+                font-size: 14px;
+                font-weight: bold;
+                pointer-events: auto;
+            }
+            
+            @keyframes stickerPop {
+                0% {
+                    opacity: 0;
+                    transform: scale(0.8) translateY(20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1) translateY(0);
+                }
+            }
+            
+            .guide-step-indicator {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 10px;
+                z-index: 10010;
+                pointer-events: auto;
+            }
+            
+            .guide-step-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+            
+            .guide-step-dot.active {
+                background: #007bff;
+            }
+            
+            .guide-step-dot.completed {
+                background: #28a745;
+            }

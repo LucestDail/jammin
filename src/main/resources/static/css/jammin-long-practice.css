@@ -1,0 +1,57 @@
+/* 긴글 연습 전용 */
+@media print {
+  body {
+    overflow: hidden;
+  }
+  .print-line-break {
+    page-break-after: always;
+  }
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.hidebox {
+  display: none;
+}
+
+.printAreaWrapper {
+  display: flex;
+  border: solid 2px var(--jammin-border);
+  height: 5.5rem;
+  border-radius: 8px;
+}
+
+.printAreaLeft {
+  font-size: 2rem;
+  width: 50%;
+}
+
+.printAreaRight {
+  font-size: 1rem;
+  width: 50%;
+}
+
+.printAreaLeftLine1,
+.printAreaLeftLine2 {
+  margin: 10px 10px 10px 20px;
+  line-height: 30px;
+  text-align: left;
+}
+
+.printAreaRightLine1,
+.printAreaRightLine2,
+.printAreaRightLine3 {
+  margin: 10px 10px 10px 20px;
+  line-height: 15px;
+  text-align: right;
+}
+
+.beforePrintArea {
+  max-width: 100%;
+}
+
+.opacity-40 {
+  opacity: 0.4 !important;
+}
